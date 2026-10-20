@@ -2,8 +2,8 @@
 workspace from the Connect Slack page.
 
 Tokens pasted on that page live in this server's memory only: they're never written to disk, and a restart
-disconnects them. The server's own workspace (SLACK_BOT_TOKEN / SLACK_APP_TOKEN in its settings) runs as the
-standalone slack_bot.py, which start.sh launches next to the web app, so it's connected from boot.
+disconnects them. The server's own workspace (SLACK_BOT_TOKEN / SLACK_APP_TOKEN in its settings) is connected by
+serve.py at boot, in this same process. Locally, slack_bot.py can also run on its own.
 """
 
 from __future__ import annotations

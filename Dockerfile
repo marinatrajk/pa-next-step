@@ -9,6 +9,8 @@ RUN pip install -r requirements.txt
 RUN python -c "from chromadb.utils.embedding_functions import DefaultEmbeddingFunction as E; E()(['warm up'])"
 
 COPY . .
+# the /investigate index, built now so a fresh container doesn't embed every source on its first question
+RUN python -c "import investigate; investigate.index()"
 RUN chmod +x start.sh
 EXPOSE 8080
 CMD ["./start.sh"]

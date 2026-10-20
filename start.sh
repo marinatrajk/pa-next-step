@@ -7,8 +7,5 @@ if [ -n "$DATA_DIR" ] && [ "$DATA_DIR" != "/app/data" ]; then
   [ -n "$(ls -A "$DATA_DIR")" ] || cp -a /app/data/. "$DATA_DIR"/
   rm -rf /app/data && ln -s "$DATA_DIR" /app/data
 fi
-# the server's own Slack workspace, if its tokens are set; restarted if it ever drops
-if [ -n "$SLACK_BOT_TOKEN" ] && [ -n "$SLACK_APP_TOKEN" ]; then
-  (while true; do python slack_bot.py || true; sleep 10; done) &
-fi
-exec streamlit run app.py --server.port "${PORT:-8080}" --server.address 0.0.0.0 --server.headless true
+# the web app and the Slack bot (when its tokens are set) share one process, and one copy of the embedding model
+exec python serve.py

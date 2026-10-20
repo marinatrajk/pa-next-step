@@ -31,6 +31,7 @@ import kb
 
 INDEX_DIR = engine.ROOT / "data" / "investigate"
 MAX_STEPS = 8
+EMBED_BATCH = 4  # the embedding model pads every text to 256 tokens; small batches keep its working memory small
 TRUST = {1: "official insurer policy", 2: "official SOP", 3: "case record", 4: "operator note", 5: "unverified (Slack / team knowledge)"}
 SOURCES = ["PA tracker", "Document inbox", "Case notes", "Slack #access-ops", "Team knowledge base", "SOP", "Insurer policy"]
 
@@ -85,23 +86,33 @@ def _fingerprint(its: list[dict]) -> str:
     return hashlib.sha256(json.dumps([[i["id"], i["text"], i["case"]] for i in its]).encode()).hexdigest()[:16]
 
 
+def _item_hash(i: dict) -> str:
+    return hashlib.sha256(json.dumps([i["title"], i["text"], i["source"], i["case"]]).encode()).hexdigest()[:16]
+
+
+def _sync(col, its: list[dict]) -> int:
+    """Bring the vectors up to date: embed only new or changed items, in small batches, and drop removed ones."""
+    want = {i["id"]: _item_hash(i) for i in its}
+    got = col.get(include=["metadatas"])
+    have = {id_: (m or {}).get("hash") for id_, m in zip(got["ids"], got["metadatas"])}
+    if gone := [i for i in have if i not in want]:
+        col.delete(ids=gone)
+    todo = [i for i in its if have.get(i["id"]) != want[i["id"]]]
+    for k in range(0, len(todo), EMBED_BATCH):
+        chunk = todo[k:k + EMBED_BATCH]
+        col.upsert(ids=[i["id"] for i in chunk], documents=[f"{i['title']}. {i['text']}" for i in chunk],
+                   metadatas=[{"source": i["source"], "case": i["case"] or "", "hash": want[i["id"]]} for i in chunk])
+    return len(todo)
+
+
 @lru_cache(maxsize=1)
 def _index(fp: str) -> tuple[dict, object, dict]:
-    """(items by id, Chroma collection, BM25 stats), rebuilt whenever any source changes."""
+    """(items by id, Chroma collection, BM25 stats), brought up to date whenever any source changes."""
     import chromadb
     its = items()
     client = chromadb.PersistentClient(path=str(INDEX_DIR / "chroma"))
-    meta = INDEX_DIR / "fingerprint.txt"
-    if not meta.exists() or meta.read_text() != fp:
-        try:
-            client.delete_collection("all_sources")
-        except Exception:
-            pass
-        col = client.create_collection("all_sources", metadata={"hnsw:space": "cosine"})
-        col.add(ids=[i["id"] for i in its], documents=[f"{i['title']}. {i['text']}" for i in its],
-                metadatas=[{"source": i["source"], "case": i["case"] or ""} for i in its])
-        meta.write_text(fp)
-    col = client.get_collection("all_sources")
+    col = client.get_or_create_collection("all_sources", metadata={"hnsw:space": "cosine"})
+    _sync(col, its)
     docs = {i["id"]: _tokens(f"{i['title']} {i['text']}") for i in its}
     df = Counter(t for toks in docs.values() for t in set(toks))
     stats = {"docs": docs, "df": df, "n": len(docs), "avg": sum(map(len, docs.values())) / max(1, len(docs))}
