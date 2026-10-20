@@ -1,0 +1,163 @@
+{
+  "case_id": "CASE-1108",
+  "skill": "pa-next-step@0.1.0",
+  "ran_at": "2026-10-19T17:45:36",
+  "gate": {
+    "applies": true,
+    "reasons": [],
+    "notes": [],
+    "hours_left": 110.0,
+    "deadline_at_risk": false
+  },
+  "status": "ok",
+  "result": {
+    "situation": "CASE-1108: brand Humira for RA pended NF-PREF on 2026-10-13. The payer needs documented failure or intolerance of preferred adalimumab-adaz. Two provider records disagree on whether the biosimilar was ever tried. 110h left; window closes 2026-10-23 23:59.",
+    "criteria": [
+      {
+        "criterion": "Diagnosis: RA documented by a rheumatologist",
+        "status": "met",
+        "evidence": "PA form lists RA M06.9 by a rheumatologist; prescriber specialty is Rheumatology.",
+        "source_ids": [
+          "DOC-1108-01",
+          "CASE"
+        ]
+      },
+      {
+        "criterion": "Prescriber is a rheumatologist",
+        "status": "met",
+        "evidence": "Dr. Priya Natarajan, Rheumatology, Lakeside Arthritis Center.",
+        "source_ids": [
+          "CASE"
+        ]
+      },
+      {
+        "criterion": "Step therapy: methotrexate \u226515 mg/wk for \u226512 weeks with inadequate response, or contraindication/intolerance",
+        "status": "met",
+        "evidence": "Both provider records show methotrexate 15 mg/wk from 06/2023 to 03/2024, inadequate response.",
+        "source_ids": [
+          "DOC-1108-01",
+          "DOC-1108-02"
+        ]
+      },
+      {
+        "criterion": "Non-preferred product: documented trial and failure or intolerance of adalimumab-adaz, with date and nature (formulary exception)",
+        "status": "unknown",
+        "evidence": "The PA form says adalimumab-adaz was used in 2025 and stopped for injection reactions, but gives no specific dates. The chart notes say the patient was biologic-naive before Humira (03/2025) with no other TNF inhibitors.",
+        "source_ids": [
+          "DOC-1108-01",
+          "DOC-1108-02",
+          "POLICY"
+        ]
+      }
+    ],
+    "conflicts": [
+      {
+        "description": "The PA form says adalimumab-adaz was tried in 2025 and stopped for injection reactions. The chart notes say the patient was biologic-naive before Humira 03/2025 with no other TNF inhibitors. The operator note flags the same contradiction.",
+        "source_ids": [
+          "DOC-1108-01",
+          "DOC-1108-02",
+          "NOTE-1"
+        ],
+        "resolution": "Unresolved. Both are tier-3 provider records, so the hierarchy cannot settle it. Escalate to the Team Lead and get clarifying records from the provider office."
+      }
+    ],
+    "missing_information": [
+      {
+        "item": "Provider records of any adalimumab-adaz trial: administration dates and description of the injection reactions",
+        "why_it_matters": "Criterion 4 requires the date and nature of failure or intolerance. Without it, a formulary exception cannot be supported.",
+        "how_to_get": "Records request to Lakeside Arthritis Center (Dr. Natarajan's office), e.g. dispensing history and the visit note documenting the reaction."
+      },
+      {
+        "item": "Prescriber clarification of which record is correct",
+        "why_it_matters": "The PA form and chart notes contradict each other on the biosimilar trial.",
+        "how_to_get": "Ask the office to confirm the med history in writing, per Team Lead direction."
+      },
+      {
+        "item": "Whether the prescriber will switch the request to preferred adalimumab-adaz if no trial occurred",
+        "why_it_matters": "The policy offers no continuity-of-care exemption. Switching is the payer's stated alternative.",
+        "how_to_get": "Prescriber decision, raised by the Team Lead or the provider office."
+      }
+    ],
+    "trigger_checks": {
+      "E1": {
+        "fires": false,
+        "reason": "The open question is factual (was the biosimilar tried?), not interpretive. Re-check if the provider confirms injection reactions (DOC-1108-01): Clinical Intelligence may need to judge whether they qualify as intolerance."
+      },
+      "E2": {
+        "fires": true,
+        "reason": "Provider records disagree on whether the patient tried and reacted to adalimumab-adaz: DOC-1108-01 says yes, DOC-1108-02 says biologic-naive. Neither settles it; NOTE-1 flags it."
+      },
+      "E3": {
+        "fires": false,
+        "reason": "No message claims a rule change. POLICY bulletin BP-B-2026-08 only announces a Q1 2027 formulary review with no criteria changes."
+      },
+      "E4": {
+        "fires": false,
+        "reason": "System facts show 110h left (not under 48h), with the window closing 2026-10-23 23:59 per CASE."
+      },
+      "E5": {
+        "fires": false,
+        "reason": "CASE shows a first submission (submission_count 1) and status PENDED, not a second denial."
+      },
+      "E6": {
+        "fires": false,
+        "reason": "No patient safety concern appears in CASE, DOC-1108-01, DOC-1108-02 or NOTE-1."
+      }
+    },
+    "primary_action": "HOLD_FOR_ESCALATION",
+    "action_rationale": "NF-PREF would default to a formulary exception, or a records request if criteria are undocumented. But E2 fires: the provider records contradict each other on the biosimilar trial. SOP \u00a74 step 5 requires escalation before any payer-facing action. Criteria 1-3 are met; criterion 4 is unknown.",
+    "parallel_actions": [
+      "Send a records request to Lakeside Arthritis Center for adalimumab-adaz administration dates and reaction documentation, or written confirmation the patient was biologic-naive.",
+      "Follow up with the office at 48h if there is no response (SOP \u00a77).",
+      "Track the window: escalate again for an extension if under 48h remain without resolution."
+    ],
+    "could_not_determine": [
+      "Whether adalimumab-adaz was actually tried, when, and what the reaction was.",
+      "Which provider record is accurate."
+    ],
+    "needs_human_judgment": [
+      "Team Lead: how to resolve the conflicting provider records, and whether to raise switching to the preferred product with the prescriber.",
+      "Clinical Intelligence (if the trial is confirmed): whether the documented injection reactions qualify as intolerance under criterion 4."
+    ],
+    "draft": {
+      "kind": "escalation_message",
+      "to": "Team Lead (case-system escalation queue)",
+      "subject": "CASE-1108: conflicting provider records on biosimilar trial (Humira NF-PREF pend)",
+      "body": "CASE-1108 (PT-64890, brand Humira 40 mg q2w for RA, Bluepeak Commercial) was pended NF-PREF on 2026-10-13. Bluepeak needs documented trial and failure or intolerance of preferred adalimumab-adaz, with date and nature, for a formulary exception. The policy has no continuity-of-care exemption.\n\nThe provider records conflict. The PA form (received 10/07) says adalimumab-adaz was used in 2025 and stopped for injection reactions, with no dates. The chart notes (faxed 10/16) say the patient was biologic-naive before starting Humira in 03/2025, with no other TNF inhibitors. Diagnosis, prescriber and methotrexate step criteria are met.\n\nDecision needed: how to resolve the conflict, and whether to ask Dr. Natarajan to switch to adalimumab-adaz if no trial occurred. I am sending a records request to Lakeside Arthritis Center in parallel. The window closes 2026-10-23 23:59 (about 110h left). Holding all payer submissions until you respond."
+    },
+    "confidence": "high",
+    "operator_summary": {
+      "headline": "Hold the case and escalate to your Team Lead",
+      "why": [
+        "Provider records disagree on whether the preferred biosimilar was ever tried.",
+        "Payer requires documented biosimilar failure; no exemption for patients stable on Humira.",
+        "About 110 hours remain, so there is time to resolve it."
+      ],
+      "then": [
+        "Request biosimilar trial records from Lakeside Arthritis Center.",
+        "Follow up with the office in 48 hours.",
+        "Submit nothing to the payer until the Team Lead answers."
+      ]
+    },
+    "triggers_fired": [
+      {
+        "id": "E2",
+        "reason": "Provider records disagree on whether the patient tried and reacted to adalimumab-adaz: DOC-1108-01 says yes, DOC-1108-02 says biologic-naive. Neither settles it; NOTE-1 flags it.",
+        "source_ids": []
+      }
+    ],
+    "escalate": true,
+    "escalate_to": [
+      "Team Lead"
+    ]
+  },
+  "model_action": "HOLD_FOR_ESCALATION",
+  "guardrail_notes": [],
+  "usage": {
+    "model": "claude-opus-5-5",
+    "input_tokens": 6986,
+    "output_tokens": 3644,
+    "seconds": 32.0
+  },
+  "input_fingerprint": "62630629ab0a75ca"
+}

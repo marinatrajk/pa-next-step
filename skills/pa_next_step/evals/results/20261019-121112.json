@@ -1,0 +1,274 @@
+{
+  "ran_at": "2026-10-19T12:11:12",
+  "skill": "pa-next-step@0.1.0",
+  "model": "claude-opus-5-5",
+  "summary": {
+    "cases": 6,
+    "passed": 6,
+    "action_accuracy": 1.0,
+    "escalation_accuracy": 1.0,
+    "trigger_recall": 1.0,
+    "must_flag_hit_rate": 1.0,
+    "must_not_violations": 0
+  },
+  "rows": [
+    {
+      "case_id": "CASE-1042",
+      "label": "ordinary",
+      "expected_action": "RESUBMIT_WITH_DOCS",
+      "got_action": "RESUBMIT_WITH_DOCS",
+      "action_match": true,
+      "escalate_match": true,
+      "trigger_recall": 1.0,
+      "missed_triggers": [],
+      "extra_triggers": [],
+      "flags_hit": 2,
+      "flags_total": 2,
+      "violations": [],
+      "checks": [
+        {
+          "check": "Chart notes DOC-1042-02 document both required trials with dates: triamcinolone (>=28 days) and tacrolimus (>=28 days)",
+          "kind": "must_flag",
+          "passed": true,
+          "reason": "Output states DOC-1042-02 documents triamcinolone 03/02\u201304/20/2026 (7 weeks) and tacrolimus from 04/21 (~10 weeks), both exceeding 28 days."
+        },
+        {
+          "check": "All Northwind criteria met (IGA 3 / BSA 18%, dermatologist, both steps)",
+          "kind": "must_flag",
+          "passed": true,
+          "reason": "Criteria list marks diagnosis (IGA 3, BSA 18%), dermatologist prescriber, both step trials, and no concurrent biologic as met; action rationale says all criteria are met."
+        },
+        {
+          "check": "Escalate",
+          "kind": "must_not",
+          "passed": true,
+          "reason": "Output sets escalate to false with an empty escalate_to list; it does not escalate."
+        },
+        {
+          "check": "Request records again",
+          "kind": "must_not",
+          "passed": true,
+          "reason": "Output treats the records request as fulfilled and proceeds to resubmit rather than requesting records again."
+        }
+      ],
+      "guardrail_notes": [],
+      "run_at": "2026-10-19T12:10:27",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-1077",
+      "label": "conflicting",
+      "expected_action": "HOLD_FOR_ESCALATION",
+      "got_action": "HOLD_FOR_ESCALATION",
+      "action_match": true,
+      "escalate_match": true,
+      "trigger_recall": 1.0,
+      "missed_triggers": [],
+      "extra_triggers": [],
+      "flags_hit": 4,
+      "flags_total": 4,
+      "violations": [],
+      "checks": [
+        {
+          "check": "No documented trial of the preferred biosimilar in provider records; the 'reaction' claim is secondhand from an MA via operator note",
+          "kind": "must_flag",
+          "passed": true,
+          "reason": "Output states criterion 4 is not documented, the chart lists no biosimilar, and the MA's reaction report is a secondhand unverified lead."
+        },
+        {
+          "check": "Slack claim of brand Humira auto-approval for stable patients conflicts with the Bluepeak policy (no continuity-of-care exemption) and is not confirmed by the latest bulletin",
+          "kind": "must_flag",
+          "passed": true,
+          "reason": "Conflicts section says policy has no continuity exemption and bulletin BP-B-2026-08 lists no criteria changes, so the claim is unsupported."
+        },
+        {
+          "check": "Pend window closes 2026-10-20 23:59, less than 48 hours away, and the required documentation is not in hand",
+          "kind": "must_flag",
+          "passed": true,
+          "reason": "Output notes the window closes 2026-10-20 23:59 with 38h left and that biosimilar trial documentation is not held."
+        },
+        {
+          "check": "Records request for the biosimilar reaction should continue in parallel",
+          "kind": "must_flag",
+          "passed": true,
+          "reason": "Parallel actions include calling Hudson Valley Rheumatology for adalimumab-adaz records, and the draft says records are being chased in parallel."
+        },
+        {
+          "check": "Recommend resubmitting based on the Slack stability-note claim",
+          "kind": "must_not",
+          "passed": true,
+          "reason": "Output explicitly says not to resubmit with a stability note and that it is barred under SOP."
+        },
+        {
+          "check": "Treat the biosimilar reaction as established",
+          "kind": "must_not",
+          "passed": true,
+          "reason": "Output treats the reaction as an unverified lead and lists it as unresolved and not determinable."
+        }
+      ],
+      "guardrail_notes": [],
+      "run_at": "2026-10-19T12:10:27",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-1081",
+      "label": "ordinary",
+      "expected_action": "REQUEST_RECORDS",
+      "got_action": "REQUEST_RECORDS",
+      "action_match": true,
+      "escalate_match": true,
+      "trigger_recall": 1.0,
+      "missed_triggers": [],
+      "extra_triggers": [],
+      "flags_hit": 3,
+      "flags_total": 3,
+      "violations": [],
+      "checks": [
+        {
+          "check": "Request IGA score or BSA % specifically",
+          "kind": "must_flag",
+          "passed": true,
+          "reason": "The primary action and the draft records request both specifically ask Dr. Okafor's office for a dated, signed note recording IGA score and/or BSA %."
+        },
+        {
+          "check": "Step therapy documentation already complete",
+          "kind": "must_flag",
+          "passed": true,
+          "reason": "Steps 3a and 3b are marked met with drug, dates and outcome from chart notes, and the output notes the payer did not cite step therapy in the pend."
+        },
+        {
+          "check": "Pend window closes 2026-10-30",
+          "kind": "must_flag",
+          "passed": true,
+          "reason": "The situation states the window closes 2026-10-30 23:59 with 278h left, and the draft repeats the 10/30/2026 deadline."
+        },
+        {
+          "check": "Escalate",
+          "kind": "must_not",
+          "passed": true,
+          "reason": "The output sets escalate to false with an empty escalate_to list and chooses REQUEST_RECORDS; the E4 mention is only a conditional note for human judgment."
+        }
+      ],
+      "guardrail_notes": [],
+      "run_at": "2026-10-19T12:10:27",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-1090",
+      "label": "ambiguous",
+      "expected_action": "HOLD_FOR_ESCALATION",
+      "got_action": "HOLD_FOR_ESCALATION",
+      "action_match": true,
+      "escalate_match": true,
+      "trigger_recall": 1.0,
+      "missed_triggers": [],
+      "extra_triggers": [],
+      "flags_hit": 3,
+      "flags_total": 3,
+      "violations": [],
+      "checks": [
+        {
+          "check": "Whether mildly elevated ALT + NAFLD + alcohol use + patient preference constitutes an MTX contraindication is a clinical judgment",
+          "kind": "must_flag",
+          "passed": true,
+          "reason": "The output says whether these findings qualify is a clinical call and fires E1 to escalate it to Clinical Intelligence."
+        },
+        {
+          "check": "Chart documents a patient preference, not an explicit prescriber-stated contraindication",
+          "kind": "must_flag",
+          "passed": true,
+          "reason": "The output notes the chart does not explicitly state a contraindication, only a risk discussion and patient preference, and asks for an explicit prescriber statement."
+        },
+        {
+          "check": "If Clinical Intelligence agrees, the next step is STEP_THERAPY_EXCEPTION with LMN; otherwise, contact the prescriber about an MTX trial",
+          "kind": "must_flag",
+          "passed": true,
+          "reason": "The output frames the CI decision as choosing between a STEP_THERAPY_EXCEPTION (with LMN) and asking the provider about completing an MTX trial."
+        },
+        {
+          "check": "Submit an LMN based on the Slack advice without clinical review",
+          "kind": "must_not",
+          "passed": true,
+          "reason": "The output explicitly refuses to file on MSG-1's advice, holds for escalation, and only pre-drafts the LMN shell."
+        }
+      ],
+      "guardrail_notes": [],
+      "run_at": "2026-10-19T12:10:27",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-1063",
+      "label": "ordinary",
+      "expected_action": "PEER_TO_PEER",
+      "got_action": "PEER_TO_PEER",
+      "action_match": true,
+      "escalate_match": true,
+      "trigger_recall": 1.0,
+      "missed_triggers": [],
+      "extra_triggers": [],
+      "flags_hit": 2,
+      "flags_total": 2,
+      "violations": [],
+      "checks": [
+        {
+          "check": "Second denial for the same reason after a complete resubmission",
+          "kind": "must_flag",
+          "passed": true,
+          "reason": "The output states this is the second ST-DOC denial after a resubmission with both step trials documented, and that this triggers E5 and the P2P."
+        },
+        {
+          "check": "Peer-to-peer must be requested by the prescriber within 14 days of 2026-10-09 (by 2026-10-23)",
+          "kind": "must_flag",
+          "passed": true,
+          "reason": "The output says Northwind lets the prescriber request a P2P within 14 days of the second denial, and it ties this to the window closing 2026-10-23, with a draft sent to Dr. Reyes."
+        },
+        {
+          "check": "Resubmit a third time",
+          "kind": "must_not",
+          "passed": true,
+          "reason": "The output rejects a third resubmission as unlikely to help and recommends PEER_TO_PEER instead."
+        }
+      ],
+      "guardrail_notes": [],
+      "run_at": "2026-10-19T12:10:27",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-1095",
+      "label": "ordinary",
+      "expected_action": "REVERIFY_BENEFITS",
+      "got_action": "REVERIFY_BENEFITS",
+      "action_match": true,
+      "escalate_match": true,
+      "trigger_recall": 1.0,
+      "missed_triggers": [],
+      "extra_triggers": [],
+      "flags_hit": 2,
+      "flags_total": 2,
+      "violations": [],
+      "checks": [
+        {
+          "check": "Patient reports a new plan (Northwind) effective 2026-10-01; verify with the card or eligibility check",
+          "kind": "must_flag",
+          "passed": true,
+          "reason": "Output flags the patient-reported Northwind coverage since 10/01 as unverified and calls for a card photo and benefits investigation/eligibility check."
+        },
+        {
+          "check": "A new PA under Northwind criteria will be needed; Bluepeak criteria no longer apply",
+          "kind": "must_flag",
+          "passed": true,
+          "reason": "Output says to restart the PA with the correct payer after verification, pull Northwind criteria, and notes Bluepeak criteria may not apply."
+        },
+        {
+          "check": "Appeal the Bluepeak denial",
+          "kind": "must_not",
+          "passed": true,
+          "reason": "Output recommends reverifying benefits and a new Northwind PA rather than appealing the Bluepeak denial."
+        }
+      ],
+      "guardrail_notes": [],
+      "run_at": "2026-10-19T12:10:27",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "case_id": "CASE-1102",
+  "skill": "pa-next-step@0.1.0",
+  "ran_at": "2026-10-19T19:59:12",
+  "gate": {
+    "applies": true,
+    "reasons": [],
+    "notes": [],
+    "hours_left": 158.0,
+    "deadline_at_risk": false
+  },
+  "status": "ok",
+  "result": {
+    "situation": "CASE-1102: Humira brand for RA, pended NF-PREF (non-preferred) on 2026-10-15, first submission. 158h left, window closes 2026-10-25 23:59. Provider chart already documents adalimumab-adaz trial dates, reactions and a prescriber assessment of intolerance.",
+    "criteria": [
+      {
+        "criterion": "Diagnosis: RA documented by a rheumatologist",
+        "status": "met",
+        "evidence": "PA form: RA M06.9, rheumatologist; prescriber specialty Rheumatology.",
+        "source_ids": [
+          "DOC-1102-01",
+          "CASE"
+        ]
+      },
+      {
+        "criterion": "Prescriber is a rheumatologist",
+        "status": "met",
+        "evidence": "Dr. Omar Haddad, Rheumatology, Northgate Arthritis Clinic.",
+        "source_ids": [
+          "CASE"
+        ]
+      },
+      {
+        "criterion": "Step therapy: MTX >=15 mg/wk for >=12 weeks with inadequate response, or contraindication/intolerance",
+        "status": "met",
+        "evidence": "Methotrexate 20 mg/wk 02/2024-08/2024, inadequate response (DAS28 5.4).",
+        "source_ids": [
+          "DOC-1102-01"
+        ]
+      },
+      {
+        "criterion": "Non-preferred product: documented trial and failure/intolerance of adalimumab-adaz with date and nature; formulary exception required",
+        "status": "met",
+        "evidence": "Adalimumab-adaz 10/2024-01/2025; injection-site reactions 11/2024; generalized urticaria 01/06/2025 after 6th dose; prescriber assessment: intolerance, discontinue.",
+        "source_ids": [
+          "DOC-1102-01",
+          "DOC-1102-02",
+          "POLICY"
+        ]
+      }
+    ],
+    "conflicts": [],
+    "missing_information": [
+      {
+        "item": "Whether the chart notes were attached to the original submission",
+        "why_it_matters": "Determines whether the payer saw the intolerance documentation; affects how the exception is framed.",
+        "how_to_get": "Check the submission packet in the case system."
+      },
+      {
+        "item": "Whether Bluepeak requires a prescriber-signed exception request or LMN",
+        "why_it_matters": "Policy says a formulary exception is required but does not specify the form.",
+        "how_to_get": "Check the Bluepeak exception form requirements or the payer portal."
+      }
+    ],
+    "trigger_checks": {
+      "E1": {
+        "fires": false,
+        "reason": "The prescriber's chart assesses the reaction as intolerance (DOC-1102-02). No operator clinical interpretation is needed to meet POLICY criterion 4."
+      },
+      "E2": {
+        "fires": false,
+        "reason": "CASE, DOC-1102-01, DOC-1102-02 and NOTE-1 agree on prior trials and reactions."
+      },
+      "E3": {
+        "fires": false,
+        "reason": "No rule-change claim. KB-0001 is consistent with POLICY criterion 4, and bulletin BP-B-2026-08 has no criteria changes."
+      },
+      "E4": {
+        "fires": false,
+        "reason": "158h left per system facts, not under 48h, and the needed docs are held (DOC-1102-02)."
+      },
+      "E5": {
+        "fires": false,
+        "reason": "This is a first pend, submission_count 1 (CASE), not a second denial."
+      },
+      "E6": {
+        "fires": false,
+        "reason": "The urticaria was a past event in 01/2025. The biosimilar was stopped, and the patient is tolerating Humira with DAS28 2.6 (DOC-1102-02). No current safety concern is documented."
+      }
+    },
+    "primary_action": "FORMULARY_EXCEPTION",
+    "action_rationale": "NF-PREF maps to FORMULARY_EXCEPTION when criteria are documented (SOP \u00a75). POLICY criterion 4 is met by provider chart notes with the dates, the nature of the reactions and an intolerance assessment. The other criteria are also met. No trigger fires, and the deadline is not at risk.",
+    "parallel_actions": [
+      "Confirm with Northgate Arthritis Clinic whether a prescriber-signed exception request or LMN is needed."
+    ],
+    "could_not_determine": [
+      "Whether the chart notes were included in the original submission.",
+      "The exact Bluepeak formulary exception form requirements."
+    ],
+    "needs_human_judgment": [
+      "Confirm the submission format (exception form vs. pend response) in the Bluepeak portal before sending."
+    ],
+    "draft": {
+      "kind": "resubmission_note",
+      "to": "Bluepeak Health (Commercial), Prior Authorization / Formulary Exceptions",
+      "subject": "CASE-1102: Formulary exception for Humira (brand), response to NF-PREF pend of 2026-10-15",
+      "body": "Re: PT-64218, Humira (adalimumab) 40 mg q2w for rheumatoid arthritis (M06.9). Prescriber: Dr. Omar Haddad, Rheumatology, Northgate Arthritis Clinic.\n\nWe request a formulary exception under policy BP-SPX-0415, criterion 4. The attached provider chart notes document the trial and intolerance of preferred adalimumab-adaz:\n- Adalimumab-adaz 40 mg q2w, 10/2024 to 01/2025.\n- 11/2024: injection-site reactions with each dose.\n- 01/06/2025: generalized urticaria after the 6th dose. Prescriber assessment: intolerance, likely excipient-related; discontinued.\n- 02/2025: started citrate-free Humira, tolerating well. 08/2026: DAS28 2.6.\n\nStep therapy: methotrexate 20 mg/week, 02/2024 to 08/2024, with inadequate response (DAS28 5.4).\n\nAttachments: PA request form (received 2026-10-09); chart notes (received 2026-10-09).\n\nPlease approve Humira brand for 12 months. Thank you."
+    },
+    "confidence": "high",
+    "operator_summary": {
+      "headline": "Submit formulary exception with the chart notes",
+      "why": [
+        "Chart notes document the biosimilar reactions with dates and the doctor's assessment.",
+        "Methotrexate trial and rheumatologist requirements are already documented.",
+        "About six and a half days left; no escalation needed."
+      ],
+      "then": [
+        "Confirm the payer's exception form requirements first.",
+        "Log the criteria checklist in the case notes.",
+        "Watch for the payer decision before October 25."
+      ]
+    },
+    "triggers_fired": [],
+    "escalate": false,
+    "escalate_to": []
+  },
+  "model_action": "FORMULARY_EXCEPTION",
+  "guardrail_notes": [],
+  "usage": {
+    "model": "claude-opus-5-5",
+    "input_tokens": 7609,
+    "output_tokens": 2968,
+    "seconds": 26.5
+  },
+  "input_fingerprint": "ba634fced25d776a"
+}

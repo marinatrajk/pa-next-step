@@ -1,0 +1,145 @@
+{
+  "case_id": "CASE-1042",
+  "skill": "pa-next-step@0.1.0",
+  "ran_at": "2026-10-19T12:55:39",
+  "gate": {
+    "applies": true,
+    "reasons": [],
+    "hours_left": 615.0,
+    "deadline_at_risk": false
+  },
+  "status": "ok",
+  "result": {
+    "situation": "CASE-1042: Dupixent for adult atopic dermatitis, Northwind Commercial. Denied 2026-10-14 for ST-DOC (no step-therapy chart notes). This was the first submission. Chart notes with both trials arrived 2026-10-17 but have not been resubmitted. 615 hours remain in the window.",
+    "criteria": [
+      {
+        "criterion": "Diagnosis: moderate-to-severe AD (IGA \u22653 or BSA \u226510%)",
+        "status": "met",
+        "evidence": "IGA 3 and BSA 18% on the PA form, repeated in the 06/30/2026 chart note.",
+        "source_ids": [
+          "DOC-1042-01",
+          "DOC-1042-02"
+        ]
+      },
+      {
+        "criterion": "Prescriber is a dermatologist, allergist or immunologist",
+        "status": "met",
+        "evidence": "Dr. Alana Reyes, Dermatology.",
+        "source_ids": [
+          "CASE",
+          "DOC-1042-01"
+        ]
+      },
+      {
+        "criterion": "Step 3a: medium-to-super-high-potency TCS for \u226528 consecutive days, with drug, dates and outcome",
+        "status": "met",
+        "evidence": "Triamcinolone 0.1% cream BID, 03/02 to 04/20/2026 (7 weeks), minimal improvement, IGA 3. The chart does not state a potency class; the payer applies its own classification.",
+        "source_ids": [
+          "DOC-1042-02"
+        ]
+      },
+      {
+        "criterion": "Step 3b: TCI (tacrolimus or pimecrolimus) for \u226528 consecutive days, with drug, dates and outcome",
+        "status": "met",
+        "evidence": "Tacrolimus 0.1% ointment BID, started 04/21/2026, about 10 weeks at the 06/30 follow-up, inadequate response. Mild burning was noted but tolerated.",
+        "source_ids": [
+          "DOC-1042-02"
+        ]
+      },
+      {
+        "criterion": "No concurrent biologic or JAK inhibitor for AD",
+        "status": "met",
+        "evidence": "PA form states no concurrent biologic or JAK inhibitor.",
+        "source_ids": [
+          "DOC-1042-01"
+        ]
+      }
+    ],
+    "conflicts": [
+      {
+        "description": "Tacrolimus start appears as 04/20 (the start order) and 04/21 (confirmed actual start).",
+        "source_ids": [
+          "DOC-1042-02"
+        ],
+        "resolution": "Not a real conflict. The same provider record confirms the actual start was 04/21, and either date gives well over 28 days."
+      }
+    ],
+    "missing_information": [
+      {
+        "item": "Explicit potency class for triamcinolone 0.1%",
+        "why_it_matters": "The policy requires a medium-to-super-high-potency TCS, and the chart names only the drug and strength.",
+        "how_to_get": "Not needed to resubmit. If the payer questions it, ask Riverside Dermatology for a clarifying note."
+      }
+    ],
+    "trigger_checks": {
+      "E1": {
+        "fires": false,
+        "reason": "No contraindication or intolerance call is needed. Both steps are met by documented inadequate response in DOC-1042-02, and the burning was tolerated."
+      },
+      "E2": {
+        "fires": false,
+        "reason": "DOC-1042-01 and DOC-1042-02 agree on the trials, diagnosis and scores. NOTE-1 and NOTE-2 are consistent with them."
+      },
+      "E3": {
+        "fires": false,
+        "reason": "MSG-1 and MSG-2 concern only a fax cover sheet, not payer criteria. POLICY's last bulletin made no changes."
+      },
+      "E4": {
+        "fires": false,
+        "reason": "615 hours remain per system facts and CASE, well over 48 hours, and we hold the needed docs (DOC-1042-02)."
+      },
+      "E5": {
+        "fires": false,
+        "reason": "This is the first denial (submission_count 1 in CASE), so no peer-to-peer is needed."
+      },
+      "E6": {
+        "fires": false,
+        "reason": "No safety concern in DOC-1042-02 or any other source. Mild burning on tacrolimus was tolerated."
+      }
+    },
+    "primary_action": "RESUBMIT_WITH_DOCS",
+    "action_rationale": "ST-DOC maps to RESUBMIT_WITH_DOCS when we hold the docs. DOC-1042-02 documents both required trials with drug, dates or duration, and outcome. All other criteria are met, no trigger fires, and the 30-day resubmission window is open.",
+    "parallel_actions": [
+      "Log the resubmission and criteria checklist in CASE-1042 notes.",
+      "Use the June Northwind fax cover sheet per MSG-2, after a quick check that it is current."
+    ],
+    "could_not_determine": [
+      "Whether Northwind classifies triamcinolone 0.1% cream as medium potency or higher; the chart does not state potency."
+    ],
+    "needs_human_judgment": [
+      "Confirm that DOC-1042-02 is legible and complete before attaching it."
+    ],
+    "draft": {
+      "kind": "resubmission_note",
+      "to": "Northwind Health Plan \u2013 Pharmacy Prior Authorization",
+      "subject": "PA Resubmission \u2013 Dupixent (dupilumab) \u2013 Ref CASE-1042 / Pt PT-58213 \u2013 Denial 2026-10-14 (ST-DOC)",
+      "body": "We are resubmitting the prior authorization for Dupixent (dupilumab) 300 mg q2w for moderate-to-severe atopic dermatitis (L20.9) under policy NW-RX-2207. This responds to the 2026-10-14 denial for missing step-therapy documentation.\n\nPrescriber: Dr. Alana Reyes, Dermatology, Riverside Dermatology Associates.\n\nThe attached chart notes document:\n- Topical corticosteroid: triamcinolone 0.1% cream BID, 03/02/2026 to 04/20/2026 (7 weeks). Minimal improvement, IGA 3. Discontinued.\n- Topical calcineurin inhibitor: tacrolimus 0.1% ointment BID, started 04/21/2026, about 10 weeks as of 06/30/2026. Inadequate response.\n- Severity on 06/30/2026: IGA 3, BSA 18%.\n- No concurrent biologic or JAK inhibitor.\n\nPlease review for initial 6-month authorization.\n\nAttachments: original PA request form; chart notes from Riverside Dermatology Associates.\n\nForus Access Operations"
+    },
+    "confidence": "high",
+    "operator_summary": {
+      "headline": "Resubmit to Northwind with the new chart notes",
+      "why": [
+        "Denial was only for missing step-therapy notes, which we now have.",
+        "Notes show both required topical trials with dates and outcomes.",
+        "First denial, over three weeks left, nothing needs escalation."
+      ],
+      "then": [
+        "Attach chart notes and original PA form, then send.",
+        "Log resubmission and checklist in the case notes.",
+        "Watch for Northwind's decision and act on it."
+      ]
+    },
+    "triggers_fired": [],
+    "escalate": false,
+    "escalate_to": []
+  },
+  "model_action": "RESUBMIT_WITH_DOCS",
+  "guardrail_notes": [],
+  "usage": {
+    "model": "claude-opus-5-5",
+    "input_tokens": 7384,
+    "output_tokens": 3406,
+    "seconds": 31.1
+  },
+  "input_fingerprint": "2cab903593bcdc23"
+}

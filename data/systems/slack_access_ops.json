@@ -1,0 +1,205 @@
+{
+  "system": "Slack",
+  "messages": [
+    {
+      "key": "S-0001",
+      "channel": "#access-ops",
+      "ts": "2026-10-15T08:55:00-04:00",
+      "author": "Priya M.",
+      "text": "Reminder: QA huddle moved to 3pm today",
+      "thread": null
+    },
+    {
+      "key": "S-0002",
+      "channel": "#access-ops",
+      "ts": "2026-10-15T09:10:00-04:00",
+      "author": "Jordan T.",
+      "text": "Hudson Valley Humira pend is stuck: office says the patient reacted to the biosimilar but still hasn't sent records. Anyone seen Bluepeak budge on these?",
+      "thread": null
+    },
+    {
+      "key": "S-0003",
+      "channel": "#access-ops",
+      "ts": "2026-10-15T09:20:00-04:00",
+      "author": "Dev R.",
+      "text": "FYI Bluepeak is auto-approving brand Humira now if the patient's been stable >6 months, just resubmit with a stability note from the rheum. Worked for me on 2 cases last week",
+      "thread": "S-0002"
+    },
+    {
+      "key": "S-0004",
+      "channel": "#access-ops",
+      "ts": "2026-10-15T09:31:00-04:00",
+      "author": "Priya M.",
+      "text": "are you sure? I thought that was the Q1 formulary review, not live yet",
+      "thread": "S-0002"
+    },
+    {
+      "key": "S-0005",
+      "channel": "#access-ops",
+      "ts": "2026-10-15T09:33:00-04:00",
+      "author": "Dev R.",
+      "text": "they went through for me \u00af\\_(\u30c4)_/\u00af maybe they're rolling it out early",
+      "thread": "S-0002"
+    },
+    {
+      "key": "S-0006",
+      "channel": "#access-ops",
+      "ts": "2026-10-15T17:20:00-04:00",
+      "author": "Dev R.",
+      "text": "just send the LMN, liver = contraindication, they usually take it",
+      "thread": null
+    },
+    {
+      "key": "S-0007",
+      "channel": "#access-ops",
+      "ts": "2026-10-16T09:05:00-04:00",
+      "author": "Priya M.",
+      "text": "@Sam K. is 1104 covered? it's due Tuesday",
+      "thread": null
+    },
+    {
+      "key": "S-0008",
+      "channel": "#access-ops",
+      "ts": "2026-10-16T16:35:00-04:00",
+      "author": "Lee W.",
+      "text": "@Jordan T. the Hudson Valley Humira one is due tomorrow night btw, still no biosimilar records",
+      "thread": null
+    },
+    {
+      "key": "S-0009",
+      "channel": "#access-ops",
+      "ts": "2026-10-17T11:45:00-04:00",
+      "author": "Sam K.",
+      "text": "anyone have the updated Northwind fax cover sheet? the one in the drive is from June",
+      "thread": null
+    },
+    {
+      "key": "S-0010",
+      "channel": "#access-ops",
+      "ts": "2026-10-17T11:52:00-04:00",
+      "author": "Priya M.",
+      "text": "June one is still current, they didn't change it",
+      "thread": "S-0009"
+    },
+    {
+      "key": "S-0011",
+      "channel": "#access-ops",
+      "ts": "2026-10-18T10:12:00-04:00",
+      "author": "Dev R.",
+      "text": "anyone have the Bluepeak fax cover sheet handy?",
+      "thread": null
+    },
+    {
+      "key": "S-0012",
+      "channel": "#access-ops",
+      "ts": "2026-10-18T10:15:00-04:00",
+      "author": "Priya M.",
+      "text": "shared drive > payers > bluepeak",
+      "thread": null
+    },
+    {
+      "key": "S-0101",
+      "channel": "#access-ops",
+      "ts": "2026-09-28T14:02:00-04:00",
+      "author": "Jordan T.",
+      "text": "Bluepeak bounced my formulary exception because the biosimilar records just said 'intolerant'. They want the start and stop dates and what the reaction actually was.",
+      "thread": null
+    },
+    {
+      "key": "S-0102",
+      "channel": "#access-ops",
+      "ts": "2026-09-28T14:10:00-04:00",
+      "author": "Priya M.",
+      "text": "same thing happened to me last month, dates + reaction description and it went through",
+      "thread": "S-0101"
+    },
+    {
+      "key": "S-0103",
+      "channel": "#access-ops",
+      "ts": "2026-09-28T14:12:00-04:00",
+      "author": "Priya M.",
+      "text": "@kb add",
+      "thread": "S-0101"
+    },
+    {
+      "key": "S-0104",
+      "channel": "#access-ops",
+      "ts": "2026-10-02T10:15:00-04:00",
+      "author": "Priya M.",
+      "text": "Tip for Northwind Dupixent step therapy: they accept triamcinolone 0.1% as a medium-potency steroid, but only if the chart lists the strength. Two of mine went through that way.",
+      "thread": null
+    },
+    {
+      "key": "S-0105",
+      "channel": "#access-ops",
+      "ts": "2026-10-02T10:21:00-04:00",
+      "author": "Sam K.",
+      "text": "good to know, I always wondered if they'd count it",
+      "thread": "S-0104"
+    },
+    {
+      "key": "S-0106",
+      "channel": "#access-ops",
+      "ts": "2026-10-02T10:22:00-04:00",
+      "author": "Sam K.",
+      "text": "@kb add",
+      "thread": "S-0104"
+    },
+    {
+      "key": "S-0107",
+      "channel": "#access-ops",
+      "ts": "2026-10-15T11:40:00-04:00",
+      "author": "Lee W.",
+      "text": "Has anyone worked a Crestline Medicare Advantage PA? We don't have their criteria anywhere.",
+      "thread": null
+    },
+    {
+      "key": "S-0108",
+      "channel": "#access-ops",
+      "ts": "2026-10-15T11:52:00-04:00",
+      "author": "Priya M.",
+      "text": "Payer Relations is getting their policy loaded, ETA next week. Until then work them by hand from Crestline's portal.",
+      "thread": "S-0107"
+    },
+    {
+      "key": "S-0109",
+      "channel": "#access-ops",
+      "ts": "2026-10-15T11:53:00-04:00",
+      "author": "Lee W.",
+      "text": "@kb add",
+      "thread": "S-0107"
+    },
+    {
+      "key": "S-0110",
+      "channel": "#access-ops",
+      "ts": "2026-10-16T17:00:00-04:00",
+      "author": "Lee W.",
+      "text": "@kb add: Delgado case, Dev's stable-on-brand claim needs Payer Relations to confirm before anyone relies on it",
+      "thread": "S-0002"
+    },
+    {
+      "key": "S-0111",
+      "channel": "#access-ops",
+      "ts": "2026-10-17T11:55:00-04:00",
+      "author": "Sam K.",
+      "text": "@kb add",
+      "thread": "S-0009"
+    },
+    {
+      "key": "S-KB001",
+      "channel": "#access-ops",
+      "ts": "2026-10-19T18:47:43-04:00",
+      "author": "You (demo)",
+      "text": "@kb add",
+      "thread": "S-0012"
+    },
+    {
+      "key": "S-KB002",
+      "channel": "#access-ops",
+      "ts": "2026-10-19T18:47:45-04:00",
+      "author": "You (demo)",
+      "text": "@kb add",
+      "thread": "S-0012"
+    }
+  ]
+}

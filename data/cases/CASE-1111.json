@@ -1,0 +1,68 @@
+{
+  "case_id": "CASE-1111",
+  "as_of": "2026-10-19T10:00:00-04:00",
+  "patient": {
+    "ref": "PT-65139",
+    "age": 19,
+    "sex": "M",
+    "name": "Ethan Moreau",
+    "dob": "2007-05-02"
+  },
+  "payer_policy": "northwind_commercial",
+  "drug": "Dupixent (dupilumab) 300 mg q2w",
+  "indication": "Atopic dermatitis, moderate-to-severe",
+  "prescriber": {
+    "name": "Dr. Priya Shah",
+    "specialty": "Dermatology",
+    "office": "Coastal Dermatology"
+  },
+  "pa": {
+    "status": "DENIED",
+    "reason_code": "ST-NOTMET",
+    "reason_text": "Step therapy not met: no trial of a medium-or-higher potency topical corticosteroid.",
+    "event_date": "2026-10-14",
+    "submission_count": 1,
+    "window_closes": "2026-11-13T23:59:00-05:00"
+  },
+  "documents": [
+    {
+      "doc_id": "DOC-1111-01",
+      "type": "PA request form (as submitted)",
+      "received": "2026-10-07",
+      "content": "Dx: atopic dermatitis L20.9, IGA 3, BSA 11%, dermatologist. TCS: hydrocortisone 2.5% cream 01/05/2026-03/10/2026, inadequate. TCI: tacrolimus 0.03% ointment 03/12/2026-05/22/2026, inadequate. No concurrent biologic or JAK inhibitor.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0028",
+        "linked_by": "case number on the submission"
+      }
+    },
+    {
+      "doc_id": "DOC-1111-02",
+      "type": "Chart notes (provider office fax)",
+      "received": "2026-10-07",
+      "content": "Transferred from pediatrics at 18; family preferred mild steroids. No medium- or high-potency topical steroid has been tried. No contraindication to topical steroids documented.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0029",
+        "linked_by": "patient name and date of birth"
+      }
+    }
+  ],
+  "notes": [
+    {
+      "author": "Priya M. (Access Ops)",
+      "ts": "2026-10-14T13:30:00-04:00",
+      "text": "Denied ST-NOTMET, payer wants a medium+ steroid trial.",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0025",
+        "linked_by": "filed on the case"
+      }
+    }
+  ],
+  "messages": [],
+  "knowledge": {
+    "sop": "OPS-PA-014",
+    "payer_policy": "NW-RX-2207"
+  }
+}

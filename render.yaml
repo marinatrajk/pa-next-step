@@ -1,0 +1,24 @@
+# Render blueprint: New → Blueprint → pick this repo. Render asks for the values marked sync: false.
+services:
+  - type: web
+    name: pa-next-step
+    runtime: docker
+    plan: starter            # always on, so the Slack bot stays connected (free plans sleep when idle)
+    healthCheckPath: /_stcore/health
+    disk:
+      name: data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: APP_ACCESS_CODE
+        sync: false
+      - key: MAX_MODEL_CALLS_PER_DAY
+        value: "200"
+      - key: DATA_DIR
+        value: /var/data
+      - key: SLACK_BOT_TOKEN
+        sync: false
+      - key: SLACK_APP_TOKEN
+        sync: false

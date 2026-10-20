@@ -1,0 +1,166 @@
+{
+  "case_id": "CASE-1090",
+  "skill": "pa-next-step@0.1.0",
+  "ran_at": "2026-10-19T12:55:39",
+  "gate": {
+    "applies": true,
+    "reasons": [],
+    "hours_left": 639.0,
+    "deadline_at_risk": false
+  },
+  "status": "ok",
+  "result": {
+    "situation": "CASE-1090: adalimumab-adaz (preferred biosimilar) for RA, denied ST-NOTMET on first submission. Methotrexate was never trialed. The chart cites mildly elevated ALT, NAFLD history, alcohol use and patient preference to avoid methotrexate. 639 hours remain in the window.",
+    "criteria": [
+      {
+        "criterion": "Diagnosis: rheumatoid arthritis documented by a rheumatologist",
+        "status": "met",
+        "evidence": "PA form documents seropositive RA (M06.9) by a rheumatologist.",
+        "source_ids": [
+          "DOC-1090-01",
+          "CASE"
+        ]
+      },
+      {
+        "criterion": "Prescriber is a rheumatologist",
+        "status": "met",
+        "evidence": "Dr. Marcus Feld, Rheumatology.",
+        "source_ids": [
+          "CASE"
+        ]
+      },
+      {
+        "criterion": "Step therapy: methotrexate \u226515 mg/week for \u226512 weeks with inadequate response",
+        "status": "not_met",
+        "evidence": "PA form states methotrexate was not trialed. Hydroxychloroquine does not satisfy this criterion.",
+        "source_ids": [
+          "DOC-1090-01",
+          "POLICY"
+        ]
+      },
+      {
+        "criterion": "Step therapy alternative: documented contraindication or intolerance to methotrexate",
+        "status": "unknown",
+        "evidence": "Chart notes ALT 58 (~1.4x ULN), NAFLD on 2024 ultrasound, 5-7 drinks/wk, hepatotoxicity risk discussed, and 'patient prefers to avoid MTX'. The chart does not state a contraindication. Whether these findings qualify is a Clinical Intelligence decision.",
+        "source_ids": [
+          "DOC-1090-02",
+          "POLICY",
+          "SOP"
+        ]
+      },
+      {
+        "criterion": "Non-preferred product: trial and failure of preferred biosimilar",
+        "status": "met",
+        "evidence": "Not applicable: the request is for the preferred product, adalimumab-adaz.",
+        "source_ids": [
+          "CASE",
+          "POLICY"
+        ]
+      }
+    ],
+    "conflicts": [
+      {
+        "description": "A team message says 'liver = contraindication, they usually take it'. The operator note doubts whether mildly elevated ALT plus patient preference counts.",
+        "source_ids": [
+          "MSG-1",
+          "NOTE-1",
+          "DOC-1090-02"
+        ],
+        "resolution": "Neither is evidence. Team messages are context only, and the contraindication determination belongs to Clinical Intelligence under the SOP."
+      }
+    ],
+    "missing_information": [
+      {
+        "item": "Clinical Intelligence determination on whether the chart findings constitute a methotrexate contraindication or intolerance",
+        "why_it_matters": "It decides between a step-therapy exception and asking the provider about a methotrexate trial.",
+        "how_to_get": "Escalate to Clinical Intelligence (PharmD) via the case-system escalation queue."
+      },
+      {
+        "item": "Explicit prescriber statement that methotrexate is contraindicated, with clinical rationale",
+        "why_it_matters": "The chart records only risk discussion and patient preference. An exception needs a documented contraindication and an LMN.",
+        "how_to_get": "Ask Hudson Valley Rheumatology whether Dr. Feld will document a contraindication and sign an LMN."
+      }
+    ],
+    "trigger_checks": {
+      "E1": {
+        "fires": true,
+        "reason": "Fires: someone must decide whether ALT ~1.4x ULN, NAFLD and alcohol use (DOC-1090-02) count as a methotrexate contraindication under POLICY criterion 3. NOTE-1 raises the question and MSG-1 asserts an answer without authority."
+      },
+      "E2": {
+        "fires": false,
+        "reason": "Does not fire: CASE, DOC-1090-01 and DOC-1090-02 agree that methotrexate was not trialed, and the diagnosis is consistent."
+      },
+      "E3": {
+        "fires": false,
+        "reason": "Does not fire: MSG-1 gives an opinion on payer practice, not a claimed rule change. POLICY bulletin BP-B-2026-08 lists no criteria changes."
+      },
+      "E4": {
+        "fires": false,
+        "reason": "Does not fire: 639 hours remain before the 2026-11-14 window close (system facts; CASE). This is well over 48 hours."
+      },
+      "E5": {
+        "fires": false,
+        "reason": "Does not fire: submission_count is 1, so this is a first denial (CASE)."
+      },
+      "E6": {
+        "fires": false,
+        "reason": "Does not fire: no safety concern is raised in CASE, DOC-1090-01, DOC-1090-02, NOTE-1 or MSG-1. Lab interpretation goes to Clinical Intelligence under E1."
+      }
+    },
+    "primary_action": "HOLD_FOR_ESCALATION",
+    "action_rationale": "For ST-NOTMET, the SOP default is a step-therapy exception only if a contraindication is documented. Whether these liver findings qualify is clinical judgment (E1), so hold and escalate to Clinical Intelligence before any payer-facing action. Ignore the team message's advice to just send the LMN.",
+    "parallel_actions": [
+      "Ask Hudson Valley Rheumatology whether Dr. Feld considers methotrexate contraindicated and will document the rationale.",
+      "Pre-assemble the step-therapy exception packet (PA form, chart notes) pending the Clinical Intelligence decision.",
+      "Track the 2026-11-14 resubmission window close."
+    ],
+    "could_not_determine": [
+      "Whether the chart findings meet the policy's 'documented contraindication or intolerance' standard.",
+      "Whether the prescriber would attest to a contraindication rather than patient preference."
+    ],
+    "needs_human_judgment": [
+      "Clinical Intelligence: do ALT ~1.4x ULN, NAFLD and moderate alcohol use constitute a methotrexate contraindication?",
+      "Operator: if the answer is no, contact the provider about completing the methotrexate step."
+    ],
+    "draft": {
+      "kind": "escalation_message",
+      "to": "Clinical Intelligence (PharmD), case-system escalation queue",
+      "subject": "CASE-1090: Is MTX contraindicated? Needed to choose step-therapy exception vs. MTX trial",
+      "body": "CASE-1090 (PT-62218, 47F, RA): Bluepeak Commercial denied adalimumab-adaz as ST-NOTMET on the first submission. The policy requires methotrexate \u226515 mg/wk for \u226512 wks, or a documented contraindication or intolerance. Methotrexate was never trialed. Chart notes (09/2026): ALT 58 U/L (ULN 40, ~1.4x), AST normal, NAFLD on 2024 ultrasound, 5-7 drinks/wk. Prescriber discussed hepatotoxicity risk; patient prefers to avoid MTX. The chart does not state a contraindication. Decision needed: do these findings constitute a methotrexate contraindication that supports a step-therapy exception with LMN? If not, we will go back to the provider about the methotrexate step. The window closes 2026-11-14, so there is no deadline pressure. Payer-facing action is on hold pending your answer."
+    },
+    "confidence": "high",
+    "operator_summary": {
+      "headline": "Hold the case and ask the PharmD",
+      "why": [
+        "Methotrexate was never tried, which is why the payer denied it.",
+        "Chart shows mild liver findings and patient preference, not a stated contraindication.",
+        "Whether that counts as a contraindication is a pharmacist's call."
+      ],
+      "then": [
+        "Ask the rheumatology office if the doctor will document a contraindication.",
+        "Prepare the exception packet while waiting for the pharmacist.",
+        "Watch the November 14 resubmission deadline."
+      ]
+    },
+    "triggers_fired": [
+      {
+        "id": "E1",
+        "reason": "Fires: someone must decide whether ALT ~1.4x ULN, NAFLD and alcohol use (DOC-1090-02) count as a methotrexate contraindication under POLICY criterion 3. NOTE-1 raises the question and MSG-1 asserts an answer without authority.",
+        "source_ids": []
+      }
+    ],
+    "escalate": true,
+    "escalate_to": [
+      "Clinical Intelligence (PharmD)"
+    ]
+  },
+  "model_action": "HOLD_FOR_ESCALATION",
+  "guardrail_notes": [],
+  "usage": {
+    "model": "claude-opus-5-5",
+    "input_tokens": 7133,
+    "output_tokens": 3536,
+    "seconds": 32.6
+  },
+  "input_fingerprint": "96899d232d75d63f"
+}

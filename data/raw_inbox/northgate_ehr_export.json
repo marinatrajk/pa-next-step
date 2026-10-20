@@ -1,0 +1,65 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "pt1",
+        "name": [
+          {
+            "family": "Jimenez",
+            "given": [
+              "Rosa"
+            ]
+          }
+        ],
+        "birthDate": "1973-04-22"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org1",
+        "name": "Northgate Arthritis Clinic"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "completed",
+        "subject": {
+          "reference": "Patient/pt1"
+        },
+        "medicationCodeableConcept": {
+          "text": "methotrexate 15 mg oral weekly"
+        },
+        "effectivePeriod": {
+          "start": "2026-03-03",
+          "end": "2026-04-14"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "status": "completed",
+        "subject": {
+          "reference": "Patient/pt1"
+        },
+        "medicationCodeableConcept": {
+          "text": "methotrexate 20 mg oral weekly"
+        },
+        "effectivePeriod": {
+          "start": "2026-04-14",
+          "end": "2026-07-20"
+        },
+        "statusReason": [
+          {
+            "text": "inadequate response (DAS28 4.6)"
+          }
+        ]
+      }
+    }
+  ]
+}

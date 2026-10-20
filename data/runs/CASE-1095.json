@@ -1,0 +1,163 @@
+{
+  "case_id": "CASE-1095",
+  "skill": "pa-next-step@0.1.0",
+  "ran_at": "2026-10-19T12:55:39",
+  "gate": {
+    "applies": true,
+    "reasons": [],
+    "hours_left": 687.0,
+    "deadline_at_risk": false
+  },
+  "status": "ok",
+  "result": {
+    "situation": "CASE-1095: Bluepeak Commercial denied adalimumab-adaz (preferred biosimilar) for RA on 2026-10-17 with reason ELIG (coverage not active on date of service). This is the first submission, with 687 hours left in the window. An operator note reports the patient changed jobs and has Northwind coverage as of 10/01. That is unverified.",
+    "criteria": [
+      {
+        "criterion": "Coverage active with the billed payer (Bluepeak) on date of service",
+        "status": "not_met",
+        "evidence": "Payer denied for ELIG. Insurance on file dates from 2025 intake. The patient reportedly has new Northwind coverage from 10/01, which is unverified.",
+        "source_ids": [
+          "CASE",
+          "DOC-1095-01",
+          "NOTE-1"
+        ]
+      },
+      {
+        "criterion": "Diagnosis: RA documented by a rheumatologist",
+        "status": "met",
+        "evidence": "The PA form states Dx RA M06.9 from a rheumatologist.",
+        "source_ids": [
+          "DOC-1095-01",
+          "POLICY"
+        ]
+      },
+      {
+        "criterion": "Prescriber is a rheumatologist",
+        "status": "met",
+        "evidence": "Dr. Priya Natarajan, Rheumatology, Lakeside Arthritis Center.",
+        "source_ids": [
+          "CASE",
+          "POLICY"
+        ]
+      },
+      {
+        "criterion": "Step therapy: MTX \u226515 mg/wk for \u226512 weeks with inadequate response, or contraindication/intolerance",
+        "status": "met",
+        "evidence": "The PA form documents MTX 20 mg/wk from 12/2025 to 04/2026 with inadequate response. These are Bluepeak criteria and may not apply if the payer is now Northwind.",
+        "source_ids": [
+          "DOC-1095-01",
+          "POLICY"
+        ]
+      },
+      {
+        "criterion": "Non-preferred product: trial/failure of preferred biosimilar plus formulary exception",
+        "status": "met",
+        "evidence": "Not applicable: the requested drug is adalimumab-adaz, Bluepeak's preferred product.",
+        "source_ids": [
+          "CASE",
+          "POLICY"
+        ]
+      }
+    ],
+    "conflicts": [
+      {
+        "description": "Insurance on file is Bluepeak Commercial from 2025 intake. The operator note reports the patient says Northwind coverage started 10/01.",
+        "source_ids": [
+          "DOC-1095-01",
+          "NOTE-1"
+        ],
+        "resolution": "The Bluepeak denial supports a coverage change, but the note is secondhand. Verify the Northwind card and eligibility before restarting the PA. This is an insurance fact, not a clinical one, so it is handled by benefits reverification."
+      }
+    ],
+    "missing_information": [
+      {
+        "item": "Northwind insurance card (member ID, group, effective date)",
+        "why_it_matters": "Needed to confirm active coverage and restart the PA with the correct payer.",
+        "how_to_get": "Get the card photo the patient promised and run a Northwind eligibility check."
+      },
+      {
+        "item": "Bluepeak coverage termination date and date of service",
+        "why_it_matters": "Confirms which payer covers the date of service.",
+        "how_to_get": "Run a Bluepeak eligibility inquiry or call the payer."
+      },
+      {
+        "item": "Northwind PA policy for adalimumab in RA",
+        "why_it_matters": "Criteria and preferred product may differ from Bluepeak's, so the new submission must match Northwind's rules.",
+        "how_to_get": "Pull the Northwind policy doc once coverage is confirmed."
+      }
+    ],
+    "trigger_checks": {
+      "E1": {
+        "fires": false,
+        "reason": "No contraindication, intolerance or lab interpretation is at issue. The MTX failure is documented in DOC-1095-01."
+      },
+      "E2": {
+        "fires": false,
+        "reason": "No disagreement about drugs tried, reactions or diagnosis. The only discrepancy is insurance (DOC-1095-01 vs NOTE-1), which is not a clinical fact."
+      },
+      "E3": {
+        "fires": false,
+        "reason": "No team message claims a payer rule change. The POLICY bulletin BP-B-2026-08 shows no criteria changes."
+      },
+      "E4": {
+        "fires": false,
+        "reason": "687 hours left per system facts, not under 48h."
+      },
+      "E5": {
+        "fires": false,
+        "reason": "First denial: submission_count 1 per CASE."
+      },
+      "E6": {
+        "fires": false,
+        "reason": "No safety concern appears in CASE, DOC-1095-01 or NOTE-1."
+      }
+    },
+    "primary_action": "REVERIFY_BENEFITS",
+    "action_rationale": "The denial reason is ELIG, and the SOP maps ELIG to reverifying benefits. NOTE-1 also suggests the patient changed plans. No escalation trigger fires, and the deadline is not at risk.",
+    "parallel_actions": [
+      "Follow up with the patient for the Northwind card photo",
+      "Ask Lakeside Arthritis Center to update insurance on file",
+      "Once Northwind is confirmed, pull its adalimumab RA policy and prepare a new PA reusing DOC-1095-01 evidence"
+    ],
+    "could_not_determine": [
+      "Whether Northwind coverage is actually active and its effective date",
+      "Northwind's PA criteria and preferred adalimumab product",
+      "Exact date of service versus Bluepeak termination date"
+    ],
+    "needs_human_judgment": [
+      "Whether to also close or withdraw the Bluepeak PA once Northwind coverage is confirmed"
+    ],
+    "draft": {
+      "kind": "benefits_reverification_note",
+      "to": "Forus Benefits Verification queue (CASE-1095 case notes)",
+      "subject": "CASE-1095: ELIG denial, reverify benefits (possible Northwind coverage from 10/01)",
+      "body": "CASE-1095 (PT-63390, adalimumab-adaz 40 mg q2w for RA, Dr. Priya Natarajan, Lakeside Arthritis Center).\n\nBluepeak Commercial denied on 2026-10-17: member coverage not active on date of service. The insurance on file dates from 2025 intake.\n\nThe patient told Lee W. on 10/17 that a new job brought new Northwind coverage from 10/01, and will send a card photo. This is unverified.\n\nPlease:\n1. Run Bluepeak eligibility and confirm the termination date.\n2. On receipt of the card, run Northwind eligibility and capture member ID, group and effective date.\n3. Confirm the specialty pharmacy benefit for adalimumab under Northwind.\n\nOnce confirmed, we will restart the PA with Northwind using the existing documentation (RA dx by rheumatologist, MTX 20 mg/wk 12/2025 to 04/2026 inadequate). The Bluepeak window closes 2026-11-16, so the deadline is not at risk."
+    },
+    "confidence": "high",
+    "operator_summary": {
+      "headline": "Reverify benefits and confirm the new Northwind coverage",
+      "why": [
+        "Bluepeak denied because coverage was not active on the service date.",
+        "Patient reports switching to Northwind insurance on October 1.",
+        "No escalation needed; about four weeks remain in the window."
+      ],
+      "then": [
+        "Follow up with the patient for the Northwind card photo.",
+        "Pull Northwind's adalimumab policy once coverage is confirmed.",
+        "Restart the prior auth with Northwind using existing records."
+      ]
+    },
+    "triggers_fired": [],
+    "escalate": false,
+    "escalate_to": []
+  },
+  "model_action": "REVERIFY_BENEFITS",
+  "guardrail_notes": [],
+  "usage": {
+    "model": "claude-opus-5-5",
+    "input_tokens": 6810,
+    "output_tokens": 3011,
+    "seconds": 27.5
+  },
+  "input_fingerprint": "dc265872996c8108"
+}

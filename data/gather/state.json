@@ -1,0 +1,490 @@
+{
+  "gathered_at": "2026-10-19T20:37:57",
+  "cases": {
+    "CASE-1042": {
+      "fingerprint": "56bf40247651f502",
+      "items": [
+        "D-0001",
+        "D-0002",
+        "D-IN-eadf06",
+        "N-0001",
+        "N-0002"
+      ]
+    },
+    "CASE-1063": {
+      "fingerprint": "86324ea76793fb80",
+      "items": [
+        "D-0003",
+        "N-0003",
+        "N-0004",
+        "N-0005"
+      ]
+    },
+    "CASE-1077": {
+      "fingerprint": "be68e657fcd3100b",
+      "items": [
+        "D-0004",
+        "D-0005",
+        "N-0006",
+        "N-0007"
+      ]
+    },
+    "CASE-1081": {
+      "fingerprint": "0ddbf25d19e5b124",
+      "items": [
+        "D-0006",
+        "D-0007",
+        "N-0008"
+      ]
+    },
+    "CASE-1090": {
+      "fingerprint": "4b850a36176a03e7",
+      "items": [
+        "D-0008",
+        "D-0009",
+        "N-0009"
+      ]
+    },
+    "CASE-1095": {
+      "fingerprint": "e8cdbef44009245c",
+      "items": [
+        "D-0010",
+        "D-IN-b4102b",
+        "N-0010"
+      ]
+    },
+    "CASE-1101": {
+      "fingerprint": "89aebf52c5d37ae2",
+      "items": [
+        "D-0011",
+        "D-0012",
+        "N-0011",
+        "N-0012"
+      ]
+    },
+    "CASE-1102": {
+      "fingerprint": "dd3e5eff9af826ae",
+      "items": [
+        "D-0013",
+        "D-0014",
+        "N-0013"
+      ]
+    },
+    "CASE-1103": {
+      "fingerprint": "ce58a092bcdef9bf",
+      "items": [
+        "D-0015",
+        "D-0016",
+        "D-IN-01f86e",
+        "N-0014"
+      ]
+    },
+    "CASE-1104": {
+      "fingerprint": "a75a9d0f1641ba6b",
+      "items": [
+        "D-0017",
+        "N-0015",
+        "N-0016",
+        "N-0017"
+      ]
+    },
+    "CASE-1105": {
+      "fingerprint": "0984da64f704a535",
+      "items": [
+        "D-0018",
+        "D-0019",
+        "D-IN-182437",
+        "N-0018"
+      ]
+    },
+    "CASE-1106": {
+      "fingerprint": "5a25dec58c6b6cc5",
+      "items": [
+        "D-0020",
+        "N-0019"
+      ]
+    },
+    "CASE-1107": {
+      "fingerprint": "57aa0e70e47121d5",
+      "items": [
+        "D-0021",
+        "D-0022",
+        "N-0020"
+      ]
+    },
+    "CASE-1108": {
+      "fingerprint": "0f859a859446e963",
+      "items": [
+        "D-0023",
+        "D-0024",
+        "N-0021"
+      ]
+    },
+    "CASE-1109": {
+      "fingerprint": "74f8c7c809355cd2",
+      "items": [
+        "D-0025",
+        "N-0022",
+        "N-0023"
+      ]
+    },
+    "CASE-1110": {
+      "fingerprint": "c1556c136d548315",
+      "items": [
+        "D-0026",
+        "D-0027",
+        "D-IN-6b3c52",
+        "N-0024"
+      ]
+    },
+    "CASE-1111": {
+      "fingerprint": "73d2c5f9ed309a6f",
+      "items": [
+        "D-0028",
+        "D-0029",
+        "N-0025"
+      ]
+    }
+  },
+  "links": {
+    "D-0001": {
+      "case": "CASE-1042",
+      "how": "case number on the submission",
+      "method": "exact"
+    },
+    "D-0002": {
+      "case": "CASE-1042",
+      "how": "patient name and date of birth",
+      "method": "exact"
+    },
+    "D-0003": {
+      "case": "CASE-1063",
+      "how": "case number on the submission",
+      "method": "exact"
+    },
+    "D-0004": {
+      "case": "CASE-1077",
+      "how": "case number on the submission",
+      "method": "exact"
+    },
+    "D-0006": {
+      "case": "CASE-1081",
+      "how": "case number on the submission",
+      "method": "exact"
+    },
+    "D-0007": {
+      "case": "CASE-1081",
+      "how": "patient name and date of birth",
+      "method": "exact"
+    },
+    "D-0008": {
+      "case": "CASE-1090",
+      "how": "case number on the submission",
+      "method": "exact"
+    },
+    "D-0010": {
+      "case": "CASE-1095",
+      "how": "case number on the submission",
+      "method": "exact"
+    },
+    "D-0011": {
+      "case": "CASE-1101",
+      "how": "case number on the submission",
+      "method": "exact"
+    },
+    "D-0013": {
+      "case": "CASE-1102",
+      "how": "case number on the submission",
+      "method": "exact"
+    },
+    "D-0014": {
+      "case": "CASE-1102",
+      "how": "patient name and date of birth",
+      "method": "exact"
+    },
+    "D-0015": {
+      "case": "CASE-1103",
+      "how": "case number on the submission",
+      "method": "exact"
+    },
+    "D-0017": {
+      "case": "CASE-1104",
+      "how": "case number on the submission",
+      "method": "exact"
+    },
+    "D-0018": {
+      "case": "CASE-1105",
+      "how": "case number on the submission",
+      "method": "exact"
+    },
+    "D-0019": {
+      "case": "CASE-1105",
+      "how": "patient name and date of birth",
+      "method": "exact"
+    },
+    "D-0020": {
+      "case": "CASE-1106",
+      "how": "case number on the submission",
+      "method": "exact"
+    },
+    "D-0021": {
+      "case": "CASE-1107",
+      "how": "case number on the submission",
+      "method": "exact"
+    },
+    "D-0022": {
+      "case": "CASE-1107",
+      "how": "patient name and date of birth",
+      "method": "exact"
+    },
+    "D-0023": {
+      "case": "CASE-1108",
+      "how": "case number on the submission",
+      "method": "exact"
+    },
+    "D-0025": {
+      "case": "CASE-1109",
+      "how": "case number on the submission",
+      "method": "exact"
+    },
+    "D-0026": {
+      "case": "CASE-1110",
+      "how": "case number on the submission",
+      "method": "exact"
+    },
+    "D-0027": {
+      "case": "CASE-1110",
+      "how": "patient name and date of birth",
+      "method": "exact"
+    },
+    "D-0028": {
+      "case": "CASE-1111",
+      "how": "case number on the submission",
+      "method": "exact"
+    },
+    "D-0029": {
+      "case": "CASE-1111",
+      "how": "patient name and date of birth",
+      "method": "exact"
+    },
+    "D-IN-182437": {
+      "case": "CASE-1105",
+      "how": "patient name and date of birth",
+      "method": "exact"
+    },
+    "D-IN-01f86e": {
+      "case": "CASE-1103",
+      "how": "patient name and date of birth",
+      "method": "exact"
+    },
+    "D-IN-eadf06": {
+      "case": "CASE-1042",
+      "how": "patient name and date of birth",
+      "method": "exact"
+    },
+    "D-IN-6b3c52": {
+      "case": "CASE-1110",
+      "how": "patient name and date of birth",
+      "method": "exact"
+    },
+    "N-0001": {
+      "case": "CASE-1042",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0002": {
+      "case": "CASE-1042",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0003": {
+      "case": "CASE-1063",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0004": {
+      "case": "CASE-1063",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0005": {
+      "case": "CASE-1063",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0006": {
+      "case": "CASE-1077",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0007": {
+      "case": "CASE-1077",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0008": {
+      "case": "CASE-1081",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0009": {
+      "case": "CASE-1090",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0010": {
+      "case": "CASE-1095",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0011": {
+      "case": "CASE-1101",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0012": {
+      "case": "CASE-1101",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0013": {
+      "case": "CASE-1102",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0014": {
+      "case": "CASE-1103",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0015": {
+      "case": "CASE-1104",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0016": {
+      "case": "CASE-1104",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0017": {
+      "case": "CASE-1104",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0018": {
+      "case": "CASE-1105",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0019": {
+      "case": "CASE-1106",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0020": {
+      "case": "CASE-1107",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0021": {
+      "case": "CASE-1108",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0022": {
+      "case": "CASE-1109",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0023": {
+      "case": "CASE-1109",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0024": {
+      "case": "CASE-1110",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "N-0025": {
+      "case": "CASE-1111",
+      "how": "filed on the case",
+      "method": "exact"
+    },
+    "D-0005": {
+      "case": "CASE-1077",
+      "how": "AI: Name, DOB, office and Humira history match Ramon Delgado.",
+      "method": "ai",
+      "confidence": "high"
+    },
+    "D-0009": {
+      "case": "CASE-1090",
+      "how": "AI: Irene Novak from Hudson Valley with ALT/MTX avoidance matches the case.",
+      "method": "ai",
+      "confidence": "high"
+    },
+    "D-0012": {
+      "case": "CASE-1101",
+      "how": "AI: Typo of Mei Tanaka with matching DOB, office and IGA/BSA content.",
+      "method": "ai",
+      "confidence": "high"
+    },
+    "D-0016": {
+      "case": "CASE-1103",
+      "how": "AI: D. Okoro TCI contraindication letter from Dr. Okafor matches the case.",
+      "method": "ai",
+      "confidence": "high"
+    },
+    "D-0024": {
+      "case": "CASE-1108",
+      "how": "AI: Victor Quinn, matching DOB and office, biologic-naive history.",
+      "method": "ai",
+      "confidence": "high"
+    },
+    "D-0030": {
+      "case": null,
+      "how": "AI: New referral for a patient not among the candidates.",
+      "method": "ai",
+      "confidence": "high"
+    },
+    "D-0031": {
+      "case": null,
+      "how": "AI: Blank cover sheet with no patient identified.",
+      "method": "ai",
+      "confidence": "high"
+    },
+    "D-IN-b4102b": {
+      "case": "CASE-1095",
+      "how": "AI: Card names Theo Brandt with Northwind effective 10/01, matching the CASE-1095 note that the patient would send a photo of the new card.",
+      "method": "ai",
+      "confidence": "high"
+    }
+  },
+  "unmatched": [
+    {
+      "key": "D-0030",
+      "system": "Document inbox",
+      "summary": "Referral fax received 2026-10-18 via fax from Bayview Skin Clinic; patient written as 'Tomas Ruiz', DOB '1990-02-03': New referral: Dupixent for atopic dermatit",
+      "why": "AI: New referral for a patient not among the candidates."
+    },
+    {
+      "key": "D-0031",
+      "system": "Document inbox",
+      "summary": "Fax cover sheet received 2026-10-18 via fax from Riverside Dermatology Associates; patient written as '(none)', DOB '(none)': Cover sheet only. Pages that follo",
+      "why": "AI: Blank cover sheet with no patient identified."
+    }
+  ],
+  "usage": {
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "items_judged": 0,
+    "items_cached": 8
+  },
+  "counts": {
+    "tracker": 17,
+    "inbox": 36,
+    "notes": 25,
+    "slack": 25
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "system": "Case notes",
+  "notes": [
+    {
+      "key": "N-0001",
+      "case_id": "CASE-1042",
+      "ts": "2026-10-14T15:12:00-04:00",
+      "author": "Sam K. (Access Ops)",
+      "text": "Denied ST-DOC. Faxed records request to Riverside Derm for TCS + TCI trial notes w/ dates."
+    },
+    {
+      "key": "N-0002",
+      "case_id": "CASE-1042",
+      "ts": "2026-10-17T11:40:00-04:00",
+      "author": "Sam K. (Access Ops)",
+      "text": "Chart notes received from Riverside, attached as DOC-1042-02. Haven't resubmitted yet, out tomorrow."
+    },
+    {
+      "key": "N-0003",
+      "case_id": "CASE-1063",
+      "ts": "2026-09-22T10:00:00-04:00",
+      "author": "Sam K. (Access Ops)",
+      "text": "Initial denial ST-DOC. Requested chart notes."
+    },
+    {
+      "key": "N-0004",
+      "case_id": "CASE-1063",
+      "ts": "2026-10-02T12:15:00-04:00",
+      "author": "Sam K. (Access Ops)",
+      "text": "Resubmitted w/ full TCS + TCI trial notes, dates and outcomes. Looks complete to me."
+    },
+    {
+      "key": "N-0005",
+      "case_id": "CASE-1063",
+      "ts": "2026-10-09T09:40:00-04:00",
+      "author": "Sam K. (Access Ops)",
+      "text": "Denied again, same code. Reviewer note is vague. 2nd denial."
+    },
+    {
+      "key": "N-0006",
+      "case_id": "CASE-1077",
+      "ts": "2026-10-13T14:05:00-04:00",
+      "author": "Jordan T. (Access Ops)",
+      "text": "Called Hudson Valley re NF-PREF pend. MA (Jess) said she thinks patient 'had a reaction to the biosimilar' at some point last year, before Humira. She'll look for records and fax."
+    },
+    {
+      "key": "N-0007",
+      "case_id": "CASE-1077",
+      "ts": "2026-10-16T16:30:00-04:00",
+      "author": "Lee W. (Access Ops)",
+      "text": "Chart notes in (DOC-1077-02). I don't see any biosimilar anywhere in the med history, goes straight MTX -> Humira. Called office back to ask about the reaction Jess mentioned, left VM."
+    },
+    {
+      "key": "N-0008",
+      "case_id": "CASE-1081",
+      "ts": "2026-10-16T13:00:00-04:00",
+      "author": "Priya M. (Access Ops)",
+      "text": "Pended CLIN-INFO, need IGA or BSA. Step therapy docs look complete."
+    },
+    {
+      "key": "N-0009",
+      "case_id": "CASE-1090",
+      "ts": "2026-10-15T17:10:00-04:00",
+      "author": "Jordan T. (Access Ops)",
+      "text": "Denied ST-NOTMET. Chart says pt avoiding MTX bc of liver stuff. Can we file this as a contraindication exception? Policy just says 'documented contraindication or intolerance'. Not sure mildly elevated ALT + preference counts."
+    },
+    {
+      "key": "N-0010",
+      "case_id": "CASE-1095",
+      "ts": "2026-10-17T15:00:00-04:00",
+      "author": "Lee W. (Access Ops)",
+      "text": "ELIG denial. Patient called back: started a new job, says new insurance is Northwind as of 10/01. Has the card, will send photo."
+    },
+    {
+      "key": "N-0011",
+      "case_id": "CASE-1101",
+      "ts": "2026-10-13T11:20:00-04:00",
+      "author": "Sam K. (Access Ops)",
+      "text": "Pended for severity. Faxed request for IGA/BSA to Bayview."
+    },
+    {
+      "key": "N-0012",
+      "case_id": "CASE-1101",
+      "ts": "2026-10-16T14:05:00-04:00",
+      "author": "Sam K. (Access Ops)",
+      "text": "Office sent the 10/15 visit note with IGA and BSA (DOC-1101-02)."
+    },
+    {
+      "key": "N-0013",
+      "case_id": "CASE-1102",
+      "ts": "2026-10-15T15:40:00-04:00",
+      "author": "Jordan T. (Access Ops)",
+      "text": "NF-PREF pend. Chart already documents the biosimilar intolerance with dates."
+    },
+    {
+      "key": "N-0014",
+      "case_id": "CASE-1103",
+      "ts": "2026-10-14T10:10:00-04:00",
+      "author": "Priya M. (Access Ops)",
+      "text": "Office sent the prescriber's contraindication letter for TCIs."
+    },
+    {
+      "key": "N-0015",
+      "case_id": "CASE-1104",
+      "ts": "2026-10-06T13:00:00-04:00",
+      "author": "Sam K. (Access Ops)",
+      "text": "Pended CLIN-INFO. Faxed request for IGA/BSA to Coastal Dermatology."
+    },
+    {
+      "key": "N-0016",
+      "case_id": "CASE-1104",
+      "ts": "2026-10-09T10:30:00-04:00",
+      "author": "Sam K. (Access Ops)",
+      "text": "Follow-up call, left voicemail."
+    },
+    {
+      "key": "N-0017",
+      "case_id": "CASE-1104",
+      "ts": "2026-10-14T16:15:00-04:00",
+      "author": "Sam K. (Access Ops)",
+      "text": "Second voicemail. Still no response."
+    },
+    {
+      "key": "N-0018",
+      "case_id": "CASE-1105",
+      "ts": "2026-10-17T12:30:00-04:00",
+      "author": "Lee W. (Access Ops)",
+      "text": "Chart notes in, MTX is documented. Ready to resubmit?"
+    },
+    {
+      "key": "N-0019",
+      "case_id": "CASE-1106",
+      "ts": "2026-10-15T09:45:00-04:00",
+      "author": "Lee W. (Access Ops)",
+      "text": "Crestline MA denial. We don't have their PA criteria loaded anywhere yet."
+    },
+    {
+      "key": "N-0020",
+      "case_id": "CASE-1107",
+      "ts": "2026-10-17T15:00:00-04:00",
+      "author": "Sam K. (Access Ops)",
+      "text": "Chart notes received. Both topicals are in there, ok to resubmit?"
+    },
+    {
+      "key": "N-0021",
+      "case_id": "CASE-1108",
+      "ts": "2026-10-16T11:30:00-04:00",
+      "author": "Jordan T. (Access Ops)",
+      "text": "PA form says the biosimilar was tried, chart says biologic-naive before Humira. Which is it?"
+    },
+    {
+      "key": "N-0022",
+      "case_id": "CASE-1109",
+      "ts": "2026-10-03T12:00:00-04:00",
+      "author": "Sam K. (Access Ops)",
+      "text": "Resubmitted with what we had. Office couldn't find the tacrolimus dates."
+    },
+    {
+      "key": "N-0023",
+      "case_id": "CASE-1109",
+      "ts": "2026-10-14T09:20:00-04:00",
+      "author": "Sam K. (Access Ops)",
+      "text": "Denied again, same code. Reviewer says TCI dates/duration missing."
+    },
+    {
+      "key": "N-0024",
+      "case_id": "CASE-1110",
+      "ts": "2026-10-18T10:00:00-04:00",
+      "author": "Lee W. (Access Ops)",
+      "text": "MTX chart notes received from Northgate."
+    },
+    {
+      "key": "N-0025",
+      "case_id": "CASE-1111",
+      "ts": "2026-10-14T13:30:00-04:00",
+      "author": "Priya M. (Access Ops)",
+      "text": "Denied ST-NOTMET, payer wants a medium+ steroid trial."
+    }
+  ]
+}

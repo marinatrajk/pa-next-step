@@ -1,0 +1,84 @@
+{
+  "case_id": "CASE-1105",
+  "as_of": "2026-10-19T10:00:00-04:00",
+  "patient": {
+    "ref": "PT-64561",
+    "age": 61,
+    "sex": "M",
+    "name": "Harold Kim",
+    "dob": "1965-08-14"
+  },
+  "payer_policy": "bluepeak_commercial",
+  "drug": "adalimumab-adaz 40 mg q2w (preferred biosimilar)",
+  "indication": "Rheumatoid arthritis",
+  "prescriber": {
+    "name": "Dr. Marcus Feld",
+    "specialty": "Rheumatology",
+    "office": "Hudson Valley Rheumatology"
+  },
+  "pa": {
+    "status": "DENIED",
+    "reason_code": "ST-DOC",
+    "reason_text": "Step therapy documentation not provided. Submit methotrexate trial details.",
+    "event_date": "2026-10-16",
+    "submission_count": 1,
+    "window_closes": "2026-11-15T23:59:00-05:00"
+  },
+  "documents": [
+    {
+      "doc_id": "DOC-1105-01",
+      "type": "PA request form (as submitted)",
+      "received": "2026-10-10",
+      "content": "Dx: rheumatoid arthritis M06.9, rheumatologist. Methotrexate: yes (see notes). Request: adalimumab-adaz.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0018",
+        "linked_by": "case number on the submission"
+      }
+    },
+    {
+      "doc_id": "DOC-1105-02",
+      "type": "Chart notes (provider office fax)",
+      "received": "2026-10-17",
+      "content": "Methotrexate 17.5 mg/wk 11/2025-04/2026, inadequate response (DAS28 4.9). Pre-biologic screening 09/2026: QuantiFERON-TB Gold POSITIVE; chest x-ray pending. Plan: hold any TNF inhibitor until ID clearance and latent TB treatment has started.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0019",
+        "linked_by": "patient name and date of birth"
+      }
+    },
+    {
+      "doc_id": "DOC-1105-03",
+      "type": "Lab report",
+      "received": "2026-09-24",
+      "content": "Hudson Valley Rheumatology - Laboratory Report\nPatient: Harold Kim DOB: 08/14/1965 MRN: HV-20931\nOrdering: Dr. Marcus Feld Collected: 09/22/2026 Reported: 09/24/2026\nTest Result Units Ref range Flag\nQuantiFERON-TB Gold Plus POSITIVE Negative A\nTB1 antigen - Nil 0.82 IU/mL <0.35 H\nALT 31 U/L 7-40\nCreatinine 0.9 mg/dL 0.6-1.2\nComment: Positive interferon-gamma release assay. Recommend chest x-ray and ID consultation before starting any\nTNF inhibitor.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-IN-182437",
+        "linked_by": "patient name and date of birth",
+        "intake": {
+          "format": "Digital PDF",
+          "read_by": "AI (vision)",
+          "raw_file": "data/raw_inbox/HVR_lab_report_0924.pdf"
+        }
+      }
+    }
+  ],
+  "notes": [
+    {
+      "author": "Lee W. (Access Ops)",
+      "ts": "2026-10-17T12:30:00-04:00",
+      "text": "Chart notes in, MTX is documented. Ready to resubmit?",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0018",
+        "linked_by": "filed on the case"
+      }
+    }
+  ],
+  "messages": [],
+  "knowledge": {
+    "sop": "OPS-PA-014",
+    "payer_policy": "BP-SPX-0415"
+  }
+}

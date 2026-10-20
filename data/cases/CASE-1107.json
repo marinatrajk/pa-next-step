@@ -1,0 +1,68 @@
+{
+  "case_id": "CASE-1107",
+  "as_of": "2026-10-19T10:00:00-04:00",
+  "patient": {
+    "ref": "PT-64783",
+    "age": 31,
+    "sex": "F",
+    "name": "Nadia Varga",
+    "dob": "1995-01-01"
+  },
+  "payer_policy": "northwind_commercial",
+  "drug": "Dupixent (dupilumab) 300 mg q2w",
+  "indication": "Atopic dermatitis, moderate-to-severe",
+  "prescriber": {
+    "name": "Dr. Alana Reyes",
+    "specialty": "Dermatology",
+    "office": "Riverside Dermatology Associates"
+  },
+  "pa": {
+    "status": "DENIED",
+    "reason_code": "ST-DOC",
+    "reason_text": "Step therapy documentation not provided. Submit chart notes documenting trials of topical corticosteroid and topical calcineurin inhibitor with dates and outcomes.",
+    "event_date": "2026-10-15",
+    "submission_count": 1,
+    "window_closes": "2026-11-14T23:59:00-05:00"
+  },
+  "documents": [
+    {
+      "doc_id": "DOC-1107-01",
+      "type": "PA request form (as submitted)",
+      "received": "2026-10-08",
+      "content": "Dx: atopic dermatitis L20.9, IGA 3, BSA 12%, dermatologist. Prior: triamcinolone 0.1% and pimecrolimus, inadequate. No concurrent biologic or JAK inhibitor.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0021",
+        "linked_by": "case number on the submission"
+      }
+    },
+    {
+      "doc_id": "DOC-1107-02",
+      "type": "Chart notes (provider office fax)",
+      "received": "2026-10-17",
+      "content": "03/02/2026: start triamcinolone 0.1% cream BID. 04/27/2026: inadequate after 8 weeks; stop triamcinolone, start pimecrolimus 1% cream BID. 05/18/2026: patient stopped pimecrolimus, no improvement. Plan: dupilumab.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0022",
+        "linked_by": "patient name and date of birth"
+      }
+    }
+  ],
+  "notes": [
+    {
+      "author": "Sam K. (Access Ops)",
+      "ts": "2026-10-17T15:00:00-04:00",
+      "text": "Chart notes received. Both topicals are in there, ok to resubmit?",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0020",
+        "linked_by": "filed on the case"
+      }
+    }
+  ],
+  "messages": [],
+  "knowledge": {
+    "sop": "OPS-PA-014",
+    "payer_policy": "NW-RX-2207"
+  }
+}

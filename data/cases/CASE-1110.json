@@ -1,0 +1,84 @@
+{
+  "case_id": "CASE-1110",
+  "as_of": "2026-10-19T10:00:00-04:00",
+  "patient": {
+    "ref": "PT-65024",
+    "age": 53,
+    "sex": "F",
+    "name": "Rosa Jimenez",
+    "dob": "1973-04-22"
+  },
+  "payer_policy": "bluepeak_commercial",
+  "drug": "adalimumab-adaz 40 mg q2w (preferred biosimilar)",
+  "indication": "Rheumatoid arthritis",
+  "prescriber": {
+    "name": "Dr. Omar Haddad",
+    "specialty": "Rheumatology",
+    "office": "Northgate Arthritis Clinic"
+  },
+  "pa": {
+    "status": "DENIED",
+    "reason_code": "ST-DOC",
+    "reason_text": "Step therapy documentation not provided. Submit methotrexate trial details.",
+    "event_date": "2026-10-16",
+    "submission_count": 1,
+    "window_closes": "2026-11-15T23:59:00-05:00"
+  },
+  "documents": [
+    {
+      "doc_id": "DOC-1110-01",
+      "type": "PA request form (as submitted)",
+      "received": "2026-10-11",
+      "content": "Dx: rheumatoid arthritis M06.9, seropositive, rheumatologist. Methotrexate: see chart. Request: adalimumab-adaz (preferred).",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0026",
+        "linked_by": "case number on the submission"
+      }
+    },
+    {
+      "doc_id": "DOC-1110-02",
+      "type": "Chart notes (provider office fax)",
+      "received": "2026-10-18",
+      "content": "03/03/2026: start methotrexate 15 mg/wk. 04/14/2026: increased to 20 mg/wk. 07/20/2026 follow-up: inadequate response after about 20 weeks (DAS28 4.6). Plan: add TNF inhibitor.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0027",
+        "linked_by": "patient name and date of birth"
+      }
+    },
+    {
+      "doc_id": "DOC-1110-03",
+      "type": "Medication history (EHR)",
+      "received": "2026-10-19",
+      "content": "Patient: Rosa Jimenez, born 1973-04-22\nSource: Northgate Arthritis Clinic (EHR export)\nmethotrexate 15 mg oral weekly: 2026-03-03 to 2026-04-14 (completed)\nmethotrexate 20 mg oral weekly: 2026-04-14 to 2026-07-20 (completed; inadequate response (DAS28 4.6))",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-IN-6b3c52",
+        "linked_by": "patient name and date of birth",
+        "intake": {
+          "format": "EHR export (FHIR)",
+          "read_by": "code (structured)",
+          "raw_file": "data/raw_inbox/northgate_ehr_export.json"
+        }
+      }
+    }
+  ],
+  "notes": [
+    {
+      "author": "Lee W. (Access Ops)",
+      "ts": "2026-10-18T10:00:00-04:00",
+      "text": "MTX chart notes received from Northgate.",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0024",
+        "linked_by": "filed on the case"
+      }
+    }
+  ],
+  "messages": [],
+  "knowledge": {
+    "sop": "OPS-PA-014",
+    "payer_policy": "BP-SPX-0415"
+  }
+}

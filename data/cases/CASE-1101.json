@@ -1,0 +1,78 @@
+{
+  "case_id": "CASE-1101",
+  "as_of": "2026-10-19T10:00:00-04:00",
+  "patient": {
+    "ref": "PT-64102",
+    "age": 27,
+    "sex": "F",
+    "name": "Mei Tanaka",
+    "dob": "1999-04-13"
+  },
+  "payer_policy": "northwind_commercial",
+  "drug": "Dupixent (dupilumab) 300 mg q2w",
+  "indication": "Atopic dermatitis, moderate-to-severe",
+  "prescriber": {
+    "name": "Dr. Lena Brooks",
+    "specialty": "Dermatology",
+    "office": "Bayview Skin Clinic"
+  },
+  "pa": {
+    "status": "PENDED",
+    "reason_code": "CLIN-INFO",
+    "reason_text": "Severity not documented. Submit IGA score or BSA percentage.",
+    "event_date": "2026-10-13",
+    "submission_count": 1,
+    "window_closes": "2026-10-27T23:59:00-04:00"
+  },
+  "documents": [
+    {
+      "doc_id": "DOC-1101-01",
+      "type": "PA request form (as submitted)",
+      "received": "2026-10-08",
+      "content": "Dx: atopic dermatitis L20.9, 'moderate-severe'. Prescriber: dermatology. Step therapy: mometasone furoate 0.1% ointment 01/12/2026-03/02/2026, inadequate; tacrolimus 0.1% ointment 03/05/2026-05/20/2026, inadequate. No concurrent biologic or JAK inhibitor.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0011",
+        "linked_by": "case number on the submission"
+      }
+    },
+    {
+      "doc_id": "DOC-1101-02",
+      "type": "Chart notes (provider office fax)",
+      "received": "2026-10-16",
+      "content": "10/15/2026 visit: extensive eczematous plaques on arms, legs and neck. IGA 4. BSA 22%. Plan: continue pursuing dupilumab.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0012",
+        "linked_by": "AI: Typo of Mei Tanaka with matching DOB, office and IGA/BSA content."
+      }
+    }
+  ],
+  "notes": [
+    {
+      "author": "Sam K. (Access Ops)",
+      "ts": "2026-10-13T11:20:00-04:00",
+      "text": "Pended for severity. Faxed request for IGA/BSA to Bayview.",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0011",
+        "linked_by": "filed on the case"
+      }
+    },
+    {
+      "author": "Sam K. (Access Ops)",
+      "ts": "2026-10-16T14:05:00-04:00",
+      "text": "Office sent the 10/15 visit note with IGA and BSA (DOC-1101-02).",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0012",
+        "linked_by": "filed on the case"
+      }
+    }
+  ],
+  "messages": [],
+  "knowledge": {
+    "sop": "OPS-PA-014",
+    "payer_policy": "NW-RX-2207"
+  }
+}

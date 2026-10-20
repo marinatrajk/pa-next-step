@@ -1,0 +1,67 @@
+{
+  "case_id": "CASE-1109",
+  "as_of": "2026-10-19T10:00:00-04:00",
+  "patient": {
+    "ref": "PT-64912",
+    "age": 24,
+    "sex": "F",
+    "name": "Ava Whitlock",
+    "dob": "2002-03-15"
+  },
+  "payer_policy": "northwind_commercial",
+  "drug": "Dupixent (dupilumab) 300 mg q2w",
+  "indication": "Atopic dermatitis, moderate-to-severe",
+  "prescriber": {
+    "name": "Dr. Lena Brooks",
+    "specialty": "Dermatology",
+    "office": "Bayview Skin Clinic"
+  },
+  "pa": {
+    "status": "DENIED",
+    "reason_code": "ST-DOC",
+    "reason_text": "Step therapy criteria not demonstrated: topical calcineurin inhibitor trial dates and duration not documented.",
+    "event_date": "2026-10-14",
+    "submission_count": 2,
+    "window_closes": "2026-11-13T23:59:00-05:00"
+  },
+  "documents": [
+    {
+      "doc_id": "DOC-1109-01",
+      "type": "PA resubmission packet",
+      "received": "2026-10-03",
+      "content": "Resubmission after ST-DOC denial (09/24). Chart notes: clobetasol 0.05% ointment 02/02/2026-04/10/2026, inadequate. Tacrolimus 0.1% ointment: 'tried, didn't help' (no dates in chart). IGA 3, BSA 14%. Dermatologist.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0025",
+        "linked_by": "case number on the submission"
+      }
+    }
+  ],
+  "notes": [
+    {
+      "author": "Sam K. (Access Ops)",
+      "ts": "2026-10-03T12:00:00-04:00",
+      "text": "Resubmitted with what we had. Office couldn't find the tacrolimus dates.",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0022",
+        "linked_by": "filed on the case"
+      }
+    },
+    {
+      "author": "Sam K. (Access Ops)",
+      "ts": "2026-10-14T09:20:00-04:00",
+      "text": "Denied again, same code. Reviewer says TCI dates/duration missing.",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0023",
+        "linked_by": "filed on the case"
+      }
+    }
+  ],
+  "messages": [],
+  "knowledge": {
+    "sop": "OPS-PA-014",
+    "payer_policy": "NW-RX-2207"
+  }
+}

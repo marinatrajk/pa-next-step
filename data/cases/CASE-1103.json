@@ -1,0 +1,84 @@
+{
+  "case_id": "CASE-1103",
+  "as_of": "2026-10-19T10:00:00-04:00",
+  "patient": {
+    "ref": "PT-64330",
+    "age": 35,
+    "sex": "M",
+    "name": "Daniel Okoro",
+    "dob": "1991-06-27"
+  },
+  "payer_policy": "northwind_commercial",
+  "drug": "Dupixent (dupilumab) 300 mg q2w",
+  "indication": "Atopic dermatitis, moderate-to-severe",
+  "prescriber": {
+    "name": "Dr. Hannah Okafor",
+    "specialty": "Allergy & Immunology",
+    "office": "Metro Allergy Partners"
+  },
+  "pa": {
+    "status": "DENIED",
+    "reason_code": "ST-NOTMET",
+    "reason_text": "Step therapy not met: no trial of a topical calcineurin inhibitor documented.",
+    "event_date": "2026-10-12",
+    "submission_count": 1,
+    "window_closes": "2026-11-11T23:59:00-05:00"
+  },
+  "documents": [
+    {
+      "doc_id": "DOC-1103-01",
+      "type": "PA request form (as submitted)",
+      "received": "2026-10-06",
+      "content": "Dx: atopic dermatitis L20.9, IGA 3, BSA 15%, allergist. TCS: fluocinonide 0.05% ointment 04/01/2026-05/15/2026, inadequate. TCI: not trialed, contraindicated (see letter). No concurrent biologic or JAK inhibitor.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0015",
+        "linked_by": "case number on the submission"
+      }
+    },
+    {
+      "doc_id": "DOC-1103-02",
+      "type": "Prescriber letter",
+      "received": "2026-10-14",
+      "content": "Patient has recurrent eczema herpeticum: three episodes, most recent 06/2026, which required IV acyclovir. Given this history, topical calcineurin inhibitors are contraindicated for this patient. Signed, Dr. Hannah Okafor, Allergy & Immunology.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0016",
+        "linked_by": "AI: D. Okoro TCI contraindication letter from Dr. Okafor matches the case."
+      }
+    },
+    {
+      "doc_id": "DOC-1103-03",
+      "type": "Email from office",
+      "received": "2026-10-15",
+      "content": "Hi Forus team,\n\nFollowing up on the Dupixent request for our patient Daniel Okoro (DOB 06/27/1991).\nDr. Okafor signed the medical necessity letter yesterday; it went over by fax.\n\nShort version: three episodes of eczema herpeticum, the last one in June 2026 needed IV\nacyclovir. Dr. Okafor considers topical calcineurin inhibitors contraindicated for him.\nHe used fluocinonide 0.05% ointment from April 1 to May 15 this year without enough improvement.\n\nThanks,\nDana R., front desk, Metro Allergy Partners",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-IN-01f86e",
+        "linked_by": "patient name and date of birth",
+        "intake": {
+          "format": "Email",
+          "read_by": "code (headers) + AI (body)",
+          "raw_file": "data/raw_inbox/email_metroallergy_1015.eml"
+        }
+      }
+    }
+  ],
+  "notes": [
+    {
+      "author": "Priya M. (Access Ops)",
+      "ts": "2026-10-14T10:10:00-04:00",
+      "text": "Office sent the prescriber's contraindication letter for TCIs.",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0014",
+        "linked_by": "filed on the case"
+      }
+    }
+  ],
+  "messages": [],
+  "knowledge": {
+    "sop": "OPS-PA-014",
+    "payer_policy": "NW-RX-2207"
+  }
+}

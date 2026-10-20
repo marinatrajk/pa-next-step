@@ -1,0 +1,78 @@
+{
+  "case_id": "CASE-1077",
+  "as_of": "2026-10-19T10:00:00-04:00",
+  "patient": {
+    "ref": "PT-61047",
+    "age": 52,
+    "sex": "M",
+    "name": "Ramon Delgado",
+    "dob": "1974-07-07"
+  },
+  "payer_policy": "bluepeak_commercial",
+  "drug": "Humira (adalimumab, brand) 40 mg q2w",
+  "indication": "Rheumatoid arthritis",
+  "prescriber": {
+    "name": "Dr. Marcus Feld",
+    "specialty": "Rheumatology",
+    "office": "Hudson Valley Rheumatology"
+  },
+  "pa": {
+    "status": "PENDED",
+    "reason_code": "NF-PREF",
+    "reason_text": "Requested product is non-preferred. Submit documentation of trial and failure/intolerance of preferred adalimumab-adaz, or change request to preferred product.",
+    "event_date": "2026-10-10",
+    "submission_count": 1,
+    "window_closes": "2026-10-20T23:59:00-04:00"
+  },
+  "documents": [
+    {
+      "doc_id": "DOC-1077-01",
+      "type": "PA request form (as submitted)",
+      "received": "2026-10-06",
+      "content": "Dx: rheumatoid arthritis M06.9, rheumatologist. Prior: methotrexate 20 mg/wk 01/2025-06/2025, inadequate response. Current: Humira 40 mg q2w since 08/2025, good response. Request: continuation of brand Humira (plan change; new to Bluepeak 10/2026).",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0004",
+        "linked_by": "case number on the submission"
+      }
+    },
+    {
+      "doc_id": "DOC-1077-02",
+      "type": "Chart notes (provider office fax)",
+      "received": "2026-10-16",
+      "content": "Med history: methotrexate 01/2025-06/2025 (inadequate, DAS28 5.1). Humira started 08/12/2025. 02/2026 f/u: DAS28 2.4, doing well on Humira, continue. 08/2026 f/u: stable, continue Humira. No other biologics listed.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0005",
+        "linked_by": "AI: Name, DOB, office and Humira history match Ramon Delgado."
+      }
+    }
+  ],
+  "notes": [
+    {
+      "author": "Jordan T. (Access Ops)",
+      "ts": "2026-10-13T14:05:00-04:00",
+      "text": "Called Hudson Valley re NF-PREF pend. MA (Jess) said she thinks patient 'had a reaction to the biosimilar' at some point last year, before Humira. She'll look for records and fax.",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0006",
+        "linked_by": "filed on the case"
+      }
+    },
+    {
+      "author": "Lee W. (Access Ops)",
+      "ts": "2026-10-16T16:30:00-04:00",
+      "text": "Chart notes in (DOC-1077-02). I don't see any biosimilar anywhere in the med history, goes straight MTX -> Humira. Called office back to ask about the reaction Jess mentioned, left VM.",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0007",
+        "linked_by": "filed on the case"
+      }
+    }
+  ],
+  "messages": [],
+  "knowledge": {
+    "sop": "OPS-PA-014",
+    "payer_policy": "BP-SPX-0415"
+  }
+}

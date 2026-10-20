@@ -1,0 +1,68 @@
+{
+  "case_id": "CASE-1102",
+  "as_of": "2026-10-19T10:00:00-04:00",
+  "patient": {
+    "ref": "PT-64218",
+    "age": 58,
+    "sex": "F",
+    "name": "Gloria Fairbanks",
+    "dob": "1968-05-20"
+  },
+  "payer_policy": "bluepeak_commercial",
+  "drug": "Humira (adalimumab, brand) 40 mg q2w",
+  "indication": "Rheumatoid arthritis",
+  "prescriber": {
+    "name": "Dr. Omar Haddad",
+    "specialty": "Rheumatology",
+    "office": "Northgate Arthritis Clinic"
+  },
+  "pa": {
+    "status": "PENDED",
+    "reason_code": "NF-PREF",
+    "reason_text": "Requested product is non-preferred. Submit documentation of trial and failure/intolerance of preferred adalimumab-adaz, or change request to preferred product.",
+    "event_date": "2026-10-15",
+    "submission_count": 1,
+    "window_closes": "2026-10-25T23:59:00-04:00"
+  },
+  "documents": [
+    {
+      "doc_id": "DOC-1102-01",
+      "type": "PA request form (as submitted)",
+      "received": "2026-10-09",
+      "content": "Dx: rheumatoid arthritis M06.9, rheumatologist. Prior: methotrexate 20 mg/wk 02/2024-08/2024, inadequate (DAS28 5.4). adalimumab-adaz 40 mg q2w 10/2024-01/2025, discontinued for intolerance (see chart). Request: Humira brand.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0013",
+        "linked_by": "case number on the submission"
+      }
+    },
+    {
+      "doc_id": "DOC-1102-02",
+      "type": "Chart notes (provider office fax)",
+      "received": "2026-10-09",
+      "content": "11/2024: injection-site reactions with each adalimumab-adaz dose. 01/06/2025: generalized urticaria after 6th dose. Assessment: intolerance to adalimumab-adaz, likely excipient-related; discontinue. 02/2025: started Humira (citrate-free), tolerating well. 08/2026: DAS28 2.6, continue.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0014",
+        "linked_by": "patient name and date of birth"
+      }
+    }
+  ],
+  "notes": [
+    {
+      "author": "Jordan T. (Access Ops)",
+      "ts": "2026-10-15T15:40:00-04:00",
+      "text": "NF-PREF pend. Chart already documents the biosimilar intolerance with dates.",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0013",
+        "linked_by": "filed on the case"
+      }
+    }
+  ],
+  "messages": [],
+  "knowledge": {
+    "sop": "OPS-PA-014",
+    "payer_policy": "BP-SPX-0415"
+  }
+}

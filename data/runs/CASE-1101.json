@@ -1,0 +1,206 @@
+{
+  "case_id": "CASE-1101",
+  "skill": "pa-next-step@0.1.0",
+  "ran_at": "2026-10-19T20:03:20",
+  "gate": {
+    "applies": true,
+    "reasons": [],
+    "notes": [],
+    "hours_left": 206.0,
+    "deadline_at_risk": false
+  },
+  "log": [
+    {
+      "t": 0.0,
+      "text": "Scope check: Northwind Commercial rules on file, 9 days left in the window"
+    },
+    {
+      "t": 0.0,
+      "text": "Gathered the SOP and insurer policy, the case record (2 documents, 2 notes) and 1 team-knowledge entry (KB-0002)"
+    },
+    {
+      "t": 0.0,
+      "text": "Asked claude-opus-5-5 for the next step"
+    },
+    {
+      "t": 2.5,
+      "text": "Thinking it through"
+    },
+    {
+      "t": 13.5,
+      "text": "Reading the denial and where the case stands"
+    },
+    {
+      "t": 14.8,
+      "text": "Checking each insurer requirement against the records"
+    },
+    {
+      "t": 18.9,
+      "text": "Looking for information that conflicts"
+    },
+    {
+      "t": 18.9,
+      "text": "Listing what's still missing"
+    },
+    {
+      "t": 19.9,
+      "text": "Checking the six escalation triggers (E1\u2013E6)"
+    },
+    {
+      "t": 23.1,
+      "text": "Choosing the next step"
+    },
+    {
+      "t": 25.3,
+      "text": "Flagging what needs a person's judgment"
+    },
+    {
+      "t": 25.6,
+      "text": "Writing the draft message"
+    },
+    {
+      "t": 28.9,
+      "text": "Writing the short summary"
+    },
+    {
+      "t": 30.2,
+      "text": "Model's pick: Resubmit with documentation \u00b7 no escalation triggers"
+    },
+    {
+      "t": 30.2,
+      "text": "Safety checks passed: citations, escalation rules, draft"
+    },
+    {
+      "t": 30.2,
+      "text": "Saved \u00b7 7,618 tokens read, 3,156 written"
+    }
+  ],
+  "status": "ok",
+  "result": {
+    "situation": "CASE-1101: Dupixent PA for adult atopic dermatitis, PENDED by Northwind on 2026-10-13 (CLIN-INFO: severity not documented; IGA or BSA requested). The office faxed 10/15 chart notes with IGA 4 and BSA 22% on 2026-10-16. The window closes 2026-10-27 23:59, with 206 hours left. This is submission 1.",
+    "criteria": [
+      {
+        "criterion": "1. Moderate-to-severe AD: IGA \u22653 or BSA \u226510%",
+        "status": "met",
+        "evidence": "10/15/2026 chart note documents IGA 4 and BSA 22%.",
+        "source_ids": [
+          "DOC-1101-02",
+          "POLICY"
+        ]
+      },
+      {
+        "criterion": "2. Prescriber is a dermatologist, allergist or immunologist",
+        "status": "met",
+        "evidence": "Prescriber is Dr. Lena Brooks, Dermatology.",
+        "source_ids": [
+          "CASE",
+          "DOC-1101-01"
+        ]
+      },
+      {
+        "criterion": "3a. Medium-to-super-high-potency topical corticosteroid \u226528 consecutive days with documented outcome",
+        "status": "met",
+        "evidence": "PA form lists mometasone furoate 0.1% ointment, 01/12/2026\u201303/02/2026, outcome inadequate. Policy asks for chart-note documentation, which we do not hold. The payer did not flag this criterion.",
+        "source_ids": [
+          "DOC-1101-01",
+          "POLICY"
+        ]
+      },
+      {
+        "criterion": "3b. Topical calcineurin inhibitor \u226528 consecutive days with documented outcome",
+        "status": "met",
+        "evidence": "PA form lists tacrolimus 0.1% ointment, 03/05/2026\u201305/20/2026, outcome inadequate. Supporting chart notes are not in our file. The payer did not flag this criterion.",
+        "source_ids": [
+          "DOC-1101-01",
+          "POLICY"
+        ]
+      },
+      {
+        "criterion": "4. Not used with another biologic or JAK inhibitor for AD",
+        "status": "met",
+        "evidence": "PA form states no concurrent biologic or JAK inhibitor.",
+        "source_ids": [
+          "DOC-1101-01"
+        ]
+      }
+    ],
+    "conflicts": [],
+    "missing_information": [
+      {
+        "item": "Chart notes documenting the mometasone and tacrolimus trials (drug, dates, outcome)",
+        "why_it_matters": "Policy says trials must be documented in chart notes. We only hold the PA form, so a later ST-DOC denial is possible.",
+        "how_to_get": "Optional parallel request to Bayview Skin Clinic. Do not delay the resubmission for it."
+      }
+    ],
+    "trigger_checks": {
+      "E1": {
+        "fires": false,
+        "reason": "No contraindication, intolerance, lab or off-label dosing question. Severity scores are stated directly in DOC-1101-02."
+      },
+      "E2": {
+        "fires": false,
+        "reason": "CASE, DOC-1101-01, DOC-1101-02 and NOTE-1/NOTE-2 agree on diagnosis, trials and severity."
+      },
+      "E3": {
+        "fires": false,
+        "reason": "No claimed rule change affects this case. KB-0002 (triamcinolone tip) is irrelevant here, since no triamcinolone was used. POLICY bulletin NW-B-2026-09 reports no changes."
+      },
+      "E4": {
+        "fires": false,
+        "reason": "206 hours remain per system facts (not under 48h), and we already hold the requested IGA/BSA (DOC-1101-02)."
+      },
+      "E5": {
+        "fires": false,
+        "reason": "CASE shows submission_count 1 and a pend, not a second denial."
+      },
+      "E6": {
+        "fires": false,
+        "reason": "No patient safety concern appears in CASE, DOC-1101-01, DOC-1101-02 or the notes."
+      }
+    },
+    "primary_action": "RESUBMIT_WITH_DOCS",
+    "action_rationale": "The pend is CLIN-INFO for severity (CASE). Per SOP \u00a75, we resubmit when we already hold the information, and DOC-1101-02 documents IGA 4 and BSA 22%, satisfying POLICY criterion 1. No escalation trigger fires, and the 14-day pend window has 206 hours left.",
+    "parallel_actions": [
+      "Optionally ask Bayview Skin Clinic for chart notes documenting the mometasone and tacrolimus trials, to head off a future ST-DOC denial.",
+      "Log the criteria checklist and resubmission in case notes per SOP \u00a74 step 6."
+    ],
+    "could_not_determine": [
+      "Whether Northwind will accept the PA-form trial details without underlying chart notes."
+    ],
+    "needs_human_judgment": [
+      "Whether to also request step-therapy chart notes now or wait for the payer's response."
+    ],
+    "draft": {
+      "kind": "resubmission_note",
+      "to": "Northwind Health Plan \u2013 Pharmacy Prior Authorization",
+      "subject": "CASE-1101 \u2013 Dupixent PA pended for severity: IGA/BSA documentation attached",
+      "body": "Re: CASE-1101, patient ref PT-64102, Dupixent (dupilumab) 300 mg q2w for moderate-to-severe atopic dermatitis. Prescriber: Dr. Lena Brooks, Dermatology, Bayview Skin Clinic.\n\nThis request was pended on 2026-10-13 for missing severity documentation (IGA or BSA). Attached is the 10/15/2026 chart note documenting IGA 4 and BSA 22%. This meets the severity criterion in policy NW-RX-2207 (IGA \u22653 or BSA \u226510%).\n\nThe step-therapy trials (mometasone furoate 0.1% ointment and tacrolimus 0.1% ointment, both inadequate) and the absence of concurrent biologic or JAK inhibitor use are documented on the original request.\n\nPlease resume review. Thank you.\n\nForus Access Operations"
+    },
+    "confidence": "high",
+    "operator_summary": {
+      "headline": "Resubmit the PA with the severity chart note",
+      "why": [
+        "Payer only asked for severity scores, and we now have them.",
+        "The 10/15 visit note shows IGA 4 and 22% BSA.",
+        "Over eight days remain, and nothing needs escalation."
+      ],
+      "then": [
+        "Attach the 10/15 chart note and submit.",
+        "Log the criteria checklist in case notes.",
+        "Consider requesting step-therapy chart notes as backup."
+      ]
+    },
+    "triggers_fired": [],
+    "escalate": false,
+    "escalate_to": []
+  },
+  "model_action": "RESUBMIT_WITH_DOCS",
+  "guardrail_notes": [],
+  "usage": {
+    "model": "claude-opus-5-5",
+    "input_tokens": 7618,
+    "output_tokens": 3156,
+    "seconds": 30.2
+  },
+  "input_fingerprint": "228ec4d525933fc6"
+}

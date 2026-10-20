@@ -1,0 +1,73 @@
+{
+  "case_id": "CASE-1095",
+  "as_of": "2026-10-19T10:00:00-04:00",
+  "patient": {
+    "ref": "PT-63390",
+    "age": 38,
+    "sex": "M",
+    "name": "Theo Brandt",
+    "dob": "1988-07-25"
+  },
+  "payer_policy": "bluepeak_commercial",
+  "drug": "adalimumab-adaz 40 mg q2w (preferred biosimilar)",
+  "indication": "Rheumatoid arthritis",
+  "prescriber": {
+    "name": "Dr. Priya Natarajan",
+    "specialty": "Rheumatology",
+    "office": "Lakeside Arthritis Center"
+  },
+  "pa": {
+    "status": "DENIED",
+    "reason_code": "ELIG",
+    "reason_text": "Member coverage not active on date of service.",
+    "event_date": "2026-10-17",
+    "submission_count": 1,
+    "window_closes": "2026-11-16T23:59:00-05:00"
+  },
+  "documents": [
+    {
+      "doc_id": "DOC-1095-01",
+      "type": "PA request form (as submitted)",
+      "received": "2026-10-14",
+      "content": "Dx: RA M06.9, rheumatologist. MTX 20 mg/wk 12/2025-04/2026 inadequate. Insurance on file: Bluepeak Commercial, member ID BP-xxxx-2231 (from 2025 intake).",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0010",
+        "linked_by": "case number on the submission"
+      }
+    },
+    {
+      "doc_id": "DOC-1095-02",
+      "type": "Insurance card",
+      "received": "2026-10-19",
+      "content": "NORTHWIND HEALTH PLAN\nMember THEO BRANDT\nMember ID NW-771203\nGroup 48812-COM\nEffective 10/01/2026\nRx BIN / PCN 610455 / NWRX",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-IN-b4102b",
+        "linked_by": "AI: Card names Theo Brandt with Northwind effective 10/01, matching the CASE-1095 note that the patient would send a photo of the new card.",
+        "intake": {
+          "format": "Photo / image",
+          "read_by": "AI (vision)",
+          "raw_file": "data/raw_inbox/IMG_4471.jpg"
+        }
+      }
+    }
+  ],
+  "notes": [
+    {
+      "author": "Lee W. (Access Ops)",
+      "ts": "2026-10-17T15:00:00-04:00",
+      "text": "ELIG denial. Patient called back: started a new job, says new insurance is Northwind as of 10/01. Has the card, will send photo.",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0010",
+        "linked_by": "filed on the case"
+      }
+    }
+  ],
+  "messages": [],
+  "knowledge": {
+    "sop": "OPS-PA-014",
+    "payer_policy": "BP-SPX-0415"
+  }
+}

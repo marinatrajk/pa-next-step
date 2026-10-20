@@ -1,0 +1,94 @@
+{
+  "case_id": "CASE-1042",
+  "as_of": "2026-10-19T10:00:00-04:00",
+  "patient": {
+    "ref": "PT-58213",
+    "age": 34,
+    "sex": "F",
+    "name": "Hannah Lindqvist",
+    "dob": "1992-08-05"
+  },
+  "payer_policy": "northwind_commercial",
+  "drug": "Dupixent (dupilumab) 300 mg q2w",
+  "indication": "Atopic dermatitis, moderate-to-severe",
+  "prescriber": {
+    "name": "Dr. Alana Reyes",
+    "specialty": "Dermatology",
+    "office": "Riverside Dermatology Associates"
+  },
+  "pa": {
+    "status": "DENIED",
+    "reason_code": "ST-DOC",
+    "reason_text": "Step therapy documentation not provided. Submit chart notes documenting trials of topical corticosteroid and topical calcineurin inhibitor with dates and outcomes.",
+    "event_date": "2026-10-14",
+    "submission_count": 1,
+    "window_closes": "2026-11-13T23:59:00-05:00"
+  },
+  "documents": [
+    {
+      "doc_id": "DOC-1042-01",
+      "type": "PA request form (as submitted)",
+      "received": "2026-10-08",
+      "content": "Dx: atopic dermatitis L20.9. IGA 3. BSA 18%. Prescriber specialty: dermatology. Prior therapies: 'topical steroids, tacrolimus \u2014 inadequate response.' No concurrent biologic or JAK inhibitor.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0001",
+        "linked_by": "case number on the submission"
+      }
+    },
+    {
+      "doc_id": "DOC-1042-02",
+      "type": "Chart notes (provider office fax)",
+      "received": "2026-10-17",
+      "content": "03/02/2026: Start triamcinolone 0.1% cream BID to affected areas. 04/20/2026 f/u: minimal improvement after 7 wks, IGA 3, d/c triamcinolone. Start tacrolimus 0.1% ointment BID. 05/01/2026: confirmed pt started tacrolimus 04/21. 06/30/2026 f/u: tacrolimus x ~10 wks, mild burning but tolerated, inadequate response, IGA 3, BSA 18%. Plan: biologic, dupilumab.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0002",
+        "linked_by": "patient name and date of birth"
+      }
+    },
+    {
+      "doc_id": "DOC-1042-03",
+      "type": "Insurer decision letter",
+      "received": "2026-10-14",
+      "content": "FROM: NORTHWIND HP PA DEPT   FAX 1-800-555-0144   10/14/2026 11:32   P.1/1\nNORTHWIND HEALTH PLAN - PHARMACY PRIOR AUTHORIZATION\nDate: 10/14/2026\nMember: Hannah Lindqvist     DOB: 08/05/1992     Member ID: NW-448120\nPrescriber: Dr. Alana Reyes, Riverside Dermatology Associates\nMedication: DUPIXENT (dupilumab) 300 mg every 2 weeks\nDECISION: DENIED\nReason (ST-DOC): Step therapy documentation not provided. Submit chart notes\ndocumenting trials of a topical corticosteroid and a topical calcineurin\ninhibitor, with dates and outcomes, per policy NW-RX-2207.\nYou may resubmit with documentation within 30 days of this notice.\nAppeals must be filed within 180 days.\nNorthwind Health Plan Pharmacy Services",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-IN-eadf06",
+        "linked_by": "patient name and date of birth",
+        "intake": {
+          "format": "Scanned PDF (no text layer)",
+          "read_by": "AI (vision)",
+          "raw_file": "data/raw_inbox/fax_20261014_1132.pdf"
+        }
+      }
+    }
+  ],
+  "notes": [
+    {
+      "author": "Sam K. (Access Ops)",
+      "ts": "2026-10-14T15:12:00-04:00",
+      "text": "Denied ST-DOC. Faxed records request to Riverside Derm for TCS + TCI trial notes w/ dates.",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0001",
+        "linked_by": "filed on the case"
+      }
+    },
+    {
+      "author": "Sam K. (Access Ops)",
+      "ts": "2026-10-17T11:40:00-04:00",
+      "text": "Chart notes received from Riverside, attached as DOC-1042-02. Haven't resubmitted yet, out tomorrow.",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0002",
+        "linked_by": "filed on the case"
+      }
+    }
+  ],
+  "messages": [],
+  "knowledge": {
+    "sop": "OPS-PA-014",
+    "payer_policy": "NW-RX-2207"
+  }
+}

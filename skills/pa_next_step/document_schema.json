@@ -1,0 +1,288 @@
+{
+  "name": "IntakeDocument",
+  "version": "1.1",
+  "about": "Every incoming document (scanned fax, PDF, email, photo, EHR export) is mapped to this one structure before it reaches a case. Unknown values stay empty strings, empty lists or -1; nothing is guessed. A file that isn't a prior-auth document at all (a r\u00e9sum\u00e9, an invoice, an ad) is marked unrelated and set aside.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "relevance",
+    "doc_type",
+    "patient",
+    "sender",
+    "document_date",
+    "medications",
+    "severity",
+    "labs",
+    "contraindications",
+    "insurer_decision",
+    "coverage",
+    "transcription",
+    "summary",
+    "confidence",
+    "missing"
+  ],
+  "properties": {
+    "relevance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "related",
+        "reason"
+      ],
+      "properties": {
+        "related": {
+          "type": "boolean",
+          "description": "Is this something a PA team gets about a patient's prescription or coverage?"
+        },
+        "reason": {
+          "type": "string",
+          "description": "When unrelated: what the document is, in one plain sentence"
+        }
+      }
+    },
+    "doc_type": {
+      "type": "string",
+      "enum": [
+        "chart_note",
+        "prescriber_letter",
+        "lab_result",
+        "insurer_decision",
+        "insurance_card",
+        "referral",
+        "pa_form",
+        "medication_history",
+        "email_update",
+        "fax_cover",
+        "other"
+      ]
+    },
+    "patient": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "dob",
+        "member_id"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "dob": {
+          "type": "string",
+          "description": "YYYY-MM-DD, or empty"
+        },
+        "member_id": {
+          "type": "string"
+        }
+      }
+    },
+    "sender": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "organization",
+        "person",
+        "contact"
+      ],
+      "properties": {
+        "organization": {
+          "type": "string"
+        },
+        "person": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "string",
+          "description": "fax number or email address"
+        }
+      }
+    },
+    "document_date": {
+      "type": "string",
+      "description": "YYYY-MM-DD, or empty"
+    },
+    "medications": {
+      "type": "array",
+      "description": "Drug trials and current therapy the document states",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "drug",
+          "dose",
+          "start",
+          "end",
+          "outcome",
+          "evidence"
+        ],
+        "properties": {
+          "drug": {
+            "type": "string"
+          },
+          "dose": {
+            "type": "string"
+          },
+          "start": {
+            "type": "string"
+          },
+          "end": {
+            "type": "string"
+          },
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "inadequate",
+              "intolerance",
+              "success",
+              "ongoing",
+              "unknown"
+            ]
+          },
+          "evidence": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "severity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "iga",
+        "bsa_pct",
+        "das28"
+      ],
+      "properties": {
+        "iga": {
+          "type": "number"
+        },
+        "bsa_pct": {
+          "type": "number"
+        },
+        "das28": {
+          "type": "number"
+        }
+      }
+    },
+    "labs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "test",
+          "result",
+          "unit",
+          "flag"
+        ],
+        "properties": {
+          "test": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "flag": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "contraindications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "drug_class",
+          "stated_by_prescriber",
+          "evidence"
+        ],
+        "properties": {
+          "drug_class": {
+            "type": "string"
+          },
+          "stated_by_prescriber": {
+            "type": "boolean"
+          },
+          "evidence": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "insurer_decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "reason_code",
+        "reason"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "",
+            "approved",
+            "denied",
+            "pended"
+          ]
+        },
+        "reason_code": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "insurer",
+        "member_id",
+        "effective_date"
+      ],
+      "properties": {
+        "insurer": {
+          "type": "string"
+        },
+        "member_id": {
+          "type": "string"
+        },
+        "effective_date": {
+          "type": "string"
+        }
+      }
+    },
+    "transcription": {
+      "type": "string",
+      "description": "Faithful text of the document, as written"
+    },
+    "summary": {
+      "type": "string",
+      "description": "One sentence: what this document tells an operator"
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "missing": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Fields a reviewer would expect but the document doesn't have"
+    }
+  }
+}

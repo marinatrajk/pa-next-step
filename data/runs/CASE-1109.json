@@ -1,0 +1,171 @@
+{
+  "case_id": "CASE-1109",
+  "skill": "pa-next-step@0.1.0",
+  "ran_at": "2026-10-19T17:40:52",
+  "gate": {
+    "applies": true,
+    "reasons": [],
+    "notes": [],
+    "hours_left": 615.0,
+    "deadline_at_risk": false
+  },
+  "status": "ok",
+  "result": {
+    "situation": "CASE-1109, Dupixent for atopic dermatitis, denied 2026-10-14 for the second time with the same code (ST-DOC). The payer says the tacrolimus trial dates and duration are not documented. The second submission went in without those dates, so it was not complete. 615 hours remain in the resubmission window; the deadline is not at risk.",
+    "criteria": [
+      {
+        "criterion": "Moderate-to-severe AD: IGA \u22653 or BSA \u226510%",
+        "status": "met",
+        "evidence": "Packet documents IGA 3 and BSA 14%.",
+        "source_ids": [
+          "DOC-1109-01",
+          "POLICY"
+        ]
+      },
+      {
+        "criterion": "Prescriber is a dermatologist, allergist or immunologist",
+        "status": "met",
+        "evidence": "Dr. Lena Brooks, Dermatology.",
+        "source_ids": [
+          "CASE",
+          "DOC-1109-01"
+        ]
+      },
+      {
+        "criterion": "Step 3a: medium-to-super-high-potency TCS for \u226528 consecutive days, with drug, dates and outcome",
+        "status": "met",
+        "evidence": "Clobetasol 0.05% ointment 02/02/2026 to 04/10/2026, inadequate response. The denial cites only the TCI step.",
+        "source_ids": [
+          "DOC-1109-01",
+          "CASE"
+        ]
+      },
+      {
+        "criterion": "Step 3b: TCI (tacrolimus/pimecrolimus) for \u226528 consecutive days, with drug, dates and outcome",
+        "status": "not_met",
+        "evidence": "Chart says tacrolimus 0.1% 'tried, didn't help' with no dates or duration. This is the stated denial reason.",
+        "source_ids": [
+          "DOC-1109-01",
+          "CASE",
+          "POLICY"
+        ]
+      },
+      {
+        "criterion": "Not used with another biologic or JAK inhibitor for AD",
+        "status": "unknown",
+        "evidence": "No source addresses concurrent biologic or JAK use.",
+        "source_ids": [
+          "POLICY"
+        ]
+      }
+    ],
+    "conflicts": [
+      {
+        "description": "The payer policy lets the prescriber request a peer-to-peer within 14 days after a second denial for the same reason. The SOP reserves PEER_TO_PEER for a second denial after a complete resubmission, and this resubmission lacked the TCI dates.",
+        "source_ids": [
+          "POLICY",
+          "SOP"
+        ],
+        "resolution": "Not a contradiction. The policy defines the payer's option; the SOP governs Forus's action. Team Lead decides whether to use the peer-to-peer window or to get records first."
+      }
+    ],
+    "missing_information": [
+      {
+        "item": "Tacrolimus start date, end date or duration, and outcome",
+        "why_it_matters": "This is the only unmet criterion and the exact reason for both denials.",
+        "how_to_get": "Ask Bayview Skin Clinic to check pharmacy fill history, prescription records and the visit notes around the trial."
+      },
+      {
+        "item": "Concurrent biologic or JAK inhibitor status",
+        "why_it_matters": "This is a required criterion and is not documented anywhere.",
+        "how_to_get": "Ask the office to confirm in the same records request."
+      },
+      {
+        "item": "Whether Dr. Brooks wants a peer-to-peer",
+        "why_it_matters": "The payer's peer-to-peer option runs only 14 days from the 2026-10-14 denial.",
+        "how_to_get": "Team Lead coordinates with the provider office."
+      }
+    ],
+    "trigger_checks": {
+      "E1": {
+        "fires": false,
+        "reason": "No contraindication or intolerance is claimed. Tacrolimus is documented as inadequate response; the gap is dates only (DOC-1109-01, CASE)."
+      },
+      "E2": {
+        "fires": false,
+        "reason": "All sources agree tacrolimus was tried and the dates are missing. No disagreement about patient facts (DOC-1109-01, NOTE-1, NOTE-2)."
+      },
+      "E3": {
+        "fires": false,
+        "reason": "No report of a payer rule change. POLICY says bulletin NW-B-2026-09 made no changes."
+      },
+      "E4": {
+        "fires": false,
+        "reason": "615 hours left and deadline_at_risk is False per system facts and CASE."
+      },
+      "E5": {
+        "fires": true,
+        "reason": "Second denial for the same ST-DOC reason (CASE submission_count 2, NOTE-2). POLICY opens a 14-day peer-to-peer option, so Team Lead must be notified."
+      },
+      "E6": {
+        "fires": false,
+        "reason": "No safety concern appears in CASE, DOC-1109-01 or the notes."
+      }
+    },
+    "primary_action": "HOLD_FOR_ESCALATION",
+    "action_rationale": "The second-denial trigger fires. The resubmission was incomplete, so the SOP's peer-to-peer path does not cleanly apply. The choice between using the payer's 14-day peer-to-peer option and getting the TCI dates for a third submission is the Team Lead's. Hold payer-facing action and chase records in parallel.",
+    "parallel_actions": [
+      "Send Bayview Skin Clinic a records request for tacrolimus start date, end date or duration, and outcome (fill history acceptable), plus confirmation of no concurrent biologic or JAK use.",
+      "Follow up with the office at 48 hours if there is no response."
+    ],
+    "could_not_determine": [
+      "Whether the tacrolimus trial lasted \u226528 consecutive days.",
+      "Whether any record of the tacrolimus dates exists; the office could not find them before (NOTE-1, a lead only).",
+      "Concurrent biologic or JAK inhibitor status."
+    ],
+    "needs_human_judgment": [
+      "Team Lead: pursue a peer-to-peer within the payer's 14-day window, or wait for records and resubmit a third time.",
+      "If no tacrolimus dates exist, decide with the provider how to address the TCI step."
+    ],
+    "draft": {
+      "kind": "escalation_message",
+      "to": "Team Lead (case-system escalation queue)",
+      "subject": "CASE-1109: second ST-DOC denial, Dupixent; peer-to-peer or records first?",
+      "body": "FYI per second-denial escalation. CASE-1109 (Dupixent 300 mg q2w for atopic dermatitis, Dr. Lena Brooks, Bayview Skin Clinic, Northwind Commercial) was denied 2026-10-14 for the second time, same code ST-DOC. The payer still lacks tacrolimus trial dates and duration. The chart says only 'tried, didn't help', and the office could not find dates before the 2026-10-03 resubmission, so that submission was incomplete. All other criteria are documented: IGA 3, BSA 14%, dermatologist, and clobetasol 02/02 to 04/10/2026 with inadequate response. Concurrent biologic or JAK status is undocumented. The resubmission window has 615 hours left, but the payer's peer-to-peer option runs only 14 days from the 2026-10-14 denial. Decision needed: (a) coordinate a peer-to-peer with Dr. Brooks now, or (b) wait for tacrolimus records and resubmit a third time. I am requesting the tacrolimus dates or fill history from the office in parallel and holding payer-facing action until you reply."
+    },
+    "confidence": "medium",
+    "operator_summary": {
+      "headline": "Hold the case and escalate to your Team Lead",
+      "why": [
+        "Second denial for the same reason: missing tacrolimus dates.",
+        "The resubmission was incomplete, so peer-to-peer may not fit yet.",
+        "Payer's peer-to-peer option expires 14 days after the denial."
+      ],
+      "then": [
+        "Request tacrolimus dates or fill history from the clinic.",
+        "Follow up with the clinic at 48 hours.",
+        "Act on the Team Lead's decision promptly."
+      ]
+    },
+    "triggers_fired": [
+      {
+        "id": "E5",
+        "reason": "Second denial for the same ST-DOC reason (CASE submission_count 2, NOTE-2). POLICY opens a 14-day peer-to-peer option, so Team Lead must be notified.",
+        "source_ids": []
+      }
+    ],
+    "escalate": true,
+    "escalate_to": [
+      "Team Lead (FYI)"
+    ]
+  },
+  "model_action": "HOLD_FOR_ESCALATION",
+  "guardrail_notes": [],
+  "usage": {
+    "model": "claude-opus-5-5",
+    "input_tokens": 6946,
+    "output_tokens": 4472,
+    "seconds": 39.7
+  },
+  "input_fingerprint": "97732e2df65e86de"
+}

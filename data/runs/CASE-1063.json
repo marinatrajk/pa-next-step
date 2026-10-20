@@ -1,0 +1,240 @@
+{
+  "case_id": "CASE-1063",
+  "skill": "pa-next-step@0.1.0",
+  "ran_at": "2026-10-19T20:27:47",
+  "gate": {
+    "applies": true,
+    "reasons": [],
+    "notes": [],
+    "hours_left": 110.0,
+    "deadline_at_risk": false
+  },
+  "log": [
+    {
+      "t": 0.0,
+      "text": "Scope check: Northwind Commercial rules on file, 5 days left in the window"
+    },
+    {
+      "t": 0.0,
+      "text": "Gathered the SOP and insurer policy, the case record (1 document, 3 notes) and 1 team-knowledge entry (KB-0002)"
+    },
+    {
+      "t": 0.0,
+      "text": "Asked claude-opus-5-5 for the next step"
+    },
+    {
+      "t": 1.7,
+      "text": "Thinking it through"
+    },
+    {
+      "t": 15.7,
+      "text": "Reading the denial and where the case stands"
+    },
+    {
+      "t": 16.8,
+      "text": "Checking each insurer requirement against the records"
+    },
+    {
+      "t": 20.8,
+      "text": "Looking for information that conflicts"
+    },
+    {
+      "t": 22.3,
+      "text": "Listing what's still missing"
+    },
+    {
+      "t": 24.6,
+      "text": "Checking the six escalation triggers (E1\u2013E6)"
+    },
+    {
+      "t": 28.0,
+      "text": "Choosing the next step"
+    },
+    {
+      "t": 30.5,
+      "text": "Flagging what needs a person's judgment"
+    },
+    {
+      "t": 31.3,
+      "text": "Writing the draft message"
+    },
+    {
+      "t": 35.4,
+      "text": "Writing the short summary"
+    },
+    {
+      "t": 36.5,
+      "text": "Model's pick: Coordinate peer-to-peer review \u00b7 triggers E5"
+    },
+    {
+      "t": 36.5,
+      "text": "Safety checks passed: citations, escalation rules, draft"
+    },
+    {
+      "t": 36.5,
+      "text": "Saved \u00b7 7,573 tokens read, 4,006 written"
+    }
+  ],
+  "status": "ok",
+  "result": {
+    "situation": "CASE-1063: Dupixent for adult atopic dermatitis, Northwind Commercial. Denied a second time for the same reason (ST-DOC) on 2026-10-09, after a resubmission on 2026-10-02 that included documented step-therapy trials. The peer-to-peer window closes 2026-10-23 23:59 ET, with 110 hours left.",
+    "criteria": [
+      {
+        "criterion": "Diagnosis: moderate-to-severe AD (IGA \u22653 or BSA \u226510%)",
+        "status": "met",
+        "evidence": "Packet chart notes show IGA 4 and BSA 32%.",
+        "source_ids": [
+          "DOC-1063-01",
+          "POLICY"
+        ]
+      },
+      {
+        "criterion": "Prescriber is a dermatologist, allergist or immunologist",
+        "status": "met",
+        "evidence": "Dr. Alana Reyes is listed as Dermatology.",
+        "source_ids": [
+          "CASE",
+          "DOC-1063-01"
+        ]
+      },
+      {
+        "criterion": "Topical corticosteroid trial \u226528 consecutive days with drug, dates and outcome",
+        "status": "met",
+        "evidence": "Betamethasone valerate 0.1% cream, 01/05/2026 to 02/20/2026, outcome inadequate. The sources do not state its potency class (the policy requires medium-to-super-high); the prescriber should confirm this at peer-to-peer.",
+        "source_ids": [
+          "DOC-1063-01",
+          "POLICY"
+        ]
+      },
+      {
+        "criterion": "Topical calcineurin inhibitor trial \u226528 consecutive days with drug, dates and outcome",
+        "status": "met",
+        "evidence": "Tacrolimus 0.1% ointment, 03/01/2026 to 04/30/2026, outcome inadequate.",
+        "source_ids": [
+          "DOC-1063-01",
+          "POLICY"
+        ]
+      },
+      {
+        "criterion": "Not used with another biologic or JAK inhibitor for AD",
+        "status": "unknown",
+        "evidence": "No source documents current or concurrent biologic or JAK inhibitor use either way.",
+        "source_ids": [
+          "CASE",
+          "DOC-1063-01"
+        ]
+      }
+    ],
+    "conflicts": [
+      {
+        "description": "The operator judged the resubmission complete, but the payer reviewer says step therapy was 'not demonstrated' and gave no specific gap.",
+        "source_ids": [
+          "NOTE-2",
+          "NOTE-3",
+          "CASE"
+        ],
+        "resolution": "Provider documents appear to cover both required trials. The reviewer's specific objection is unknown; peer-to-peer is the SOP route to resolve it."
+      }
+    ],
+    "missing_information": [
+      {
+        "item": "Payer reviewer's specific rationale for the second denial",
+        "why_it_matters": "Lets the prescriber address the exact gap (for example steroid potency or consecutive days) at peer-to-peer.",
+        "how_to_get": "Operator requests the denial letter or reviewer notes from Northwind."
+      },
+      {
+        "item": "Confirmation of no concurrent biologic or JAK inhibitor",
+        "why_it_matters": "This is a required policy criterion and is undocumented.",
+        "how_to_get": "Ask the Riverside Dermatology office to confirm in a chart note."
+      },
+      {
+        "item": "Prescriber availability for peer-to-peer before 2026-10-23",
+        "why_it_matters": "The peer-to-peer must be requested within the payer window.",
+        "how_to_get": "Ask in the draft message to Dr. Reyes's office."
+      }
+    ],
+    "trigger_checks": {
+      "E1": {
+        "fires": false,
+        "reason": "No contraindication or intolerance is claimed, and there are no labs or off-label dosing. The trials ended for inadequate response (DOC-1063-01)."
+      },
+      "E2": {
+        "fires": false,
+        "reason": "No sources disagree on trials or diagnosis. Notes are consistent with the provider packet (DOC-1063-01, NOTE-1, NOTE-2, NOTE-3)."
+      },
+      "E3": {
+        "fires": false,
+        "reason": "KB-0002 is a tip about triamcinolone, not a reported rule change. It does not conflict with POLICY, and the patient used betamethasone. The bulletin NW-B-2026-09 lists no changes."
+      },
+      "E4": {
+        "fires": false,
+        "reason": "110 hours remain, which is more than 48 (system facts, POLICY)."
+      },
+      "E5": {
+        "fires": true,
+        "reason": "This is the second denial with the same ST-DOC code after a resubmission that documented both trials (CASE, NOTE-3, DOC-1063-01). Peer-to-peer is needed, with an FYI to the Team Lead."
+      },
+      "E6": {
+        "fires": false,
+        "reason": "No patient safety concern appears in CASE, DOC-1063-01 or the notes."
+      }
+    },
+    "primary_action": "PEER_TO_PEER",
+    "action_rationale": "The SOP maps a second denial for the same reason after a complete resubmission to peer-to-peer, and the payer policy allows the prescriber to request it within 14 days. Only E5 fires; it is an FYI to the Team Lead and does not change the action, so no hold is needed.",
+    "parallel_actions": [
+      "Send an FYI escalation to the Team Lead in the escalation queue (E5).",
+      "Request the reviewer's denial rationale from Northwind.",
+      "Ask the provider office to confirm no concurrent biologic or JAK inhibitor.",
+      "Follow up with the office at 48 hours if there is no response."
+    ],
+    "could_not_determine": [
+      "The reviewer's specific reason for finding step therapy not demonstrated.",
+      "The potency class of betamethasone valerate 0.1%, which the sources do not state.",
+      "Concurrent biologic or JAK inhibitor status."
+    ],
+    "needs_human_judgment": [
+      "Whether the prescriber should request expedited handling given the 2026-10-23 window.",
+      "Whether the potency of betamethasone valerate 0.1% meets the policy's medium-to-super-high threshold; the prescriber or Clinical Intelligence should confirm."
+    ],
+    "draft": {
+      "kind": "peer_to_peer_request",
+      "to": "Dr. Alana Reyes / Riverside Dermatology Associates",
+      "subject": "CASE-1063: Peer-to-peer needed for Dupixent denial (Northwind), by 10/23",
+      "body": "Hello Dr. Reyes and team,\n\nNorthwind denied Dupixent for your patient (PT-57741, CASE-1063) a second time on 10/09 with the same reason: 'step therapy criteria not demonstrated.' Our 10/02 resubmission included chart notes for both required trials:\n- betamethasone valerate 0.1% cream, 01/05 to 02/20/2026, inadequate response\n- tacrolimus 0.1% ointment, 03/01 to 04/30/2026, inadequate response\n- IGA 4, BSA 32%\n\nNorthwind allows the prescriber to request a peer-to-peer with its medical director. The window closes 10/23/2026 at 11:59 PM ET.\n\nPlease reply with:\n1. Dr. Reyes's availability for a peer-to-peer this week.\n2. Confirmation that the patient is not using another biologic or JAK inhibitor for AD.\n3. Confirmation of the potency class of the betamethasone valerate 0.1% used, in case the reviewer raises it.\n\nWe will share the reviewer's denial rationale as soon as we receive it.\n\nThank you,\nForus Access Operations"
+    },
+    "confidence": "high",
+    "operator_summary": {
+      "headline": "Ask prescriber's office to schedule peer-to-peer",
+      "why": [
+        "Second denial, same reason, after a resubmission with full trial notes.",
+        "Both required topical trials are documented with dates and outcomes.",
+        "About four and a half days remain in the window."
+      ],
+      "then": [
+        "Send the Team Lead an FYI.",
+        "Request the reviewer's denial rationale from Northwind.",
+        "Follow up with the office in 48 hours."
+      ]
+    },
+    "triggers_fired": [
+      {
+        "id": "E5",
+        "reason": "This is the second denial with the same ST-DOC code after a resubmission that documented both trials (CASE, NOTE-3, DOC-1063-01). Peer-to-peer is needed, with an FYI to the Team Lead.",
+        "source_ids": []
+      }
+    ],
+    "escalate": true,
+    "escalate_to": [
+      "Team Lead (FYI)"
+    ]
+  },
+  "model_action": "PEER_TO_PEER",
+  "guardrail_notes": [],
+  "usage": {
+    "model": "claude-opus-5-5",
+    "input_tokens": 7573,
+    "output_tokens": 4006,
+    "seconds": 36.5
+  },
+  "input_fingerprint": "698ee21d4785dda3"
+}

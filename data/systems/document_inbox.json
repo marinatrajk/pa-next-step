@@ -1,0 +1,695 @@
+{
+  "system": "Document inbox",
+  "documents": [
+    {
+      "key": "D-0001",
+      "received": "2026-10-08",
+      "doc_type": "PA request form (as submitted)",
+      "content": "Dx: atopic dermatitis L20.9. IGA 3. BSA 18%. Prescriber specialty: dermatology. Prior therapies: 'topical steroids, tacrolimus \u2014 inadequate response.' No concurrent biologic or JAK inhibitor.",
+      "channel": "submission portal",
+      "case_ref": "CASE-1042"
+    },
+    {
+      "key": "D-0002",
+      "received": "2026-10-17",
+      "doc_type": "Chart notes (provider office fax)",
+      "content": "03/02/2026: Start triamcinolone 0.1% cream BID to affected areas. 04/20/2026 f/u: minimal improvement after 7 wks, IGA 3, d/c triamcinolone. Start tacrolimus 0.1% ointment BID. 05/01/2026: confirmed pt started tacrolimus 04/21. 06/30/2026 f/u: tacrolimus x ~10 wks, mild burning but tolerated, inadequate response, IGA 3, BSA 18%. Plan: biologic, dupilumab.",
+      "channel": "fax",
+      "from_office": "Riverside Dermatology Associates",
+      "patient_name": "Hannah Lindqvist",
+      "patient_dob": "1992-08-05"
+    },
+    {
+      "key": "D-0003",
+      "received": "2026-10-02",
+      "doc_type": "PA resubmission packet",
+      "content": "Resubmission after initial ST-DOC denial (09/22). Includes chart notes: betamethasone valerate 0.1% cream 01/05/2026-02/20/2026 inadequate; tacrolimus 0.1% ointment 03/01/2026-04/30/2026 inadequate. IGA 4, BSA 32%. Dermatologist.",
+      "channel": "submission portal",
+      "case_ref": "CASE-1063"
+    },
+    {
+      "key": "D-0004",
+      "received": "2026-10-06",
+      "doc_type": "PA request form (as submitted)",
+      "content": "Dx: rheumatoid arthritis M06.9, rheumatologist. Prior: methotrexate 20 mg/wk 01/2025-06/2025, inadequate response. Current: Humira 40 mg q2w since 08/2025, good response. Request: continuation of brand Humira (plan change; new to Bluepeak 10/2026).",
+      "channel": "submission portal",
+      "case_ref": "CASE-1077"
+    },
+    {
+      "key": "D-0005",
+      "received": "2026-10-16",
+      "doc_type": "Chart notes (provider office fax)",
+      "content": "Med history: methotrexate 01/2025-06/2025 (inadequate, DAS28 5.1). Humira started 08/12/2025. 02/2026 f/u: DAS28 2.4, doing well on Humira, continue. 08/2026 f/u: stable, continue Humira. No other biologics listed.",
+      "channel": "fax",
+      "from_office": "Hudson Valley Rheumatology",
+      "patient_name": "R. Delgado",
+      "patient_dob": "1974-07-07"
+    },
+    {
+      "key": "D-0006",
+      "received": "2026-10-12",
+      "doc_type": "PA request form (as submitted)",
+      "content": "Dx: atopic dermatitis L20.9, 'moderate-severe, widespread'. Prescriber: allergist. Step therapy: clobetasol 0.05% ointment 02/10/2026-03/24/2026 inadequate; pimecrolimus 1% cream 04/01/2026-05/15/2026 inadequate. No concurrent biologic.",
+      "channel": "submission portal",
+      "case_ref": "CASE-1081"
+    },
+    {
+      "key": "D-0007",
+      "received": "2026-10-12",
+      "doc_type": "Chart notes (provider office fax)",
+      "content": "Trial notes for clobetasol and pimecrolimus as listed on PA form, with outcomes. Exam 09/2026: 'extensive eczematous plaques trunk, arms, legs.' No IGA or BSA recorded.",
+      "channel": "fax",
+      "from_office": "Metro Allergy Partners",
+      "patient_name": "Kwame Asante",
+      "patient_dob": "1985-02-08"
+    },
+    {
+      "key": "D-0008",
+      "received": "2026-10-09",
+      "doc_type": "PA request form (as submitted)",
+      "content": "Dx: rheumatoid arthritis M06.9, seropositive, rheumatologist. Prior DMARDs: hydroxychloroquine 6 mo, inadequate. Methotrexate: not trialed (see notes).",
+      "channel": "submission portal",
+      "case_ref": "CASE-1090"
+    },
+    {
+      "key": "D-0009",
+      "received": "2026-10-09",
+      "doc_type": "Chart notes (provider office fax)",
+      "content": "09/2026: ALT 58 U/L (ULN 40, ~1.4x), AST normal. Hx of NAFLD on US 2024. Moderate alcohol use (reports 5-7 drinks/wk). Discussed MTX hepatotoxicity risk; patient prefers to avoid MTX. Plan: proceed to TNF inhibitor.",
+      "channel": "fax",
+      "from_office": "Hudson Valley Rheumatology",
+      "patient_name": "Irene Novak",
+      "patient_dob": ""
+    },
+    {
+      "key": "D-0010",
+      "received": "2026-10-14",
+      "doc_type": "PA request form (as submitted)",
+      "content": "Dx: RA M06.9, rheumatologist. MTX 20 mg/wk 12/2025-04/2026 inadequate. Insurance on file: Bluepeak Commercial, member ID BP-xxxx-2231 (from 2025 intake).",
+      "channel": "submission portal",
+      "case_ref": "CASE-1095"
+    },
+    {
+      "key": "D-0011",
+      "received": "2026-10-08",
+      "doc_type": "PA request form (as submitted)",
+      "content": "Dx: atopic dermatitis L20.9, 'moderate-severe'. Prescriber: dermatology. Step therapy: mometasone furoate 0.1% ointment 01/12/2026-03/02/2026, inadequate; tacrolimus 0.1% ointment 03/05/2026-05/20/2026, inadequate. No concurrent biologic or JAK inhibitor.",
+      "channel": "submission portal",
+      "case_ref": "CASE-1101"
+    },
+    {
+      "key": "D-0012",
+      "received": "2026-10-16",
+      "doc_type": "Chart notes (provider office fax)",
+      "content": "10/15/2026 visit: extensive eczematous plaques on arms, legs and neck. IGA 4. BSA 22%. Plan: continue pursuing dupilumab.",
+      "channel": "fax",
+      "from_office": "Bayview Skin Clinic",
+      "patient_name": "Mei Tanka",
+      "patient_dob": "1999-04-13"
+    },
+    {
+      "key": "D-0013",
+      "received": "2026-10-09",
+      "doc_type": "PA request form (as submitted)",
+      "content": "Dx: rheumatoid arthritis M06.9, rheumatologist. Prior: methotrexate 20 mg/wk 02/2024-08/2024, inadequate (DAS28 5.4). adalimumab-adaz 40 mg q2w 10/2024-01/2025, discontinued for intolerance (see chart). Request: Humira brand.",
+      "channel": "submission portal",
+      "case_ref": "CASE-1102"
+    },
+    {
+      "key": "D-0014",
+      "received": "2026-10-09",
+      "doc_type": "Chart notes (provider office fax)",
+      "content": "11/2024: injection-site reactions with each adalimumab-adaz dose. 01/06/2025: generalized urticaria after 6th dose. Assessment: intolerance to adalimumab-adaz, likely excipient-related; discontinue. 02/2025: started Humira (citrate-free), tolerating well. 08/2026: DAS28 2.6, continue.",
+      "channel": "fax",
+      "from_office": "Northgate Arthritis Clinic",
+      "patient_name": "Gloria Fairbanks",
+      "patient_dob": "1968-05-20"
+    },
+    {
+      "key": "D-0015",
+      "received": "2026-10-06",
+      "doc_type": "PA request form (as submitted)",
+      "content": "Dx: atopic dermatitis L20.9, IGA 3, BSA 15%, allergist. TCS: fluocinonide 0.05% ointment 04/01/2026-05/15/2026, inadequate. TCI: not trialed, contraindicated (see letter). No concurrent biologic or JAK inhibitor.",
+      "channel": "submission portal",
+      "case_ref": "CASE-1103"
+    },
+    {
+      "key": "D-0016",
+      "received": "2026-10-14",
+      "doc_type": "Prescriber letter",
+      "content": "Patient has recurrent eczema herpeticum: three episodes, most recent 06/2026, which required IV acyclovir. Given this history, topical calcineurin inhibitors are contraindicated for this patient. Signed, Dr. Hannah Okafor, Allergy & Immunology.",
+      "channel": "fax",
+      "from_office": "Metro Allergy Partners",
+      "patient_name": "D. Okoro",
+      "patient_dob": ""
+    },
+    {
+      "key": "D-0017",
+      "received": "2026-10-01",
+      "doc_type": "PA request form (as submitted)",
+      "content": "Dx: atopic dermatitis L20.9, 'severe, widespread'. Prescriber: dermatology. TCS: betamethasone valerate 0.1% cream 02/01/2026-03/20/2026, inadequate. TCI: tacrolimus 0.1% ointment 03/25/2026-05/30/2026, inadequate. No concurrent biologic or JAK inhibitor.",
+      "channel": "submission portal",
+      "case_ref": "CASE-1104"
+    },
+    {
+      "key": "D-0018",
+      "received": "2026-10-10",
+      "doc_type": "PA request form (as submitted)",
+      "content": "Dx: rheumatoid arthritis M06.9, rheumatologist. Methotrexate: yes (see notes). Request: adalimumab-adaz.",
+      "channel": "submission portal",
+      "case_ref": "CASE-1105"
+    },
+    {
+      "key": "D-0019",
+      "received": "2026-10-17",
+      "doc_type": "Chart notes (provider office fax)",
+      "content": "Methotrexate 17.5 mg/wk 11/2025-04/2026, inadequate response (DAS28 4.9). Pre-biologic screening 09/2026: QuantiFERON-TB Gold POSITIVE; chest x-ray pending. Plan: hold any TNF inhibitor until ID clearance and latent TB treatment has started.",
+      "channel": "fax",
+      "from_office": "Hudson Valley Rheumatology",
+      "patient_name": "Harold Kim",
+      "patient_dob": "1965-08-14"
+    },
+    {
+      "key": "D-0020",
+      "received": "2026-10-09",
+      "doc_type": "PA request form (as submitted)",
+      "content": "Dx: atopic dermatitis L20.9, IGA 3. Prescriber: dermatology. Medicare Advantage plan (Crestline). Prior topical therapies listed without dates.",
+      "channel": "submission portal",
+      "case_ref": "CASE-1106"
+    },
+    {
+      "key": "D-0021",
+      "received": "2026-10-08",
+      "doc_type": "PA request form (as submitted)",
+      "content": "Dx: atopic dermatitis L20.9, IGA 3, BSA 12%, dermatologist. Prior: triamcinolone 0.1% and pimecrolimus, inadequate. No concurrent biologic or JAK inhibitor.",
+      "channel": "submission portal",
+      "case_ref": "CASE-1107"
+    },
+    {
+      "key": "D-0022",
+      "received": "2026-10-17",
+      "doc_type": "Chart notes (provider office fax)",
+      "content": "03/02/2026: start triamcinolone 0.1% cream BID. 04/27/2026: inadequate after 8 weeks; stop triamcinolone, start pimecrolimus 1% cream BID. 05/18/2026: patient stopped pimecrolimus, no improvement. Plan: dupilumab.",
+      "channel": "fax",
+      "from_office": "Riverside Dermatology Associates",
+      "patient_name": "Nadia Varga",
+      "patient_dob": "1995-01-01"
+    },
+    {
+      "key": "D-0023",
+      "received": "2026-10-07",
+      "doc_type": "PA request form (as submitted)",
+      "content": "Dx: rheumatoid arthritis M06.9, rheumatologist. Methotrexate 15 mg/wk 06/2023-03/2024, inadequate. adalimumab-adaz 2025, stopped for injection reactions. Requesting Humira.",
+      "channel": "submission portal",
+      "case_ref": "CASE-1108"
+    },
+    {
+      "key": "D-0024",
+      "received": "2026-10-16",
+      "doc_type": "Chart notes (provider office fax)",
+      "content": "Med history: methotrexate 15 mg/wk 06/2023-03/2024 (inadequate). Leflunomide 04/2024-12/2024 (inadequate). Biologic-naive prior to starting Humira 03/2025. No other TNF inhibitors.",
+      "channel": "fax",
+      "from_office": "Lakeside Arthritis Center",
+      "patient_name": "Victor J. Quinn",
+      "patient_dob": "1977-02-08"
+    },
+    {
+      "key": "D-0025",
+      "received": "2026-10-03",
+      "doc_type": "PA resubmission packet",
+      "content": "Resubmission after ST-DOC denial (09/24). Chart notes: clobetasol 0.05% ointment 02/02/2026-04/10/2026, inadequate. Tacrolimus 0.1% ointment: 'tried, didn't help' (no dates in chart). IGA 3, BSA 14%. Dermatologist.",
+      "channel": "submission portal",
+      "case_ref": "CASE-1109"
+    },
+    {
+      "key": "D-0026",
+      "received": "2026-10-11",
+      "doc_type": "PA request form (as submitted)",
+      "content": "Dx: rheumatoid arthritis M06.9, seropositive, rheumatologist. Methotrexate: see chart. Request: adalimumab-adaz (preferred).",
+      "channel": "submission portal",
+      "case_ref": "CASE-1110"
+    },
+    {
+      "key": "D-0027",
+      "received": "2026-10-18",
+      "doc_type": "Chart notes (provider office fax)",
+      "content": "03/03/2026: start methotrexate 15 mg/wk. 04/14/2026: increased to 20 mg/wk. 07/20/2026 follow-up: inadequate response after about 20 weeks (DAS28 4.6). Plan: add TNF inhibitor.",
+      "channel": "fax",
+      "from_office": "Northgate Arthritis Clinic",
+      "patient_name": "Rosa Jimenez",
+      "patient_dob": "1973-04-22"
+    },
+    {
+      "key": "D-0028",
+      "received": "2026-10-07",
+      "doc_type": "PA request form (as submitted)",
+      "content": "Dx: atopic dermatitis L20.9, IGA 3, BSA 11%, dermatologist. TCS: hydrocortisone 2.5% cream 01/05/2026-03/10/2026, inadequate. TCI: tacrolimus 0.03% ointment 03/12/2026-05/22/2026, inadequate. No concurrent biologic or JAK inhibitor.",
+      "channel": "submission portal",
+      "case_ref": "CASE-1111"
+    },
+    {
+      "key": "D-0029",
+      "received": "2026-10-07",
+      "doc_type": "Chart notes (provider office fax)",
+      "content": "Transferred from pediatrics at 18; family preferred mild steroids. No medium- or high-potency topical steroid has been tried. No contraindication to topical steroids documented.",
+      "channel": "fax",
+      "from_office": "Coastal Dermatology",
+      "patient_name": "Ethan Moreau",
+      "patient_dob": "2007-05-02"
+    },
+    {
+      "key": "D-0030",
+      "received": "2026-10-18",
+      "doc_type": "Referral fax",
+      "channel": "fax",
+      "from_office": "Bayview Skin Clinic",
+      "patient_name": "Tomas Ruiz",
+      "patient_dob": "1990-02-03",
+      "content": "New referral: Dupixent for atopic dermatitis. Please start benefits investigation. Chart notes to follow."
+    },
+    {
+      "key": "D-0031",
+      "received": "2026-10-18",
+      "doc_type": "Fax cover sheet",
+      "channel": "fax",
+      "from_office": "Riverside Dermatology Associates",
+      "patient_name": "",
+      "patient_dob": "",
+      "content": "Cover sheet only. Pages that followed did not come through; please resend."
+    },
+    {
+      "key": "D-IN-182437",
+      "received": "2026-09-24",
+      "doc_type": "Lab report",
+      "channel": "fax",
+      "from_office": "Hudson Valley Rheumatology",
+      "patient_name": "Harold Kim",
+      "patient_dob": "1965-08-14",
+      "content": "Hudson Valley Rheumatology - Laboratory Report\nPatient: Harold Kim DOB: 08/14/1965 MRN: HV-20931\nOrdering: Dr. Marcus Feld Collected: 09/22/2026 Reported: 09/24/2026\nTest Result Units Ref range Flag\nQuantiFERON-TB Gold Plus POSITIVE Negative A\nTB1 antigen - Nil 0.82 IU/mL <0.35 H\nALT 31 U/L 7-40\nCreatinine 0.9 mg/dL 0.6-1.2\nComment: Positive interferon-gamma release assay. Recommend chest x-ray and ID consultation before starting any\nTNF inhibitor.",
+      "schema": {
+        "doc_type": "lab_result",
+        "patient": {
+          "name": "Harold Kim",
+          "dob": "1965-08-14",
+          "member_id": ""
+        },
+        "sender": {
+          "organization": "Hudson Valley Rheumatology",
+          "person": "Dr. Marcus Feld",
+          "contact": ""
+        },
+        "document_date": "2026-09-24",
+        "medications": [],
+        "severity": {
+          "iga": -1,
+          "bsa_pct": -1,
+          "das28": -1
+        },
+        "labs": [
+          {
+            "test": "QuantiFERON-TB Gold Plus",
+            "result": "POSITIVE",
+            "unit": "",
+            "flag": "A"
+          },
+          {
+            "test": "TB1 antigen - Nil",
+            "result": "0.82",
+            "unit": "IU/mL",
+            "flag": "H"
+          },
+          {
+            "test": "ALT",
+            "result": "31",
+            "unit": "U/L",
+            "flag": ""
+          },
+          {
+            "test": "Creatinine",
+            "result": "0.9",
+            "unit": "mg/dL",
+            "flag": ""
+          }
+        ],
+        "contraindications": [
+          {
+            "drug_class": "TNF inhibitor",
+            "stated_by_prescriber": false,
+            "evidence": "Recommend chest x-ray and ID consultation before starting any TNF inhibitor."
+          }
+        ],
+        "insurer_decision": {
+          "status": "",
+          "reason_code": "",
+          "reason": ""
+        },
+        "coverage": {
+          "insurer": "",
+          "member_id": "",
+          "effective_date": ""
+        },
+        "transcription": "Hudson Valley Rheumatology - Laboratory Report\nPatient: Harold Kim DOB: 08/14/1965 MRN: HV-20931\nOrdering: Dr. Marcus Feld Collected: 09/22/2026 Reported: 09/24/2026\nTest Result Units Ref range Flag\nQuantiFERON-TB Gold Plus POSITIVE Negative A\nTB1 antigen - Nil 0.82 IU/mL <0.35 H\nALT 31 U/L 7-40\nCreatinine 0.9 mg/dL 0.6-1.2\nComment: Positive interferon-gamma release assay. Recommend chest x-ray and ID consultation before starting any\nTNF inhibitor.",
+        "summary": "Lab report shows a positive QuantiFERON-TB test for Harold Kim, with a lab comment recommending chest x-ray and ID consultation before any TNF inhibitor; ALT and creatinine are normal.",
+        "confidence": "high",
+        "missing": [
+          "member ID",
+          "insurer",
+          "sender contact (fax/email)",
+          "chest x-ray result",
+          "ID consultation outcome"
+        ]
+      },
+      "raw_file": "data/raw_inbox/HVR_lab_report_0924.pdf",
+      "intake": {
+        "format": "Digital PDF",
+        "read_by": "AI (vision)",
+        "issues": [],
+        "needs_review": false,
+        "processed_at": "2026-10-19T19:44:01",
+        "seconds": 12.6,
+        "usage": {
+          "model": "claude-opus-5-5",
+          "input_tokens": 4170,
+          "output_tokens": 804
+        }
+      }
+    },
+    {
+      "key": "D-IN-b4102b",
+      "received": "2026-10-19",
+      "doc_type": "Insurance card",
+      "channel": "photo upload",
+      "from_office": "Northwind Health Plan",
+      "patient_name": "Theo Brandt",
+      "patient_dob": "",
+      "content": "NORTHWIND HEALTH PLAN\nMember THEO BRANDT\nMember ID NW-771203\nGroup 48812-COM\nEffective 10/01/2026\nRx BIN / PCN 610455 / NWRX",
+      "schema": {
+        "doc_type": "insurance_card",
+        "patient": {
+          "name": "Theo Brandt",
+          "dob": "",
+          "member_id": "NW-771203"
+        },
+        "sender": {
+          "organization": "Northwind Health Plan",
+          "person": "",
+          "contact": ""
+        },
+        "document_date": "",
+        "medications": [],
+        "severity": {
+          "iga": -1,
+          "bsa_pct": -1,
+          "das28": -1
+        },
+        "labs": [],
+        "contraindications": [],
+        "insurer_decision": {
+          "status": "",
+          "reason_code": "",
+          "reason": ""
+        },
+        "coverage": {
+          "insurer": "Northwind Health Plan",
+          "member_id": "NW-771203",
+          "effective_date": "2026-10-01"
+        },
+        "transcription": "NORTHWIND HEALTH PLAN\nMember THEO BRANDT\nMember ID NW-771203\nGroup 48812-COM\nEffective 10/01/2026\nRx BIN / PCN 610455 / NWRX",
+        "summary": "Insurance card for Theo Brandt with Northwind Health Plan, member ID NW-771203, group 48812-COM, effective 2026-10-01, Rx BIN 610455 / PCN NWRX.",
+        "confidence": "high",
+        "missing": [
+          "date of birth",
+          "Rx group",
+          "plan contact phone/fax"
+        ]
+      },
+      "raw_file": "data/raw_inbox/IMG_4471.jpg",
+      "intake": {
+        "format": "Photo / image",
+        "read_by": "AI (vision)",
+        "issues": [],
+        "needs_review": false,
+        "processed_at": "2026-10-19T19:44:14",
+        "seconds": 5.8,
+        "usage": {
+          "model": "claude-opus-5-5",
+          "input_tokens": 4125,
+          "output_tokens": 404
+        }
+      }
+    },
+    {
+      "key": "D-IN-01f86e",
+      "received": "2026-10-15",
+      "doc_type": "Email from office",
+      "channel": "email",
+      "from_office": "Metro Allergy Partners",
+      "patient_name": "Daniel Okoro",
+      "patient_dob": "1991-06-27",
+      "content": "Hi Forus team,\n\nFollowing up on the Dupixent request for our patient Daniel Okoro (DOB 06/27/1991).\nDr. Okafor signed the medical necessity letter yesterday; it went over by fax.\n\nShort version: three episodes of eczema herpeticum, the last one in June 2026 needed IV\nacyclovir. Dr. Okafor considers topical calcineurin inhibitors contraindicated for him.\nHe used fluocinonide 0.05% ointment from April 1 to May 15 this year without enough improvement.\n\nThanks,\nDana R., front desk, Metro Allergy Partners",
+      "schema": {
+        "doc_type": "email_update",
+        "patient": {
+          "name": "Daniel Okoro",
+          "dob": "1991-06-27",
+          "member_id": ""
+        },
+        "sender": {
+          "organization": "Metro Allergy Partners",
+          "person": "Dana R.",
+          "contact": "frontdesk@metroallergy.example"
+        },
+        "document_date": "2026-10-15",
+        "medications": [
+          {
+            "drug": "fluocinonide 0.05% ointment",
+            "dose": "0.05% ointment",
+            "start": "2026-04-01",
+            "end": "2026-05-15",
+            "outcome": "inadequate",
+            "evidence": "fluocinonide 0.05% ointment from April 1 to May 15 this year without enough improvement"
+          },
+          {
+            "drug": "IV acyclovir",
+            "dose": "",
+            "start": "2026-06",
+            "end": "",
+            "outcome": "unknown",
+            "evidence": "the last one in June 2026 needed IV acyclovir"
+          },
+          {
+            "drug": "Dupixent",
+            "dose": "",
+            "start": "",
+            "end": "",
+            "outcome": "unknown",
+            "evidence": "Following up on the Dupixent request"
+          }
+        ],
+        "severity": {
+          "iga": -1,
+          "bsa_pct": -1,
+          "das28": -1
+        },
+        "labs": [],
+        "contraindications": [
+          {
+            "drug_class": "topical calcineurin inhibitors",
+            "stated_by_prescriber": false,
+            "evidence": "Dr. Okafor considers topical calcineurin inhibitors contraindicated for him."
+          }
+        ],
+        "insurer_decision": {
+          "status": "",
+          "reason_code": "",
+          "reason": ""
+        },
+        "coverage": {
+          "insurer": "",
+          "member_id": "",
+          "effective_date": ""
+        },
+        "transcription": "Hi Forus team,\n\nFollowing up on the Dupixent request for our patient Daniel Okoro (DOB 06/27/1991).\nDr. Okafor signed the medical necessity letter yesterday; it went over by fax.\n\nShort version: three episodes of eczema herpeticum, the last one in June 2026 needed IV\nacyclovir. Dr. Okafor considers topical calcineurin inhibitors contraindicated for him.\nHe used fluocinonide 0.05% ointment from April 1 to May 15 this year without enough improvement.\n\nThanks,\nDana R., front desk, Metro Allergy Partners",
+        "summary": "Front-desk email reports Dr. Okafor faxed a signed Dupixent necessity letter, cites three eczema herpeticum episodes, a relayed TCI contraindication, and an inadequate fluocinonide trial (Apr 1\u2013May 15, 2026).",
+        "confidence": "medium",
+        "missing": [
+          "member ID",
+          "insurer",
+          "severity scores (IGA/BSA)",
+          "prescriber's own signed statement of contraindication",
+          "Dupixent dose",
+          "fluocinonide application frequency"
+        ]
+      },
+      "raw_file": "data/raw_inbox/email_metroallergy_1015.eml",
+      "intake": {
+        "format": "Email",
+        "read_by": "code (headers) + AI (body)",
+        "issues": [],
+        "needs_review": false,
+        "processed_at": "2026-10-19T19:44:19",
+        "seconds": 9.2,
+        "usage": {
+          "model": "claude-opus-5-5",
+          "input_tokens": 2641,
+          "output_tokens": 891
+        },
+        "email": {
+          "from": "Metro Allergy Partners <frontdesk@metroallergy.example>",
+          "date": "Thu, 15 Oct 2026 09:12:00 -0400",
+          "subject": "Re: Dupixent request - Okoro, Daniel (DOB 06/27/1991)"
+        }
+      }
+    },
+    {
+      "key": "D-IN-eadf06",
+      "received": "2026-10-14",
+      "doc_type": "Insurer decision letter",
+      "channel": "fax",
+      "from_office": "Northwind Health Plan Pharmacy Services",
+      "patient_name": "Hannah Lindqvist",
+      "patient_dob": "1992-08-05",
+      "content": "FROM: NORTHWIND HP PA DEPT   FAX 1-800-555-0144   10/14/2026 11:32   P.1/1\nNORTHWIND HEALTH PLAN - PHARMACY PRIOR AUTHORIZATION\nDate: 10/14/2026\nMember: Hannah Lindqvist     DOB: 08/05/1992     Member ID: NW-448120\nPrescriber: Dr. Alana Reyes, Riverside Dermatology Associates\nMedication: DUPIXENT (dupilumab) 300 mg every 2 weeks\nDECISION: DENIED\nReason (ST-DOC): Step therapy documentation not provided. Submit chart notes\ndocumenting trials of a topical corticosteroid and a topical calcineurin\ninhibitor, with dates and outcomes, per policy NW-RX-2207.\nYou may resubmit with documentation within 30 days of this notice.\nAppeals must be filed within 180 days.\nNorthwind Health Plan Pharmacy Services",
+      "schema": {
+        "doc_type": "insurer_decision",
+        "patient": {
+          "name": "Hannah Lindqvist",
+          "dob": "1992-08-05",
+          "member_id": "NW-448120"
+        },
+        "sender": {
+          "organization": "Northwind Health Plan Pharmacy Services",
+          "person": "",
+          "contact": "1-800-555-0144"
+        },
+        "document_date": "2026-10-14",
+        "medications": [
+          {
+            "drug": "Dupixent (dupilumab)",
+            "dose": "300 mg every 2 weeks",
+            "start": "",
+            "end": "",
+            "outcome": "unknown",
+            "evidence": "Medication: DUPIXENT (dupilumab) 300 mg every 2 weeks"
+          }
+        ],
+        "severity": {
+          "iga": -1,
+          "bsa_pct": -1,
+          "das28": -1
+        },
+        "labs": [],
+        "contraindications": [],
+        "insurer_decision": {
+          "status": "denied",
+          "reason_code": "ST-DOC",
+          "reason": "Step therapy documentation not provided. Submit chart notes documenting trials of a topical corticosteroid and a topical calcineurin inhibitor, with dates and outcomes, per policy NW-RX-2207."
+        },
+        "coverage": {
+          "insurer": "Northwind Health Plan",
+          "member_id": "NW-448120",
+          "effective_date": ""
+        },
+        "transcription": "FROM: NORTHWIND HP PA DEPT   FAX 1-800-555-0144   10/14/2026 11:32   P.1/1\nNORTHWIND HEALTH PLAN - PHARMACY PRIOR AUTHORIZATION\nDate: 10/14/2026\nMember: Hannah Lindqvist     DOB: 08/05/1992     Member ID: NW-448120\nPrescriber: Dr. Alana Reyes, Riverside Dermatology Associates\nMedication: DUPIXENT (dupilumab) 300 mg every 2 weeks\nDECISION: DENIED\nReason (ST-DOC): Step therapy documentation not provided. Submit chart notes\ndocumenting trials of a topical corticosteroid and a topical calcineurin\ninhibitor, with dates and outcomes, per policy NW-RX-2207.\nYou may resubmit with documentation within 30 days of this notice.\nAppeals must be filed within 180 days.\nNorthwind Health Plan Pharmacy Services",
+        "summary": "Northwind denied Dupixent for Hannah Lindqvist (ST-DOC) for missing step therapy documentation; resubmit chart notes showing topical corticosteroid and topical calcineurin inhibitor trials with dates and outcomes within 30 days.",
+        "confidence": "high",
+        "missing": [
+          "coverage effective date",
+          "diagnosis",
+          "reviewer name"
+        ]
+      },
+      "raw_file": "data/raw_inbox/fax_20261014_1132.pdf",
+      "intake": {
+        "format": "Scanned PDF (no text layer)",
+        "read_by": "AI (vision)",
+        "issues": [],
+        "needs_review": false,
+        "processed_at": "2026-10-19T19:44:29",
+        "seconds": 10.5,
+        "usage": {
+          "model": "claude-opus-5-5",
+          "input_tokens": 3901,
+          "output_tokens": 892
+        }
+      }
+    },
+    {
+      "key": "D-IN-6b3c52",
+      "received": "2026-10-19",
+      "doc_type": "Medication history (EHR)",
+      "channel": "EHR feed",
+      "from_office": "Northgate Arthritis Clinic",
+      "patient_name": "Rosa Jimenez",
+      "patient_dob": "1973-04-22",
+      "content": "Patient: Rosa Jimenez, born 1973-04-22\nSource: Northgate Arthritis Clinic (EHR export)\nmethotrexate 15 mg oral weekly: 2026-03-03 to 2026-04-14 (completed)\nmethotrexate 20 mg oral weekly: 2026-04-14 to 2026-07-20 (completed; inadequate response (DAS28 4.6))",
+      "schema": {
+        "doc_type": "medication_history",
+        "patient": {
+          "name": "Rosa Jimenez",
+          "dob": "1973-04-22",
+          "member_id": ""
+        },
+        "sender": {
+          "organization": "Northgate Arthritis Clinic",
+          "person": "",
+          "contact": ""
+        },
+        "document_date": "",
+        "medications": [
+          {
+            "drug": "methotrexate",
+            "dose": "15 mg",
+            "start": "2026-03-03",
+            "end": "2026-04-14",
+            "outcome": "unknown",
+            "evidence": "methotrexate 15 mg oral weekly 2026-03-03 to 2026-04-14"
+          },
+          {
+            "drug": "methotrexate",
+            "dose": "20 mg",
+            "start": "2026-04-14",
+            "end": "2026-07-20",
+            "outcome": "inadequate",
+            "evidence": "methotrexate 20 mg oral weekly 2026-04-14 to 2026-07-20 inadequate response (DAS28 4.6)"
+          }
+        ],
+        "severity": {
+          "iga": -1,
+          "bsa_pct": -1,
+          "das28": 4.6
+        },
+        "labs": [],
+        "contraindications": [],
+        "insurer_decision": {
+          "status": "",
+          "reason_code": "",
+          "reason": ""
+        },
+        "coverage": {
+          "insurer": "",
+          "member_id": "",
+          "effective_date": ""
+        },
+        "transcription": "Patient: Rosa Jimenez, born 1973-04-22\nSource: Northgate Arthritis Clinic (EHR export)\nmethotrexate 15 mg oral weekly: 2026-03-03 to 2026-04-14 (completed)\nmethotrexate 20 mg oral weekly: 2026-04-14 to 2026-07-20 (completed; inadequate response (DAS28 4.6))",
+        "summary": "EHR medication history from Northgate Arthritis Clinic: methotrexate 15 mg 2026-03-03 to 2026-04-14 (unknown); methotrexate 20 mg 2026-04-14 to 2026-07-20 (inadequate).",
+        "confidence": "high",
+        "missing": []
+      },
+      "raw_file": "data/raw_inbox/northgate_ehr_export.json",
+      "intake": {
+        "format": "EHR export (FHIR)",
+        "read_by": "code (structured)",
+        "issues": [],
+        "needs_review": false,
+        "via": "inbox",
+        "processed_at": "2026-10-19T19:47:57",
+        "seconds": 0.0,
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 0
+        }
+      }
+    }
+  ]
+}

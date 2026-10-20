@@ -1,0 +1,68 @@
+{
+  "case_id": "CASE-1108",
+  "as_of": "2026-10-19T10:00:00-04:00",
+  "patient": {
+    "ref": "PT-64890",
+    "age": 49,
+    "sex": "M",
+    "name": "Victor Quinn",
+    "dob": "1977-02-08"
+  },
+  "payer_policy": "bluepeak_commercial",
+  "drug": "Humira (adalimumab, brand) 40 mg q2w",
+  "indication": "Rheumatoid arthritis",
+  "prescriber": {
+    "name": "Dr. Priya Natarajan",
+    "specialty": "Rheumatology",
+    "office": "Lakeside Arthritis Center"
+  },
+  "pa": {
+    "status": "PENDED",
+    "reason_code": "NF-PREF",
+    "reason_text": "Requested product is non-preferred. Submit documentation of trial and failure/intolerance of preferred adalimumab-adaz, or change request to preferred product.",
+    "event_date": "2026-10-13",
+    "submission_count": 1,
+    "window_closes": "2026-10-23T23:59:00-04:00"
+  },
+  "documents": [
+    {
+      "doc_id": "DOC-1108-01",
+      "type": "PA request form (as submitted)",
+      "received": "2026-10-07",
+      "content": "Dx: rheumatoid arthritis M06.9, rheumatologist. Methotrexate 15 mg/wk 06/2023-03/2024, inadequate. adalimumab-adaz 2025, stopped for injection reactions. Requesting Humira.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0023",
+        "linked_by": "case number on the submission"
+      }
+    },
+    {
+      "doc_id": "DOC-1108-02",
+      "type": "Chart notes (provider office fax)",
+      "received": "2026-10-16",
+      "content": "Med history: methotrexate 15 mg/wk 06/2023-03/2024 (inadequate). Leflunomide 04/2024-12/2024 (inadequate). Biologic-naive prior to starting Humira 03/2025. No other TNF inhibitors.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0024",
+        "linked_by": "AI: Victor Quinn, matching DOB and office, biologic-naive history."
+      }
+    }
+  ],
+  "notes": [
+    {
+      "author": "Jordan T. (Access Ops)",
+      "ts": "2026-10-16T11:30:00-04:00",
+      "text": "PA form says the biosimilar was tried, chart says biologic-naive before Humira. Which is it?",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0021",
+        "linked_by": "filed on the case"
+      }
+    }
+  ],
+  "messages": [],
+  "knowledge": {
+    "sop": "OPS-PA-014",
+    "payer_policy": "BP-SPX-0415"
+  }
+}

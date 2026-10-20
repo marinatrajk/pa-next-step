@@ -1,0 +1,57 @@
+{
+  "case_id": "CASE-1106",
+  "as_of": "2026-10-19T10:00:00-04:00",
+  "patient": {
+    "ref": "PT-64677",
+    "age": 70,
+    "sex": "F",
+    "name": "Edith Caldwell",
+    "dob": "1956-09-21"
+  },
+  "payer_policy": "crestline_medicare_advantage",
+  "drug": "Dupixent (dupilumab) 300 mg q2w",
+  "indication": "Atopic dermatitis, moderate-to-severe",
+  "prescriber": {
+    "name": "Dr. Alana Reyes",
+    "specialty": "Dermatology",
+    "office": "Riverside Dermatology Associates"
+  },
+  "pa": {
+    "status": "DENIED",
+    "reason_code": "ST-DOC",
+    "reason_text": "Step therapy documentation not provided.",
+    "event_date": "2026-10-15",
+    "submission_count": 1,
+    "window_closes": "2026-11-14T23:59:00-05:00"
+  },
+  "documents": [
+    {
+      "doc_id": "DOC-1106-01",
+      "type": "PA request form (as submitted)",
+      "received": "2026-10-09",
+      "content": "Dx: atopic dermatitis L20.9, IGA 3. Prescriber: dermatology. Medicare Advantage plan (Crestline). Prior topical therapies listed without dates.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0020",
+        "linked_by": "case number on the submission"
+      }
+    }
+  ],
+  "notes": [
+    {
+      "author": "Lee W. (Access Ops)",
+      "ts": "2026-10-15T09:45:00-04:00",
+      "text": "Crestline MA denial. We don't have their PA criteria loaded anywhere yet.",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0019",
+        "linked_by": "filed on the case"
+      }
+    }
+  ],
+  "messages": [],
+  "knowledge": {
+    "sop": "OPS-PA-014",
+    "payer_policy": null
+  }
+}

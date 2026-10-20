@@ -1,0 +1,464 @@
+{
+  "system": "PA tracker",
+  "cases": [
+    {
+      "case_id": "CASE-1042",
+      "as_of": "2026-10-19T10:00:00-04:00",
+      "payer_policy": "northwind_commercial",
+      "drug": "Dupixent (dupilumab) 300 mg q2w",
+      "indication": "Atopic dermatitis, moderate-to-severe",
+      "prescriber": {
+        "name": "Dr. Alana Reyes",
+        "specialty": "Dermatology",
+        "office": "Riverside Dermatology Associates"
+      },
+      "pa": {
+        "status": "DENIED",
+        "reason_code": "ST-DOC",
+        "reason_text": "Step therapy documentation not provided. Submit chart notes documenting trials of topical corticosteroid and topical calcineurin inhibitor with dates and outcomes.",
+        "event_date": "2026-10-14",
+        "submission_count": 1,
+        "window_closes": "2026-11-13T23:59:00-05:00"
+      },
+      "patient": {
+        "ref": "PT-58213",
+        "age": 34,
+        "sex": "F",
+        "name": "Hannah Lindqvist",
+        "dob": "1992-08-05"
+      }
+    },
+    {
+      "case_id": "CASE-1063",
+      "as_of": "2026-10-19T10:00:00-04:00",
+      "payer_policy": "northwind_commercial",
+      "drug": "Dupixent (dupilumab) 300 mg q2w",
+      "indication": "Atopic dermatitis, moderate-to-severe",
+      "prescriber": {
+        "name": "Dr. Alana Reyes",
+        "specialty": "Dermatology",
+        "office": "Riverside Dermatology Associates"
+      },
+      "pa": {
+        "status": "DENIED",
+        "reason_code": "ST-DOC",
+        "reason_text": "Step therapy criteria not demonstrated per clinical reviewer.",
+        "event_date": "2026-10-09",
+        "submission_count": 2,
+        "window_closes": "2026-10-23T23:59:00-04:00"
+      },
+      "patient": {
+        "ref": "PT-57741",
+        "age": 29,
+        "sex": "F",
+        "name": "Sofia Marchetti",
+        "dob": "1997-02-17"
+      }
+    },
+    {
+      "case_id": "CASE-1077",
+      "as_of": "2026-10-19T10:00:00-04:00",
+      "payer_policy": "bluepeak_commercial",
+      "drug": "Humira (adalimumab, brand) 40 mg q2w",
+      "indication": "Rheumatoid arthritis",
+      "prescriber": {
+        "name": "Dr. Marcus Feld",
+        "specialty": "Rheumatology",
+        "office": "Hudson Valley Rheumatology"
+      },
+      "pa": {
+        "status": "PENDED",
+        "reason_code": "NF-PREF",
+        "reason_text": "Requested product is non-preferred. Submit documentation of trial and failure/intolerance of preferred adalimumab-adaz, or change request to preferred product.",
+        "event_date": "2026-10-10",
+        "submission_count": 1,
+        "window_closes": "2026-10-20T23:59:00-04:00"
+      },
+      "patient": {
+        "ref": "PT-61047",
+        "age": 52,
+        "sex": "M",
+        "name": "Ramon Delgado",
+        "dob": "1974-07-07"
+      }
+    },
+    {
+      "case_id": "CASE-1081",
+      "as_of": "2026-10-19T10:00:00-04:00",
+      "payer_policy": "northwind_commercial",
+      "drug": "Dupixent (dupilumab) 300 mg q2w",
+      "indication": "Atopic dermatitis, moderate-to-severe",
+      "prescriber": {
+        "name": "Dr. Hannah Okafor",
+        "specialty": "Allergy & Immunology",
+        "office": "Metro Allergy Partners"
+      },
+      "pa": {
+        "status": "PENDED",
+        "reason_code": "CLIN-INFO",
+        "reason_text": "Severity not documented. Submit IGA score or BSA percentage.",
+        "event_date": "2026-10-16",
+        "submission_count": 1,
+        "window_closes": "2026-10-30T23:59:00-04:00"
+      },
+      "patient": {
+        "ref": "PT-59930",
+        "age": 41,
+        "sex": "M",
+        "name": "Kwame Asante",
+        "dob": "1985-02-08"
+      }
+    },
+    {
+      "case_id": "CASE-1090",
+      "as_of": "2026-10-19T10:00:00-04:00",
+      "payer_policy": "bluepeak_commercial",
+      "drug": "adalimumab-adaz 40 mg q2w (preferred biosimilar)",
+      "indication": "Rheumatoid arthritis",
+      "prescriber": {
+        "name": "Dr. Marcus Feld",
+        "specialty": "Rheumatology",
+        "office": "Hudson Valley Rheumatology"
+      },
+      "pa": {
+        "status": "DENIED",
+        "reason_code": "ST-NOTMET",
+        "reason_text": "Step therapy not met: no documented trial of methotrexate >= 12 weeks and no documented contraindication.",
+        "event_date": "2026-10-15",
+        "submission_count": 1,
+        "window_closes": "2026-11-14T23:59:00-05:00"
+      },
+      "patient": {
+        "ref": "PT-62218",
+        "age": 47,
+        "sex": "F",
+        "name": "Irene Novak",
+        "dob": "1979-02-17"
+      }
+    },
+    {
+      "case_id": "CASE-1095",
+      "as_of": "2026-10-19T10:00:00-04:00",
+      "payer_policy": "bluepeak_commercial",
+      "drug": "adalimumab-adaz 40 mg q2w (preferred biosimilar)",
+      "indication": "Rheumatoid arthritis",
+      "prescriber": {
+        "name": "Dr. Priya Natarajan",
+        "specialty": "Rheumatology",
+        "office": "Lakeside Arthritis Center"
+      },
+      "pa": {
+        "status": "DENIED",
+        "reason_code": "ELIG",
+        "reason_text": "Member coverage not active on date of service.",
+        "event_date": "2026-10-17",
+        "submission_count": 1,
+        "window_closes": "2026-11-16T23:59:00-05:00"
+      },
+      "patient": {
+        "ref": "PT-63390",
+        "age": 38,
+        "sex": "M",
+        "name": "Theo Brandt",
+        "dob": "1988-07-25"
+      }
+    },
+    {
+      "case_id": "CASE-1101",
+      "as_of": "2026-10-19T10:00:00-04:00",
+      "payer_policy": "northwind_commercial",
+      "drug": "Dupixent (dupilumab) 300 mg q2w",
+      "indication": "Atopic dermatitis, moderate-to-severe",
+      "prescriber": {
+        "name": "Dr. Lena Brooks",
+        "specialty": "Dermatology",
+        "office": "Bayview Skin Clinic"
+      },
+      "pa": {
+        "status": "PENDED",
+        "reason_code": "CLIN-INFO",
+        "reason_text": "Severity not documented. Submit IGA score or BSA percentage.",
+        "event_date": "2026-10-13",
+        "submission_count": 1,
+        "window_closes": "2026-10-27T23:59:00-04:00"
+      },
+      "patient": {
+        "ref": "PT-64102",
+        "age": 27,
+        "sex": "F",
+        "name": "Mei Tanaka",
+        "dob": "1999-04-13"
+      }
+    },
+    {
+      "case_id": "CASE-1102",
+      "as_of": "2026-10-19T10:00:00-04:00",
+      "payer_policy": "bluepeak_commercial",
+      "drug": "Humira (adalimumab, brand) 40 mg q2w",
+      "indication": "Rheumatoid arthritis",
+      "prescriber": {
+        "name": "Dr. Omar Haddad",
+        "specialty": "Rheumatology",
+        "office": "Northgate Arthritis Clinic"
+      },
+      "pa": {
+        "status": "PENDED",
+        "reason_code": "NF-PREF",
+        "reason_text": "Requested product is non-preferred. Submit documentation of trial and failure/intolerance of preferred adalimumab-adaz, or change request to preferred product.",
+        "event_date": "2026-10-15",
+        "submission_count": 1,
+        "window_closes": "2026-10-25T23:59:00-04:00"
+      },
+      "patient": {
+        "ref": "PT-64218",
+        "age": 58,
+        "sex": "F",
+        "name": "Gloria Fairbanks",
+        "dob": "1968-05-20"
+      }
+    },
+    {
+      "case_id": "CASE-1103",
+      "as_of": "2026-10-19T10:00:00-04:00",
+      "payer_policy": "northwind_commercial",
+      "drug": "Dupixent (dupilumab) 300 mg q2w",
+      "indication": "Atopic dermatitis, moderate-to-severe",
+      "prescriber": {
+        "name": "Dr. Hannah Okafor",
+        "specialty": "Allergy & Immunology",
+        "office": "Metro Allergy Partners"
+      },
+      "pa": {
+        "status": "DENIED",
+        "reason_code": "ST-NOTMET",
+        "reason_text": "Step therapy not met: no trial of a topical calcineurin inhibitor documented.",
+        "event_date": "2026-10-12",
+        "submission_count": 1,
+        "window_closes": "2026-11-11T23:59:00-05:00"
+      },
+      "patient": {
+        "ref": "PT-64330",
+        "age": 35,
+        "sex": "M",
+        "name": "Daniel Okoro",
+        "dob": "1991-06-27"
+      }
+    },
+    {
+      "case_id": "CASE-1104",
+      "as_of": "2026-10-19T10:00:00-04:00",
+      "payer_policy": "northwind_commercial",
+      "drug": "Dupixent (dupilumab) 300 mg q2w",
+      "indication": "Atopic dermatitis, moderate-to-severe",
+      "prescriber": {
+        "name": "Dr. Priya Shah",
+        "specialty": "Dermatology",
+        "office": "Coastal Dermatology"
+      },
+      "pa": {
+        "status": "PENDED",
+        "reason_code": "CLIN-INFO",
+        "reason_text": "Severity not documented. Submit IGA score or BSA percentage.",
+        "event_date": "2026-10-06",
+        "submission_count": 1,
+        "window_closes": "2026-10-20T16:00:00-04:00"
+      },
+      "patient": {
+        "ref": "PT-64455",
+        "age": 44,
+        "sex": "F",
+        "name": "Priscilla Vance",
+        "dob": "1982-07-07"
+      }
+    },
+    {
+      "case_id": "CASE-1105",
+      "as_of": "2026-10-19T10:00:00-04:00",
+      "payer_policy": "bluepeak_commercial",
+      "drug": "adalimumab-adaz 40 mg q2w (preferred biosimilar)",
+      "indication": "Rheumatoid arthritis",
+      "prescriber": {
+        "name": "Dr. Marcus Feld",
+        "specialty": "Rheumatology",
+        "office": "Hudson Valley Rheumatology"
+      },
+      "pa": {
+        "status": "DENIED",
+        "reason_code": "ST-DOC",
+        "reason_text": "Step therapy documentation not provided. Submit methotrexate trial details.",
+        "event_date": "2026-10-16",
+        "submission_count": 1,
+        "window_closes": "2026-11-15T23:59:00-05:00"
+      },
+      "patient": {
+        "ref": "PT-64561",
+        "age": 61,
+        "sex": "M",
+        "name": "Harold Kim",
+        "dob": "1965-08-14"
+      }
+    },
+    {
+      "case_id": "CASE-1106",
+      "as_of": "2026-10-19T10:00:00-04:00",
+      "payer_policy": "crestline_medicare_advantage",
+      "drug": "Dupixent (dupilumab) 300 mg q2w",
+      "indication": "Atopic dermatitis, moderate-to-severe",
+      "prescriber": {
+        "name": "Dr. Alana Reyes",
+        "specialty": "Dermatology",
+        "office": "Riverside Dermatology Associates"
+      },
+      "pa": {
+        "status": "DENIED",
+        "reason_code": "ST-DOC",
+        "reason_text": "Step therapy documentation not provided.",
+        "event_date": "2026-10-15",
+        "submission_count": 1,
+        "window_closes": "2026-11-14T23:59:00-05:00"
+      },
+      "patient": {
+        "ref": "PT-64677",
+        "age": 70,
+        "sex": "F",
+        "name": "Edith Caldwell",
+        "dob": "1956-09-21"
+      }
+    },
+    {
+      "case_id": "CASE-1107",
+      "as_of": "2026-10-19T10:00:00-04:00",
+      "payer_policy": "northwind_commercial",
+      "drug": "Dupixent (dupilumab) 300 mg q2w",
+      "indication": "Atopic dermatitis, moderate-to-severe",
+      "prescriber": {
+        "name": "Dr. Alana Reyes",
+        "specialty": "Dermatology",
+        "office": "Riverside Dermatology Associates"
+      },
+      "pa": {
+        "status": "DENIED",
+        "reason_code": "ST-DOC",
+        "reason_text": "Step therapy documentation not provided. Submit chart notes documenting trials of topical corticosteroid and topical calcineurin inhibitor with dates and outcomes.",
+        "event_date": "2026-10-15",
+        "submission_count": 1,
+        "window_closes": "2026-11-14T23:59:00-05:00"
+      },
+      "patient": {
+        "ref": "PT-64783",
+        "age": 31,
+        "sex": "F",
+        "name": "Nadia Varga",
+        "dob": "1995-01-01"
+      }
+    },
+    {
+      "case_id": "CASE-1108",
+      "as_of": "2026-10-19T10:00:00-04:00",
+      "payer_policy": "bluepeak_commercial",
+      "drug": "Humira (adalimumab, brand) 40 mg q2w",
+      "indication": "Rheumatoid arthritis",
+      "prescriber": {
+        "name": "Dr. Priya Natarajan",
+        "specialty": "Rheumatology",
+        "office": "Lakeside Arthritis Center"
+      },
+      "pa": {
+        "status": "PENDED",
+        "reason_code": "NF-PREF",
+        "reason_text": "Requested product is non-preferred. Submit documentation of trial and failure/intolerance of preferred adalimumab-adaz, or change request to preferred product.",
+        "event_date": "2026-10-13",
+        "submission_count": 1,
+        "window_closes": "2026-10-23T23:59:00-04:00"
+      },
+      "patient": {
+        "ref": "PT-64890",
+        "age": 49,
+        "sex": "M",
+        "name": "Victor Quinn",
+        "dob": "1977-02-08"
+      }
+    },
+    {
+      "case_id": "CASE-1109",
+      "as_of": "2026-10-19T10:00:00-04:00",
+      "payer_policy": "northwind_commercial",
+      "drug": "Dupixent (dupilumab) 300 mg q2w",
+      "indication": "Atopic dermatitis, moderate-to-severe",
+      "prescriber": {
+        "name": "Dr. Lena Brooks",
+        "specialty": "Dermatology",
+        "office": "Bayview Skin Clinic"
+      },
+      "pa": {
+        "status": "DENIED",
+        "reason_code": "ST-DOC",
+        "reason_text": "Step therapy criteria not demonstrated: topical calcineurin inhibitor trial dates and duration not documented.",
+        "event_date": "2026-10-14",
+        "submission_count": 2,
+        "window_closes": "2026-11-13T23:59:00-05:00"
+      },
+      "patient": {
+        "ref": "PT-64912",
+        "age": 24,
+        "sex": "F",
+        "name": "Ava Whitlock",
+        "dob": "2002-03-15"
+      }
+    },
+    {
+      "case_id": "CASE-1110",
+      "as_of": "2026-10-19T10:00:00-04:00",
+      "payer_policy": "bluepeak_commercial",
+      "drug": "adalimumab-adaz 40 mg q2w (preferred biosimilar)",
+      "indication": "Rheumatoid arthritis",
+      "prescriber": {
+        "name": "Dr. Omar Haddad",
+        "specialty": "Rheumatology",
+        "office": "Northgate Arthritis Clinic"
+      },
+      "pa": {
+        "status": "DENIED",
+        "reason_code": "ST-DOC",
+        "reason_text": "Step therapy documentation not provided. Submit methotrexate trial details.",
+        "event_date": "2026-10-16",
+        "submission_count": 1,
+        "window_closes": "2026-11-15T23:59:00-05:00"
+      },
+      "patient": {
+        "ref": "PT-65024",
+        "age": 53,
+        "sex": "F",
+        "name": "Rosa Jimenez",
+        "dob": "1973-04-22"
+      }
+    },
+    {
+      "case_id": "CASE-1111",
+      "as_of": "2026-10-19T10:00:00-04:00",
+      "payer_policy": "northwind_commercial",
+      "drug": "Dupixent (dupilumab) 300 mg q2w",
+      "indication": "Atopic dermatitis, moderate-to-severe",
+      "prescriber": {
+        "name": "Dr. Priya Shah",
+        "specialty": "Dermatology",
+        "office": "Coastal Dermatology"
+      },
+      "pa": {
+        "status": "DENIED",
+        "reason_code": "ST-NOTMET",
+        "reason_text": "Step therapy not met: no trial of a medium-or-higher potency topical corticosteroid.",
+        "event_date": "2026-10-14",
+        "submission_count": 1,
+        "window_closes": "2026-11-13T23:59:00-05:00"
+      },
+      "patient": {
+        "ref": "PT-65139",
+        "age": 19,
+        "sex": "M",
+        "name": "Ethan Moreau",
+        "dob": "2007-05-02"
+      }
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "case_id": "CASE-1104",
+  "as_of": "2026-10-19T10:00:00-04:00",
+  "patient": {
+    "ref": "PT-64455",
+    "age": 44,
+    "sex": "F",
+    "name": "Priscilla Vance",
+    "dob": "1982-07-07"
+  },
+  "payer_policy": "northwind_commercial",
+  "drug": "Dupixent (dupilumab) 300 mg q2w",
+  "indication": "Atopic dermatitis, moderate-to-severe",
+  "prescriber": {
+    "name": "Dr. Priya Shah",
+    "specialty": "Dermatology",
+    "office": "Coastal Dermatology"
+  },
+  "pa": {
+    "status": "PENDED",
+    "reason_code": "CLIN-INFO",
+    "reason_text": "Severity not documented. Submit IGA score or BSA percentage.",
+    "event_date": "2026-10-06",
+    "submission_count": 1,
+    "window_closes": "2026-10-20T16:00:00-04:00"
+  },
+  "documents": [
+    {
+      "doc_id": "DOC-1104-01",
+      "type": "PA request form (as submitted)",
+      "received": "2026-10-01",
+      "content": "Dx: atopic dermatitis L20.9, 'severe, widespread'. Prescriber: dermatology. TCS: betamethasone valerate 0.1% cream 02/01/2026-03/20/2026, inadequate. TCI: tacrolimus 0.1% ointment 03/25/2026-05/30/2026, inadequate. No concurrent biologic or JAK inhibitor.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0017",
+        "linked_by": "case number on the submission"
+      }
+    }
+  ],
+  "notes": [
+    {
+      "author": "Sam K. (Access Ops)",
+      "ts": "2026-10-06T13:00:00-04:00",
+      "text": "Pended CLIN-INFO. Faxed request for IGA/BSA to Coastal Dermatology.",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0015",
+        "linked_by": "filed on the case"
+      }
+    },
+    {
+      "author": "Sam K. (Access Ops)",
+      "ts": "2026-10-09T10:30:00-04:00",
+      "text": "Follow-up call, left voicemail.",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0016",
+        "linked_by": "filed on the case"
+      }
+    },
+    {
+      "author": "Sam K. (Access Ops)",
+      "ts": "2026-10-14T16:15:00-04:00",
+      "text": "Second voicemail. Still no response.",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0017",
+        "linked_by": "filed on the case"
+      }
+    }
+  ],
+  "messages": [],
+  "knowledge": {
+    "sop": "OPS-PA-014",
+    "payer_policy": "NW-RX-2207"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "case_id": "CASE-1081",
+  "confidence": "high",
+  "reason": "Name, DOB, office and the IGA/BSA content all match CASE-1081, which is pended for exactly this severity information."
+}

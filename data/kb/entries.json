@@ -1,0 +1,120 @@
+{
+  "about": "Team knowledge base: Slack threads saved with @kb",
+  "entries": [
+    {
+      "id": "KB-0001",
+      "title": "Bluepeak formulary exception: biosimilar intolerance needs dates and reaction",
+      "summary": "Jordan T. reported that Bluepeak denied a formulary exception because the biosimilar records only said 'intolerant'; Bluepeak wanted the start and stop dates and a description of the actual reaction. Priya M. confirmed that the same thing happened to her last month and that resubmitting with the dates and reaction description got it approved.",
+      "kind": "tip",
+      "case_id": "",
+      "payers": [
+        "bluepeak_commercial"
+      ],
+      "transcript": "Jordan T. (2026-09-28 14:02): Bluepeak bounced my formulary exception because the biosimilar records just said 'intolerant'. They want the start and stop dates and what the reaction actually was.\nPriya M. (2026-09-28 14:10): same thing happened to me last month, dates + reaction description and it went through",
+      "added_by": "Priya M.",
+      "added_at": "2026-09-28T14:12:00-04:00",
+      "slack_thread": "S-0101",
+      "slack_messages": [
+        "S-0101",
+        "S-0102"
+      ],
+      "mention": "S-0103"
+    },
+    {
+      "id": "KB-0002",
+      "title": "Northwind Dupixent step therapy: triamcinolone 0.1% counts as medium-potency steroid",
+      "summary": "Priya M. reports that Northwind accepts triamcinolone 0.1% as the medium-potency topical steroid for Dupixent step therapy, but only if the chart lists the strength. She says two of her cases were approved this way.",
+      "kind": "tip",
+      "case_id": "",
+      "payers": [
+        "northwind_commercial"
+      ],
+      "transcript": "Priya M. (2026-10-02 10:15): Tip for Northwind Dupixent step therapy: they accept triamcinolone 0.1% as a medium-potency steroid, but only if the chart lists the strength. Two of mine went through that way.\nSam K. (2026-10-02 10:21): good to know, I always wondered if they'd count it",
+      "added_by": "Sam K.",
+      "added_at": "2026-10-02T10:22:00-04:00",
+      "slack_thread": "S-0104",
+      "slack_messages": [
+        "S-0104",
+        "S-0105"
+      ],
+      "mention": "S-0106"
+    },
+    {
+      "id": "KB-0003",
+      "title": "Crestline Medicare Advantage PA criteria missing, work manually via portal",
+      "summary": "Priya M. said Payer Relations is loading Crestline Medicare Advantage's PA policy with an ETA of next week. Until then, Crestline PAs should be worked by hand from Crestline's portal.",
+      "kind": "tip",
+      "case_id": "",
+      "payers": [
+        "crestline_medicare_advantage"
+      ],
+      "transcript": "Lee W. (2026-10-15 11:40): Has anyone worked a Crestline Medicare Advantage PA? We don't have their criteria anywhere.\nPriya M. (2026-10-15 11:52): Payer Relations is getting their policy loaded, ETA next week. Until then work them by hand from Crestline's portal.",
+      "added_by": "Lee W.",
+      "added_at": "2026-10-15T11:53:00-04:00",
+      "slack_thread": "S-0107",
+      "slack_messages": [
+        "S-0107",
+        "S-0108"
+      ],
+      "mention": "S-0109"
+    },
+    {
+      "id": "KB-0004",
+      "title": "Bluepeak auto-approving brand Humira for patients stable over 6 months?",
+      "summary": "Dev R. claims Bluepeak now auto-approves brand Humira if the patient has been stable for more than 6 months, when resubmitted with a stability note from the rheumatologist; he says it worked on 2 of his cases last week. Priya M. questioned whether this is actually live (she believed it was part of the Q1 formulary review), Dev was unsure and guessed an early rollout, and Lee W. noted it is unverified and needs Payer Relations to confirm before anyone relies on it.",
+      "kind": "policy_claim",
+      "case_id": "CASE-1077",
+      "payers": [
+        "bluepeak_commercial"
+      ],
+      "transcript": "Jordan T. (2026-10-15 09:10): Hudson Valley Humira pend is stuck: office says the patient reacted to the biosimilar but still hasn't sent records. Anyone seen Bluepeak budge on these?\nDev R. (2026-10-15 09:20): FYI Bluepeak is auto-approving brand Humira now if the patient's been stable >6 months, just resubmit with a stability note from the rheum. Worked for me on 2 cases last week\nPriya M. (2026-10-15 09:31): are you sure? I thought that was the Q1 formulary review, not live yet\nDev R. (2026-10-15 09:33): they went through for me \u00af\\_(\u30c4)_/\u00af maybe they're rolling it out early\nLee W. (saved with note): Delgado case, Dev's stable-on-brand claim needs Payer Relations to confirm before anyone relies on it",
+      "added_by": "Lee W.",
+      "added_at": "2026-10-16T17:00:00-04:00",
+      "slack_thread": "S-0002",
+      "slack_messages": [
+        "S-0002",
+        "S-0003",
+        "S-0004",
+        "S-0005"
+      ],
+      "mention": "S-0110"
+    },
+    {
+      "id": "KB-0005",
+      "title": "Northwind fax cover sheet current version (June)",
+      "summary": "Sam K. asked whether there was an updated Northwind fax cover sheet. Priya M. stated plainly that the June version in the drive is still current and Northwind did not change it.",
+      "kind": "tip",
+      "case_id": "",
+      "payers": [
+        "northwind_commercial"
+      ],
+      "transcript": "Sam K. (2026-10-17 11:45): anyone have the updated Northwind fax cover sheet? the one in the drive is from June\nPriya M. (2026-10-17 11:52): June one is still current, they didn't change it",
+      "added_by": "Sam K.",
+      "added_at": "2026-10-17T11:55:00-04:00",
+      "slack_thread": "S-0009",
+      "slack_messages": [
+        "S-0009",
+        "S-0010"
+      ],
+      "mention": "S-0111"
+    },
+    {
+      "id": "KB-0007",
+      "title": "Where to find BluePeak payer documents on shared drive",
+      "summary": "Priya M. noted that BluePeak payer materials are stored in the shared drive under payers > bluepeak. She stated it as a simple file location with no further detail.",
+      "kind": "tip",
+      "case_id": "",
+      "payers": [
+        "bluepeak_commercial"
+      ],
+      "transcript": "Priya M. (2026-10-18 10:15): shared drive > payers > bluepeak",
+      "added_by": "You (demo)",
+      "added_at": "2026-10-19T18:47:45-04:00",
+      "slack_thread": "S-0012",
+      "slack_messages": [
+        "S-0012"
+      ],
+      "mention": "S-KB002"
+    }
+  ]
+}

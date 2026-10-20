@@ -1,0 +1,77 @@
+{
+  "case_id": "CASE-1063",
+  "as_of": "2026-10-19T10:00:00-04:00",
+  "patient": {
+    "ref": "PT-57741",
+    "age": 29,
+    "sex": "F",
+    "name": "Sofia Marchetti",
+    "dob": "1997-02-17"
+  },
+  "payer_policy": "northwind_commercial",
+  "drug": "Dupixent (dupilumab) 300 mg q2w",
+  "indication": "Atopic dermatitis, moderate-to-severe",
+  "prescriber": {
+    "name": "Dr. Alana Reyes",
+    "specialty": "Dermatology",
+    "office": "Riverside Dermatology Associates"
+  },
+  "pa": {
+    "status": "DENIED",
+    "reason_code": "ST-DOC",
+    "reason_text": "Step therapy criteria not demonstrated per clinical reviewer.",
+    "event_date": "2026-10-09",
+    "submission_count": 2,
+    "window_closes": "2026-10-23T23:59:00-04:00"
+  },
+  "documents": [
+    {
+      "doc_id": "DOC-1063-01",
+      "type": "PA resubmission packet",
+      "received": "2026-10-02",
+      "content": "Resubmission after initial ST-DOC denial (09/22). Includes chart notes: betamethasone valerate 0.1% cream 01/05/2026-02/20/2026 inadequate; tacrolimus 0.1% ointment 03/01/2026-04/30/2026 inadequate. IGA 4, BSA 32%. Dermatologist.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0003",
+        "linked_by": "case number on the submission"
+      }
+    }
+  ],
+  "notes": [
+    {
+      "author": "Sam K. (Access Ops)",
+      "ts": "2026-09-22T10:00:00-04:00",
+      "text": "Initial denial ST-DOC. Requested chart notes.",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0003",
+        "linked_by": "filed on the case"
+      }
+    },
+    {
+      "author": "Sam K. (Access Ops)",
+      "ts": "2026-10-02T12:15:00-04:00",
+      "text": "Resubmitted w/ full TCS + TCI trial notes, dates and outcomes. Looks complete to me.",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0004",
+        "linked_by": "filed on the case"
+      }
+    },
+    {
+      "author": "Sam K. (Access Ops)",
+      "ts": "2026-10-09T09:40:00-04:00",
+      "text": "Denied again, same code. Reviewer note is vague. 2nd denial.",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0005",
+        "linked_by": "filed on the case"
+      }
+    }
+  ],
+  "messages": [],
+  "knowledge": {
+    "sop": "OPS-PA-014",
+    "payer_policy": "NW-RX-2207"
+  }
+}

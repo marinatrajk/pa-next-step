@@ -1,0 +1,166 @@
+{
+  "case_id": "CASE-1104",
+  "skill": "pa-next-step@0.1.0",
+  "ran_at": "2026-10-19T18:51:02",
+  "gate": {
+    "applies": true,
+    "reasons": [],
+    "notes": [],
+    "hours_left": 30.0,
+    "deadline_at_risk": true
+  },
+  "status": "ok",
+  "result": {
+    "situation": "CASE-1104: Dupixent for adult atopic dermatitis, pended by Northwind as CLIN-INFO for missing IGA or BSA severity. The window closes 2026-10-20 16:00, 30 hours away. A records request went to Coastal Dermatology on 10-06, followed by two voicemails, with no response. We do not hold the severity score.",
+    "criteria": [
+      {
+        "criterion": "Diagnosis: moderate-to-severe AD documented by IGA \u22653 or BSA \u226510%",
+        "status": "unknown",
+        "evidence": "The PA form says only 'severe, widespread', with no IGA or BSA value. The payer pended for exactly this. The records request is unanswered.",
+        "source_ids": [
+          "POLICY",
+          "DOC-1104-01",
+          "CASE",
+          "NOTE-1",
+          "NOTE-3"
+        ]
+      },
+      {
+        "criterion": "Prescriber is a dermatologist, allergist or immunologist",
+        "status": "met",
+        "evidence": "Dr. Priya Shah, Dermatology.",
+        "source_ids": [
+          "CASE",
+          "DOC-1104-01"
+        ]
+      },
+      {
+        "criterion": "Step 3a: medium-to-super-high-potency TCS for \u226528 consecutive days, with drug, dates and outcome in chart notes",
+        "status": "met",
+        "evidence": "PA form lists betamethasone valerate 0.1% cream, 02/01/2026 to 03/20/2026, inadequate response. Caveats: the potency class is not stated in the sources, and we hold no chart notes, only the PA form.",
+        "source_ids": [
+          "POLICY",
+          "DOC-1104-01"
+        ]
+      },
+      {
+        "criterion": "Step 3b: TCI (tacrolimus or pimecrolimus) for \u226528 consecutive days, with drug, dates and outcome in chart notes",
+        "status": "met",
+        "evidence": "PA form lists tacrolimus 0.1% ointment, 03/25/2026 to 05/30/2026, inadequate response. Chart notes are not held.",
+        "source_ids": [
+          "POLICY",
+          "DOC-1104-01"
+        ]
+      },
+      {
+        "criterion": "No concurrent biologic or JAK inhibitor for AD",
+        "status": "met",
+        "evidence": "PA form states no concurrent biologic or JAK inhibitor.",
+        "source_ids": [
+          "POLICY",
+          "DOC-1104-01"
+        ]
+      }
+    ],
+    "conflicts": [],
+    "missing_information": [
+      {
+        "item": "IGA score or BSA % from a provider chart note",
+        "why_it_matters": "This is the sole pend reason. Without it the request closes as denied on 10-20 at 16:00.",
+        "how_to_get": "Urgent call to Coastal Dermatology today, asking for a chart note with IGA/BSA by fax. Ask for Dr. Shah's clinical staff directly."
+      },
+      {
+        "item": "Chart notes documenting the TCS and TCI trials",
+        "why_it_matters": "Policy requires the trials to be documented in chart notes; we hold only the PA form.",
+        "how_to_get": "Request in the same call as the severity note."
+      },
+      {
+        "item": "Whether Northwind grants extensions on pended requests",
+        "why_it_matters": "Determines whether the Team Lead can buy time. The policy lists only expedited review, which needs a prescriber attestation.",
+        "how_to_get": "Team Lead or Payer Relations confirms with Northwind."
+      }
+    ],
+    "trigger_checks": {
+      "E1": {
+        "fires": false,
+        "reason": "No contraindication, intolerance, lab or off-label dosing question. The pend asks for a severity score (CASE, POLICY)."
+      },
+      "E2": {
+        "fires": false,
+        "reason": "No sources disagree on trials, reactions or diagnosis. DOC-1104-01 is the only clinical record and the notes do not contradict it."
+      },
+      "E3": {
+        "fires": false,
+        "reason": "KB-0002 is a payer-acceptance tip, not a rule change. It concerns triamcinolone, which is not used here, and does not conflict with POLICY."
+      },
+      "E4": {
+        "fires": true,
+        "reason": "30 hours left (system facts, CASE), under 48. The action needs IGA/BSA we don't hold, and the office has not responded since 10-06 (NOTE-1, NOTE-2, NOTE-3)."
+      },
+      "E5": {
+        "fires": false,
+        "reason": "First submission, status pended, not a second denial (CASE)."
+      },
+      "E6": {
+        "fires": false,
+        "reason": "No patient safety concern in CASE, DOC-1104-01 or the notes."
+      }
+    },
+    "primary_action": "HOLD_FOR_ESCALATION",
+    "action_rationale": "CLIN-INFO would default to REQUEST_RECORDS (SOP \u00a75), and that request is already out and unanswered. E4 fires because the window closes in 30 hours without the severity data. Whether to seek an extension, ask for expedited review or let the pend close and resubmit within 30 days is the Team Lead's call (SOP \u00a76). Records chasing continues in parallel.",
+    "parallel_actions": [
+      "Call Coastal Dermatology today for a chart note with IGA score or BSA %, plus chart notes for the TCS/TCI trials.",
+      "If severity documentation arrives before 10-20 16:00, resubmit to Northwind immediately with it attached.",
+      "Log the criteria checklist and escalation in case notes."
+    ],
+    "could_not_determine": [
+      "Whether IGA \u22653 or BSA \u226510% is met; no score is in the record.",
+      "Whether betamethasone valerate 0.1% meets the payer's medium-to-super-high potency class; the sources don't state it.",
+      "Whether Northwind allows extensions on pended requests."
+    ],
+    "needs_human_judgment": [
+      "Team Lead: request an extension, pursue expedited review with prescriber attestation, or let the pend close and resubmit within the 30-day denial window.",
+      "Team Lead: whether to escalate contact at Coastal Dermatology beyond the front desk."
+    ],
+    "draft": {
+      "kind": "escalation_message",
+      "to": "Team Lead (case-system escalation queue)",
+      "subject": "CASE-1104: Deadline at risk, Northwind pend closes 10-20 16:00",
+      "body": "CASE-1104 (Dupixent, atopic dermatitis, Northwind Commercial) was pended CLIN-INFO on 10-06: payer needs an IGA score or BSA %. The window closes 2026-10-20 at 16:00, about 30 hours from now. We faxed Coastal Dermatology (Dr. Priya Shah) on 10-06 and left voicemails on 10-09 and 10-14 with no response. The PA form says only 'severe, widespread', with no score. All other criteria are documented on the PA form: dermatology prescriber, TCS and TCI trials, no concurrent biologic. Decision needed: (1) ask Northwind for an extension, (2) pursue expedited review, which requires prescriber attestation of urgency, or (3) let the pend close and resubmit within the 30-day denial window. I am calling the office again today and will resubmit immediately if the score arrives before the deadline."
+    },
+    "confidence": "medium",
+    "operator_summary": {
+      "headline": "Escalate deadline risk to your Team Lead now",
+      "why": [
+        "Payer request closes tomorrow at 4 PM, about 30 hours left.",
+        "We still don't have the IGA score or BSA percentage.",
+        "Dermatology office ignored a fax and two voicemails."
+      ],
+      "then": [
+        "Call Coastal Dermatology today for the severity chart note.",
+        "Resubmit immediately if the score arrives before the deadline.",
+        "Log the escalation and checklist in case notes."
+      ]
+    },
+    "triggers_fired": [
+      {
+        "id": "E4",
+        "reason": "30 hours left (system facts, CASE), under 48. The action needs IGA/BSA we don't hold, and the office has not responded since 10-06 (NOTE-1, NOTE-2, NOTE-3).",
+        "source_ids": []
+      }
+    ],
+    "escalate": true,
+    "escalate_to": [
+      "Team Lead"
+    ]
+  },
+  "model_action": "HOLD_FOR_ESCALATION",
+  "guardrail_notes": [],
+  "usage": {
+    "model": "claude-opus-5-5",
+    "input_tokens": 7565,
+    "output_tokens": 4345,
+    "seconds": 38.8
+  },
+  "input_fingerprint": "f47cb60aed8d6676"
+}

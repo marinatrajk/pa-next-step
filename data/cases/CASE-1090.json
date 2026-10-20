@@ -1,0 +1,68 @@
+{
+  "case_id": "CASE-1090",
+  "as_of": "2026-10-19T10:00:00-04:00",
+  "patient": {
+    "ref": "PT-62218",
+    "age": 47,
+    "sex": "F",
+    "name": "Irene Novak",
+    "dob": "1979-02-17"
+  },
+  "payer_policy": "bluepeak_commercial",
+  "drug": "adalimumab-adaz 40 mg q2w (preferred biosimilar)",
+  "indication": "Rheumatoid arthritis",
+  "prescriber": {
+    "name": "Dr. Marcus Feld",
+    "specialty": "Rheumatology",
+    "office": "Hudson Valley Rheumatology"
+  },
+  "pa": {
+    "status": "DENIED",
+    "reason_code": "ST-NOTMET",
+    "reason_text": "Step therapy not met: no documented trial of methotrexate >= 12 weeks and no documented contraindication.",
+    "event_date": "2026-10-15",
+    "submission_count": 1,
+    "window_closes": "2026-11-14T23:59:00-05:00"
+  },
+  "documents": [
+    {
+      "doc_id": "DOC-1090-01",
+      "type": "PA request form (as submitted)",
+      "received": "2026-10-09",
+      "content": "Dx: rheumatoid arthritis M06.9, seropositive, rheumatologist. Prior DMARDs: hydroxychloroquine 6 mo, inadequate. Methotrexate: not trialed (see notes).",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0008",
+        "linked_by": "case number on the submission"
+      }
+    },
+    {
+      "doc_id": "DOC-1090-02",
+      "type": "Chart notes (provider office fax)",
+      "received": "2026-10-09",
+      "content": "09/2026: ALT 58 U/L (ULN 40, ~1.4x), AST normal. Hx of NAFLD on US 2024. Moderate alcohol use (reports 5-7 drinks/wk). Discussed MTX hepatotoxicity risk; patient prefers to avoid MTX. Plan: proceed to TNF inhibitor.",
+      "_source": {
+        "system": "Document inbox",
+        "ref": "D-0009",
+        "linked_by": "AI: Irene Novak from Hudson Valley with ALT/MTX avoidance matches the case."
+      }
+    }
+  ],
+  "notes": [
+    {
+      "author": "Jordan T. (Access Ops)",
+      "ts": "2026-10-15T17:10:00-04:00",
+      "text": "Denied ST-NOTMET. Chart says pt avoiding MTX bc of liver stuff. Can we file this as a contraindication exception? Policy just says 'documented contraindication or intolerance'. Not sure mildly elevated ALT + preference counts.",
+      "_source": {
+        "system": "Case notes",
+        "ref": "N-0009",
+        "linked_by": "filed on the case"
+      }
+    }
+  ],
+  "messages": [],
+  "knowledge": {
+    "sop": "OPS-PA-014",
+    "payer_policy": "BP-SPX-0415"
+  }
+}

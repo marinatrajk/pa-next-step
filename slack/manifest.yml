@@ -1,0 +1,37 @@
+display_information:
+  name: Next Step
+  description: Next steps for prior-auth cases, and the team knowledge base (@kb add)
+  background_color: "#4F46E5"
+features:
+  bot_user:
+    display_name: kb
+    always_online: true
+  slash_commands:
+    - command: /next-step
+      description: Next step for a case
+      usage_hint: "1077   or   the Humira case due tomorrow"
+      should_escape: false
+    - command: /kb-search
+      description: Search the team knowledge base
+      usage_hint: "what does Bluepeak need for a biosimilar intolerance?"
+      should_escape: false
+oauth_config:
+  scopes:
+    bot:
+      - app_mentions:read
+      - channels:history
+      - groups:history
+      - chat:write
+      - commands
+      - files:read
+      - reactions:write
+      - users:read
+settings:
+  event_subscriptions:
+    bot_events:
+      - app_mention
+  interactivity:
+    is_enabled: true
+  org_deploy_enabled: false
+  socket_mode_enabled: true
+  token_rotation_enabled: false

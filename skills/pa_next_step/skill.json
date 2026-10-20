@@ -1,0 +1,42 @@
+{
+  "id": "pa-next-step",
+  "name": "PA exception: next step",
+  "version": "0.1.0",
+  "owner": "Access Operations (process) / AI Platform (engine)",
+  "description": "For a denied or pended prior authorization, recommends the single next action under SOP OPS-PA-014, cites the evidence, and flags what needs human judgment or escalation.",
+
+  "when_to_use": "A PA case is DENIED or PENDED and you need to decide what to do next.",
+  "when_not_to_use": "New PA submissions, approved cases, or any case without a payer policy in this skill pack.",
+
+  "applies_to_status": ["DENIED", "PENDED"],
+  "required_case_fields": ["pa.status", "pa.reason_code", "pa.reason_text", "pa.window_closes", "payer_policy", "drug", "indication"],
+
+  "sop_file": "sop.md",
+  "payer_policies_dir": "payers",
+  "eval_file": "evals/expected.json",
+
+  "actions": [
+    "RESUBMIT_WITH_DOCS",
+    "REQUEST_RECORDS",
+    "STEP_THERAPY_EXCEPTION",
+    "FORMULARY_EXCEPTION",
+    "PEER_TO_PEER",
+    "REVERIFY_BENEFITS",
+    "HOLD_FOR_ESCALATION"
+  ],
+  "payer_facing_submissions": ["RESUBMIT_WITH_DOCS", "STEP_THERAPY_EXCEPTION", "FORMULARY_EXCEPTION"],
+
+  "triggers": {
+    "E1": { "name": "Clinical judgment required", "owner": "Clinical Intelligence (PharmD)", "blocks_submission": true },
+    "E2": { "name": "Conflicting patient facts", "owner": "Team Lead", "blocks_submission": true },
+    "E3": { "name": "Unverified payer-rule change", "owner": "Team Lead + Payer Relations", "blocks_submission": true },
+    "E4": { "name": "Deadline at risk", "owner": "Team Lead", "blocks_submission": false },
+    "E5": { "name": "Second denial", "owner": "Team Lead (FYI)", "blocks_submission": false },
+    "E6": { "name": "Patient safety concern", "owner": "Clinical Intelligence (immediate)", "blocks_submission": true }
+  },
+  "deadline_risk_hours": 48,
+
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "judge_model": "claude-sonnet-5-5"
+}

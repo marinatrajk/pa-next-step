@@ -1,0 +1,148 @@
+{
+  "case_id": "CASE-1081",
+  "skill": "pa-next-step@0.1.0",
+  "ran_at": "2026-10-19T18:51:51",
+  "gate": {
+    "applies": true,
+    "reasons": [],
+    "notes": [],
+    "hours_left": 278.0,
+    "deadline_at_risk": false
+  },
+  "status": "ok",
+  "result": {
+    "situation": "CASE-1081: Dupixent for adult atopic dermatitis, pended by Northwind (CLIN-INFO) on 2026-10-16 because severity was not documented; the payer wants an IGA score or BSA%. Our chart notes record no IGA or BSA. First submission. 278 hours remain before the window closes 2026-10-30 23:59.",
+    "criteria": [
+      {
+        "criterion": "Moderate-to-severe AD documented by IGA \u2265 3 or BSA \u2265 10%",
+        "status": "unknown",
+        "evidence": "The PA form says 'moderate-severe, widespread' and the 09/2026 exam notes 'extensive eczematous plaques', but neither records an IGA score or BSA%. Severity cannot be inferred from the narrative.",
+        "source_ids": [
+          "DOC-1081-01",
+          "DOC-1081-02",
+          "CASE"
+        ]
+      },
+      {
+        "criterion": "Prescriber is a dermatologist, allergist or immunologist",
+        "status": "met",
+        "evidence": "Dr. Hannah Okafor, Allergy & Immunology; the PA form lists the prescriber as an allergist.",
+        "source_ids": [
+          "CASE",
+          "DOC-1081-01"
+        ]
+      },
+      {
+        "criterion": "Topical corticosteroid (medium to super-high potency) for \u2265 28 consecutive days, with drug, dates and outcome",
+        "status": "met",
+        "evidence": "Clobetasol 0.05% ointment 02/10/2026-03/24/2026, inadequate response. Chart notes include the trial with outcome. The payer did not pend on step therapy.",
+        "source_ids": [
+          "DOC-1081-01",
+          "DOC-1081-02"
+        ]
+      },
+      {
+        "criterion": "Topical calcineurin inhibitor for \u2265 28 consecutive days, with drug, dates and outcome",
+        "status": "met",
+        "evidence": "Pimecrolimus 1% cream 04/01/2026-05/15/2026, inadequate response, documented in chart notes with outcome.",
+        "source_ids": [
+          "DOC-1081-01",
+          "DOC-1081-02"
+        ]
+      },
+      {
+        "criterion": "Not used with another biologic or JAK inhibitor for AD",
+        "status": "unknown",
+        "evidence": "The PA form states 'No concurrent biologic'. JAK inhibitor use is not addressed in any provider record.",
+        "source_ids": [
+          "DOC-1081-01"
+        ]
+      }
+    ],
+    "conflicts": [],
+    "missing_information": [
+      {
+        "item": "IGA score or BSA% from a dated provider exam",
+        "why_it_matters": "This is the only reason for the pend. The diagnosis criterion requires IGA \u2265 3 or BSA \u2265 10%.",
+        "how_to_get": "Request a chart note or addendum with the IGA and/or BSA from Dr. Okafor's office (Metro Allergy Partners)."
+      },
+      {
+        "item": "Confirmation that no JAK inhibitor is being used for AD",
+        "why_it_matters": "Criterion 4 excludes concurrent JAK inhibitors; the records only rule out a biologic.",
+        "how_to_get": "Ask the office to confirm this in the same records request."
+      }
+    ],
+    "trigger_checks": {
+      "E1": {
+        "fires": false,
+        "reason": "No contraindication or intolerance call and no lab interpretation is needed. The payer needs a documented score from the provider, not our interpretation of the exam (DOC-1081-02, CASE)."
+      },
+      "E2": {
+        "fires": false,
+        "reason": "Sources agree on trials and diagnosis. NOTE-1 is consistent with DOC-1081-01 and DOC-1081-02."
+      },
+      "E3": {
+        "fires": false,
+        "reason": "KB-0002 is a tip about triamcinolone, not a reported rule change, and it does not apply to this case (clobetasol was used). POLICY's last bulletin shows no changes."
+      },
+      "E4": {
+        "fires": false,
+        "reason": "278 hours are left; the system shows the deadline is not at risk (CASE, POLICY 14-day pend window)."
+      },
+      "E5": {
+        "fires": false,
+        "reason": "This is a first submission and a pend, not a second denial (CASE)."
+      },
+      "E6": {
+        "fires": false,
+        "reason": "No patient safety concern appears in CASE, DOC-1081-01, DOC-1081-02 or NOTE-1."
+      }
+    },
+    "primary_action": "REQUEST_RECORDS",
+    "action_rationale": "The CLIN-INFO pend maps to REQUEST_RECORDS because we do not hold the severity score. The chart notes (DOC-1081-02) explicitly have no IGA or BSA, and the narrative 'extensive' cannot substitute for one. Step-therapy documents already look complete. No trigger fires, and the window has ample time.",
+    "parallel_actions": [
+      "Pre-assemble the resubmission packet: PA form plus step-therapy chart notes (DOC-1081-01, DOC-1081-02).",
+      "Set a 48-hour follow-up with the provider office per SOP.",
+      "Log the action and the criteria checklist in case notes."
+    ],
+    "could_not_determine": [
+      "The patient's actual IGA score or BSA%.",
+      "Whether the patient is on a JAK inhibitor for AD."
+    ],
+    "needs_human_judgment": [
+      "If the office cannot provide a documented IGA or BSA before about 2026-10-28, decide whether to escalate to the Team Lead under the deadline rule."
+    ],
+    "draft": {
+      "kind": "records_request",
+      "to": "Dr. Hannah Okafor / Metro Allergy Partners",
+      "subject": "CASE-1081 \u2013 Dupixent PA pended: IGA or BSA needed",
+      "body": "Hello,\n\nNorthwind Health Plan pended the Dupixent PA for patient PT-59930 (case CASE-1081) on 10/16/2026. Reason: atopic dermatitis severity is not documented.\n\nPlease send:\n1. A dated chart note or addendum recording the Investigator's Global Assessment (IGA) score and/or body surface area (BSA %) involved. The 09/2026 exam note describes extensive plaques but gives no score.\n2. Confirmation that the patient is not using a JAK inhibitor for AD.\n\nNo other records are needed; we already have the step-therapy documentation. Northwind's response window closes 10/30/2026, so please reply as soon as you can, ideally within 2 business days.\n\nThank you,\nForus Access Operations"
+    },
+    "confidence": "high",
+    "operator_summary": {
+      "headline": "Request severity score from the prescriber's office",
+      "why": [
+        "Payer paused the request only because severity score is missing.",
+        "Chart notes describe extensive rash but record no score.",
+        "Step-therapy documents already look complete; plenty of time remains."
+      ],
+      "then": [
+        "Follow up with the office if no reply in 48 hours.",
+        "Resubmit with the score plus existing step-therapy notes.",
+        "Log the checklist in case notes."
+      ]
+    },
+    "triggers_fired": [],
+    "escalate": false,
+    "escalate_to": []
+  },
+  "model_action": "REQUEST_RECORDS",
+  "guardrail_notes": [],
+  "usage": {
+    "model": "claude-opus-5-5",
+    "input_tokens": 7540,
+    "output_tokens": 3742,
+    "seconds": 33.3
+  },
+  "input_fingerprint": "a033bdbf0abbe6a4"
+}

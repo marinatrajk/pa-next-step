@@ -1,0 +1,25 @@
+[browser]
+gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"
+
+[theme]
+base = "light"
+font = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap, sans-serif"
+headingFont = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap, sans-serif"
+headingFontWeights = 650
+primaryColor = "#4F46E5"
+backgroundColor = "#F6F7F9"
+secondaryBackgroundColor = "#EEF0F4"
+textColor = "#1B1D23"
+linkColor = "#4F46E5"
+borderColor = "#E3E6EB"
+showWidgetBorder = true
+baseRadius = "0.625rem"
+buttonRadius = "0.625rem"
+baseFontSize = 15
+
+[theme.sidebar]
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F3F4F7"
