@@ -1,6 +1,6 @@
 """Chat view: the operator asks for a case's next step and gets the step, who to send to, why, and a draft.
 
-Commands:  /next-step <case>   /cases   /help   (a bare case number works too)
+Commands:  /next-step <case>   /investigate <question>   /cases   /help   (a bare case number works too)
 Everything behind the recommendation stays one click away under "Details".
 """
 
@@ -39,8 +39,13 @@ HELP = (
     "Just ask in plain English, for example:\n"
     "- *What's next for the Humira case that's due tomorrow?*\n"
     "- *Why is 1077 escalated?* or, after opening a case, simply *What's still missing?*\n\n"
-    "Or use commands: `/next-step 1077`, `/next-step` to search, `/cases` for your most urgent cases."
+    "Or use commands: `/next-step 1077`, `/next-step` to search, `/cases` for your most urgent cases.\n\n"
+    "For open questions across every source, use `/investigate`, e.g. "
+    "*`/investigate which cases are waiting on records from Riverside Dermatology?`*"
 )
+INVESTIGATE_HELP = ("Ask an open question across every source (tracker, faxes, notes, Slack, knowledge base, SOP and policies), e.g.\n"
+                    "- `/investigate which cases are waiting on records from Riverside Dermatology?`\n"
+                    "- `/investigate has Bluepeak ever approved brand Humira on an office note alone?`")
 AVATAR = {"assistant": ":material/assistant:", "user": "user"}
 
 ui.inject()
@@ -107,6 +112,12 @@ def handle(text: str) -> None:
             st.session_state.chat.append({"role": "assistant", "kind": "picker", "text": f"A few cases match **{query}**. Which one?", "cases": found})
         else:
             st.session_state.chat.append({"role": "assistant", "kind": "picker", "text": f"No case matches **{query}**. Pick one from the queue:", "cases": None})
+    elif cmd in ("/investigate", "/inv"):
+        q = t.split(" ", 1)[1].strip() if " " in t else ""
+        if q:
+            st.session_state.pending = ("inv", q)
+        else:
+            st.session_state.chat.append({"role": "assistant", "kind": "text", "text": INVESTIGATE_HELP})
     elif cmd == "/cases":
         st.session_state.chat.append({"role": "assistant", "kind": "picker", "text": "Your most urgent cases:", "cases": None})
     elif cmd == "/help" or t.startswith("/"):
@@ -145,6 +156,7 @@ b.onclick = async () => {{
 
 COMMANDS = [
     {"cmd": "/next-step", "hint": "Get the next step for a case", "takes_case": True},
+    {"cmd": "/investigate", "hint": "An open question across every source", "takes_case": False, "takes_text": True},
     {"cmd": "/cases", "hint": "Your 3 most urgent cases", "takes_case": False},
     {"cmd": "/help", "hint": "How to use this", "takes_case": False},
 ]
@@ -182,7 +194,7 @@ if (!P.__pansAttached) {
     const sp = v.indexOf(' ');
     extra = 0;
     if (sp === -1) return commands.filter(c => c.cmd.startsWith(v.toLowerCase()))
-      .map(c => ({main: c.cmd, sub: c.hint, fill: c.cmd + (c.takes_case ? ' ' : '')}));
+      .map(c => ({main: c.cmd, sub: c.hint, fill: c.cmd + (c.takes_case || c.takes_text ? ' ' : '')}));
     const cmd = v.slice(0, sp).toLowerCase(), q = v.slice(sp + 1).toUpperCase().replace('CASE-', '').trim();
     if (!['/next-step', '/next', '/ns'].includes(cmd)) return [];
     const hits = cases.filter(c => c.id.includes(q));
@@ -370,6 +382,40 @@ def render_answer(i: int, msg: dict) -> None:
         st.button("See next steps for this case →", key=f"ans-next-{i}", on_click=ask_for, args=(cid,), type="tertiary")
 
 
+TRUST_TONE = {"official insurer policy": "green", "official SOP": "green", "case record": "accent", "operator note": "",
+              "unverified (Slack / team knowledge)": "amber"}
+
+
+def render_investigation(i: int, msg: dict) -> None:
+    r = msg["result"]
+    with st.container(key=f"pa-card-inv-{i}"):
+        st.markdown(f'<div class="pa-kicker">Investigation · {r["confidence"]} confidence</div>'
+                    f'<div class="pa-row-title" style="margin:4px 0 8px">{escape(r["question"])}</div>', unsafe_allow_html=True)
+        if r.get("unverified_only"):
+            st.markdown('<div class="pa-warn" style="margin-bottom:8px">This rests only on Slack and team knowledge: unverified.</div>',
+                        unsafe_allow_html=True)
+        st.markdown(r["answer"])
+        row = lambda s: (f'<div class="pa-req"><span class="pa-chip">{escape(s["id"])}</span>{ui.pill(s["trust"].split(" (")[0], TRUST_TONE.get(s["trust"], ""))}'
+                         f'<span class="pa-req-text">{escape(s["supports"])}<br><span class="pa-sub">{escape(s["source"])}'
+                         f'{" · " + escape(s["case"]) if s["case"] else ""}{" · " + s["date"] if s["date"] else ""}</span></span></div>')
+        if r["sources"]:
+            st.markdown(ui.label(f"Sources · {len(r['sources'])}") + "".join(map(row, r["sources"][:5])), unsafe_allow_html=True)
+            if len(r["sources"]) > 5:
+                with st.expander(f"{len(r['sources']) - 5} more sources"):
+                    st.markdown("".join(map(row, r["sources"][5:])), unsafe_allow_html=True)
+        if r.get("gaps"):
+            st.markdown(ui.label("What the sources don't show") + ui.bullet_list(r["gaps"][:3], "why"), unsafe_allow_html=True)
+        cases = [c for c in r.get("cases", []) if c in set(engine.list_cases())][:4]
+        if cases:
+            st.markdown(ui.label("Next step for"), unsafe_allow_html=True)
+            for col, cid in zip(st.columns(4), cases):
+                col.button(f"{cid} →", key=f"inv-next-{i}-{cid}", on_click=ask_for, args=(cid,), use_container_width=True,
+                           help=f"Get the next step for {cid}")
+        u = r["usage"]
+        with st.expander(f"Action log · {len(r['log'])} steps · {u['seconds']}s"):
+            st.markdown("".join(ui.log_line(x["text"], x["t"]) for x in r["log"]), unsafe_allow_html=True)
+
+
 # --------------------------------------------------------------------- page
 
 with st.sidebar:
@@ -379,6 +425,7 @@ with st.sidebar:
         '<div class="pa-label">Commands</div><div class="pa-help">'
         '<span class="pa-kbd">/next-step 1077</span> next step for a case<br>'
         '<span class="pa-kbd">/next-step</span> search the queue<br>'
+        '<span class="pa-kbd">/investigate</span> ask across every source<br>'
         '<span class="pa-kbd">/cases</span> most urgent cases<br>'
         '<span class="pa-kbd">/help</span> how this works</div>',
         unsafe_allow_html=True,
@@ -402,6 +449,8 @@ for i, msg in enumerate(st.session_state.chat):
             render_result(i, msg)
         elif msg["kind"] == "answer":
             render_answer(i, msg)
+        elif msg["kind"] == "investigation":
+            render_investigation(i, msg)
         elif msg["kind"] == "manual":
             if msg.get("intro"):
                 st.markdown(msg["intro"])
@@ -433,6 +482,15 @@ def run_next_step(cid: str, fresh: bool, intro: str = "") -> None:
         except Exception as e:
             status.update(label="Failed", state="error")
             st.session_state.chat.append({"role": "assistant", "kind": "text", "text": f"Sorry, the analysis failed: `{e}`"})
+
+
+def run_investigation(question: str) -> None:
+    import investigate
+    holder = {}
+    if ui.run_with_log(lambda log: holder.update(r=investigate.investigate(question, on_step=log))):
+        st.session_state.chat.append({"role": "assistant", "kind": "investigation", "result": holder["r"]})
+    else:
+        st.session_state.chat.append({"role": "assistant", "kind": "text", "text": "Sorry, that investigation didn't finish. Try again, or narrow the question."})
 
 
 def run_plain_english(text: str) -> None:
@@ -476,6 +534,8 @@ if st.session_state.pending:
     with st.chat_message("assistant", avatar=AVATAR["assistant"]):
         if isinstance(pending, tuple) and pending[0] == "nl":
             run_plain_english(pending[1])
+        elif isinstance(pending, tuple) and pending[0] == "inv":
+            run_investigation(pending[1])
         else:
             fresh, cid = (True, pending[1]) if isinstance(pending, tuple) else (False, pending)
             run_next_step(cid, fresh)

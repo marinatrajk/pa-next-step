@@ -47,7 +47,7 @@ without spending anything. A new analysis takes about 30 seconds and costs about
 
 | Page | Try this |
 | --- | --- |
-| **Chat** | `/next-step 1077`, or ask in plain English: "what's next for the Humira case due tomorrow?" |
+| **Chat** | `/next-step 1077`, or ask in plain English: "what's next for the Humira case due tomorrow?" For open questions across every source: `/investigate which Humira cases have conflicting information about a biosimilar trial?` |
 | **Case review** | Pick a case: the requirements, conflicts, sources and draft behind a recommendation. The **Evals** tab runs the labeled test cases. |
 | **Data sources** | **Document intake**: drop in a file from `data/samples/` (an email, a scanned referral) and see it turned into structured fields and matched to a case. **Simulate new information** shows a case updating when a fax arrives. |
 | **Knowledge base** | Team know-how saved from Slack, and search by meaning |
@@ -109,6 +109,7 @@ git checkout -- data && git clean -fd data
 | `gather.py` | Finds each case's documents and notes across systems (exact matches in code, the rest by AI) |
 | `ingest.py` | Document intake: PDFs, scans, photos, email and EHR exports into one schema |
 | `kb.py` | Team knowledge base (Chroma vector store) fed from Slack |
+| `investigate.py` | `/investigate`: one hybrid index over every source, searched by Claude in several hops, with checked citations |
 | `chat.py`, `case_review.py`, `sources.py`, `knowledge.py`, `decisions.py`, `slack_page.py` | The pages |
 | `slack_bot.py`, `slack_connect.py` | The Slack bot, run on its own or inside the app |
 | `skills/pa_next_step/` | The skill pack: SOP, insurer policies, document schema, labeled eval cases |

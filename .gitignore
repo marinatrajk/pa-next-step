@@ -4,3 +4,5 @@ __pycache__/
 .DS_Store
 data/logs/
 .claude/
+walkthrough/
+data/investigate/

@@ -11,6 +11,10 @@ features:
       description: Next step for a case
       usage_hint: "1077   or   the Humira case due tomorrow"
       should_escape: false
+    - command: /investigate
+      description: An open question across every source
+      usage_hint: "which cases are waiting on records from Riverside Dermatology?"
+      should_escape: false
     - command: /kb-search
       description: Search the team knowledge base
       usage_hint: "what does Bluepeak need for a biosimilar intolerance?"

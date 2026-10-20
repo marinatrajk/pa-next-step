@@ -80,6 +80,7 @@ st.markdown(ui.label("Then try it") + """
 <tr><td><code>@kb why is it escalated?</code> (same thread)</td><td>Answers about the case that thread is about</td></tr>
 <tr><td>Attach a fax, PDF, photo or email and mention <code>@kb</code></td><td>Reads it, pulls out the fields and matches it to its case</td></tr>
 <tr><td>Start a thread, then reply <code>@kb add</code></td><td>Saves the thread to the team knowledge base</td></tr>
+<tr><td><code>/investigate which cases are waiting on Riverside records?</code></td><td>An open question across every source, with its sources and their trust level</td></tr>
 <tr><td><code>/next-step 1077</code></td><td>The same next step, visible only to you</td></tr>
 <tr><td><code>/kb-search biosimilar intolerance</code></td><td>Searches the knowledge base by meaning</td></tr>
 </tbody></table>

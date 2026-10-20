@@ -11,7 +11,7 @@ The bot runs on your laptop in Socket Mode: it connects out to Slack, so there i
 2. Pick your workspace.
 3. Paste the contents of `slack/manifest.yml` (YAML tab) → **Next** → **Create**.
 
-This sets the bot's handle to `@kb` and adds `/next-step` and `/kb-search`.
+This sets the bot's handle to `@kb` and adds `/next-step`, `/investigate` and `/kb-search`.
 
 ## 2. Get the two tokens
 
@@ -49,6 +49,7 @@ Create a test channel, then type `/invite @kb` in it.
 | `@kb what's next for the Humira case due tomorrow?` | Next step, who to send it to, why, a draft, and Mark as sent / Override buttons |
 | `@kb why is it escalated?` (in the same thread) | Answers about the case that thread is about |
 | Attach a fax, PDF, photo or email and mention `@kb` | Reads it, pulls out the fields, matches it to its case, and says what changed |
+| `/investigate which cases are waiting on Riverside records?` | An open question across every source, with sources and their trust level (also `@kb investigate …`) |
 | `/next-step 1077` | The same next step, visible only to you |
 | `/kb-search biosimilar intolerance` | Knowledge-base search by meaning |
 

@@ -8,6 +8,7 @@ In any channel the bot is in:
   @kb what's next for 1077?    next step, who to send it to, why, and a draft, in the thread
   @kb why is it escalated?     a follow-up about the case this thread is about
   @kb + an attached file       read a fax, PDF, photo, email or EHR export and match it to its case
+  @kb investigate <question>   an open question across every source (also /investigate)
   /next-step <case or words>   the same next step, from anywhere
   /kb-search <question>        search the knowledge base by meaning
 
@@ -134,6 +135,7 @@ HELP = ("*I can help with:*\n"
         "• `@kb what's next for the Humira case due tomorrow?`: next step, reasons and a draft\n"
         "• `@kb why is it escalated?`: a follow-up about the case in this thread\n"
         "• Attach a document and mention `@kb`: I read it, pull out the fields and match it to its case\n"
+        "• `/investigate <question>` or `@kb investigate <question>`: an open question across every source\n"
         "• `/next-step 1077` and `/kb-search <question>`")
 
 
@@ -261,6 +263,41 @@ def handle_files(files: list[dict], token: str, thread_key: str, post) -> None:
     post("Document read", [{"type": "section", "text": {"type": "mrkdwn", "text": t[:2900]}} for t in texts])
 
 
+INVESTIGATE = re.compile(r"^\s*investigate\b:?\s*(.*)$", re.I | re.S)
+TRUST_ICON = {"official insurer policy": ":white_check_mark:", "official SOP": ":white_check_mark:", "case record": ":file_folder:",
+              "operator note": ":memo:", "unverified (Slack / team knowledge)": ":warning:"}
+
+
+def mrkdwn(md: str) -> str:
+    """The investigation's Markdown, as Slack mrkdwn."""
+    out = re.sub(r"\*\*(.+?)\*\*", r"*\1*", esc(md))
+    return re.sub(r"(?m)^\s*[-*] ", "• ", out)
+
+
+def investigation_blocks(r: dict) -> list[dict]:
+    blocks = [{"type": "section", "text": {"type": "mrkdwn", "text": f":mag: *{esc(r['question'])}*  _({r['confidence']} confidence)_"}}]
+    if r.get("unverified_only"):
+        blocks.append({"type": "context", "elements": [{"type": "mrkdwn", "text": ":warning: This rests only on Slack and team knowledge: unverified."}]})
+    blocks.append({"type": "section", "text": {"type": "mrkdwn", "text": mrkdwn(r["answer"])[:2900]}})
+    if r["sources"]:
+        lines = "\n".join(f"{TRUST_ICON.get(x['trust'], '•')} `{x['id']}` {esc(x['source'])}: {esc(x['supports'])}" for x in r["sources"][:10])
+        blocks.append({"type": "context", "elements": [{"type": "mrkdwn", "text": lines[:2900]}]})
+    if r.get("gaps"):
+        blocks.append({"type": "context", "elements": [{"type": "mrkdwn", "text": "_Not in the sources:_ " + esc("; ".join(r["gaps"][:3]))}]})
+    blocks.append({"type": "context", "elements": [{"type": "mrkdwn", "text": f"{r['usage']['steps']} steps · {r['usage']['seconds']}s · "
+                                                                                 "research, not a decision: use `/next-step` for a case"}]})
+    return blocks
+
+
+def handle_investigate(question: str, post) -> None:
+    import investigate
+    if not question.strip():
+        post("Ask a question", [{"type": "section", "text": {"type": "mrkdwn", "text": "Ask an open question, e.g. "
+                                 "`/investigate which cases are waiting on records from Riverside Dermatology?`"}}])
+        return
+    post("Investigation", investigation_blocks(investigate.investigate(question)))
+
+
 def handle_text(text: str, thread_key: str, post) -> None:
     """A plain-English message: find the case, then show next steps or answer the question. `post(text, blocks)`."""
     t = text.strip()
@@ -333,6 +370,15 @@ def build_app(token: str | None = None, **kwargs):
                 logger.exception("document intake failed")
                 client.chat_update(channel=channel, ts=reading["ts"], text=f"Sorry, I couldn't read that: {e}")
             return
+        inv = INVESTIGATE.match(text)
+        if inv:
+            working = client.chat_postMessage(channel=channel, thread_ts=thread_ts, text=":mag: Investigating across every source…")
+            try:
+                handle_investigate(inv.group(1), lambda fallback, blocks: client.chat_update(channel=channel, ts=working["ts"], text=fallback, blocks=blocks))
+            except Exception as e:
+                logger.exception("investigation failed")
+                client.chat_update(channel=channel, ts=working["ts"], text=f"Sorry, that investigation didn't finish: {e}")
+            return
         add = ADD.match(text)
         if add:
             try:
@@ -365,6 +411,16 @@ def build_app(token: str | None = None, **kwargs):
         except Exception as e:
             logger.exception("/next-step failed")
             respond(text=f"Sorry, that failed: {e}", response_type="ephemeral")
+
+    @app.command("/investigate")
+    def on_investigate(ack, command, respond, logger):
+        ack(":mag: Investigating across every source… (about 30 seconds)")
+        try:
+            handle_investigate(command.get("text", ""), lambda fallback, blocks: respond(text=fallback, blocks=blocks,
+                                                                                       response_type="ephemeral", replace_original=True))
+        except Exception as e:
+            logger.exception("/investigate failed")
+            respond(text=f"Sorry, that investigation didn't finish: {e}", response_type="ephemeral")
 
     @app.command("/kb-search")
     def on_kb_search(ack, command, respond):
