@@ -59,17 +59,28 @@ def _norm(name: str) -> str:
 # ------------------------------------------------------------------ linking
 
 
-def exact_links(sys: dict) -> dict:
-    """item key -> (case_id, how). Only certain matches; everything else is left for the AI step."""
+CLOSED = {"APPROVED", "CLOSED", "WITHDRAWN", "CANCELLED"}
+
+
+def exact_links(sys: dict) -> tuple[dict, dict]:
+    """(item key -> (case_id, how), item key -> [case ids]). Only certain matches link here. Name + date of birth is
+    certain only when exactly one open case fits: the same patient can have two open PAs, and two people can share
+    both. A tie is returned instead, so the AI step chooses among just those cases (or leaves it for a person)."""
     cases = {c["case_id"]: c for c in sys["tracker"]}
-    by_person = {(_norm(c["patient"]["name"]), c["patient"]["dob"]): c["case_id"] for c in sys["tracker"]}
+    by_person: dict[tuple, list[str]] = {}
+    for c in sys["tracker"]:
+        if c["pa"]["status"].upper() not in CLOSED:
+            by_person.setdefault((_norm(c["patient"]["name"]), c["patient"]["dob"]), []).append(c["case_id"])
     number = {cid[-4:]: cid for cid in cases}
-    links = {}
+    links, ties = {}, {}
     for d in sys["inbox"]:
+        person = (_norm(d.get("patient_name") or ""), d.get("patient_dob"))
         if d.get("case_ref") in cases:
             links[d["key"]] = (d["case_ref"], "case number on the submission")
-        elif d.get("patient_name") and d.get("patient_dob") and (_norm(d["patient_name"]), d["patient_dob"]) in by_person:
-            links[d["key"]] = (by_person[(_norm(d["patient_name"]), d["patient_dob"])], "patient name and date of birth")
+        elif d.get("patient_name") and d.get("patient_dob") and len(by_person.get(person, [])) == 1:
+            links[d["key"]] = (by_person[person][0], "patient name and date of birth")
+        elif d.get("patient_name") and d.get("patient_dob") and len(by_person.get(person, [])) > 1:
+            ties[d["key"]] = sorted(by_person[person])
     for n in sys["notes"]:
         if n.get("case_id") in cases:
             links[n["key"]] = (n["case_id"], "filed on the case")
@@ -77,7 +88,7 @@ def exact_links(sys: dict) -> dict:
         hits = {number[x] for x in re.findall(r"\b(1\d{3})\b", msg["text"]) if x in number}
         if len(hits) == 1:
             links[msg["key"]] = (hits.pop(), "case number in the message")
-    return links
+    return links, ties
 
 
 def describe(c: dict) -> str:
@@ -111,17 +122,21 @@ For each item, pick the ONE candidate case it is about, or "" if it is about non
 patient, a blank fax). Faxes name the patient however the office writes it: initials, typos and a missing date of birth are
 normal, so weigh name, date of birth, office, drug and content together. Slack messages refer to cases loosely ("the Hudson
 Valley Humira one"); use the candidate's notes for context. Only link when the evidence points to that case.
+An item marked "same name and date of birth as several open cases" is about one of exactly those cases: decide by the
+drug, office, insurer, member ID and content. If the document doesn't say which, answer "" and a person will decide.
 confidence: high = unmistakable, medium = very likely, low = a guess. reason: one short sentence."""
 
 
-def ai_links(items: list[tuple[str, dict]], sys: dict, skill: engine.Skill) -> tuple[dict, dict]:
-    """One call for every uncached loose item. Returns (key -> decision, usage)."""
+def ai_links(items: list[tuple[str, dict]], sys: dict, skill: engine.Skill, candidates: dict | None = None) -> tuple[dict, dict]:
+    """One call for every uncached loose item. Returns (key -> decision, usage).
+    candidates: item key -> the only cases it may go to (a name + date-of-birth tie); others get a keyword shortlist."""
+    candidates = candidates or {}
     cases = {c["case_id"]: c for c in sys["tracker"]}
     LINK_CACHE.mkdir(parents=True, exist_ok=True)
     decisions, todo = {}, []
     for kind, it in items:
         text = item_text(kind, it)
-        cands = shortlist(text, sys)
+        cands = candidates.get(it["key"]) or shortlist(text, sys)
         h = hashlib.sha256(f"{LINKER_VERSION}|{text}|{','.join(cands)}".encode()).hexdigest()[:20]
         hit = LINK_CACHE / f"{h}.json"
         if hit.exists():
@@ -135,7 +150,8 @@ def ai_links(items: list[tuple[str, dict]], sys: dict, skill: engine.Skill) -> t
     for key, text, cands, _ in todo:
         lines = "\n".join(f"  - {describe(cases[c])}\n    notes: " + (" / ".join(n["text"] for n in sys["notes"] if n.get("case_id") == c)[:300] or "none")
                           for c in cands) or "  (no plausible candidates)"
-        blocks.append(f'<item key="{key}">\n{text}\ncandidates:\n{lines}\n</item>')
+        tie = "\nsame name and date of birth as several open cases: choose among these only" if key in candidates else ""
+        blocks.append(f'<item key="{key}">\n{text}{tie}\ncandidates:\n{lines}\n</item>')
     schema = {"type": "object", "additionalProperties": False, "required": ["links"], "properties": {"links": {"type": "array", "items": {
         "type": "object", "additionalProperties": False, "required": ["key", "case_id", "confidence", "reason"],
         "properties": {"key": {"type": "string"}, "case_id": {"type": "string"},
@@ -196,18 +212,20 @@ def gather(skill: engine.Skill | None = None) -> dict:
     skill = skill or engine.load_skill()
     sys = load_systems()
     prev = load_state()
-    links = {k: {"case": cid, "how": how, "method": "exact"} for k, (cid, how) in exact_links(sys).items()}
+    exact, ties = exact_links(sys)
+    links = {k: {"case": cid, "how": how, "method": "exact"} for k, (cid, how) in exact.items()}
 
     # Slack is not part of the case record: conversations reach decisions through the team knowledge base (kb.py)
     links = {k: v for k, v in links.items() if not k.startswith("S-")}
     # 2. AI for loose items: faxes nobody could match exactly
     loose = [("inbox", d) for d in sys["inbox"] if d["key"] not in links]
-    decisions, usage = ai_links(loose, sys, engine.load_skill()) if loose else ({}, {"items_judged": 0, "items_cached": 0})
+    decisions, usage = ai_links(loose, sys, engine.load_skill(), ties) if loose else ({}, {"items_judged": 0, "items_cached": 0})
     for key, d in decisions.items():
+        tie = f"name and date of birth fit {', '.join(ties[key])}; " if key in ties else ""
         if d["case_id"] and d["confidence"] in ("high", "medium"):
-            links[key] = {"case": d["case_id"], "how": f"AI: {d['reason']}", "method": "ai", "confidence": d["confidence"]}
+            links[key] = {"case": d["case_id"], "how": f"AI: {tie}{d['reason']}", "method": "ai", "confidence": d["confidence"]}
         else:
-            links[key] = {"case": None, "how": f"AI: {d['reason']}", "method": "ai", "confidence": d["confidence"]}
+            links[key] = {"case": None, "how": f"AI: {tie}{d['reason']}", "method": "ai", "confidence": d["confidence"]}
 
     # 4. assemble, write only what changed
     engine.CASES_DIR.mkdir(parents=True, exist_ok=True)
